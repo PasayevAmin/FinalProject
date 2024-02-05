@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FinalBlogSite.Infrastructure/1.0.0": {
+        "runtime": {
+          "FinalBlogSite.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FinalBlogSite.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

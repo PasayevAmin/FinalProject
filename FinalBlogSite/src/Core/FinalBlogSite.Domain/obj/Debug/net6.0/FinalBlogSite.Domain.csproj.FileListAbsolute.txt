@@ -1,0 +1,12 @@
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\bin\Debug\net6.0\FinalBlogSite.Domain.deps.json
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\bin\Debug\net6.0\FinalBlogSite.Domain.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\bin\Debug\net6.0\FinalBlogSite.Domain.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.AssemblyInfoInputs.cache
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.AssemblyInfo.cs
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\refint\FinalBlogSite.Domain.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\ref\FinalBlogSite.Domain.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Core\FinalBlogSite.Domain\obj\Debug\net6.0\FinalBlogSite.Domain.csproj.AssemblyReference.cache

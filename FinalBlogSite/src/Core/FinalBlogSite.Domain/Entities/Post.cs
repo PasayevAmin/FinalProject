@@ -10,12 +10,17 @@ namespace FinalBlogSite.Domain.Entities
 {
     public class Post:BaseEntity
     {
-       
         public string Title { get; set; }
-        public string Content { get; set; }
-        public ICollection<Like>? Likes { get; set; }
+        public string? Images { get; set; }
+        public string? Content { get; set; }
+        public int? LikeCount { get; set; } = 0;
+        public int? CommentCount { get; set; } = 0;
+        public string? AppUserId { get; set; }
+        public AppUser? AppUser { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; } = null!;
         public ICollection<Comment>? Comments { get; set; }
-
+        
 
     }
 }

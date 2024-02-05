@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalBlogSite.Domain.Entities.Common
 {
-    internal class BaseNameableEntity:BaseEntity
+    public class BaseNameableEntity:BaseEntity
     {
         public string Name { get; set; } = null!;
     }

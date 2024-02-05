@@ -1,0 +1,11 @@
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Infrastructure.deps.json
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Infrastructure.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Infrastructure.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.AssemblyInfo.cs
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\refint\FinalBlogSite.Infrastructure.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\ref\FinalBlogSite.Infrastructure.dll

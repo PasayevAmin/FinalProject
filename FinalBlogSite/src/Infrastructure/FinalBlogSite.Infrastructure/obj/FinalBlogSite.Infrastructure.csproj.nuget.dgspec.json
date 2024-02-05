@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj": {}
+    "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj": {
+    "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj",
         "projectName": "FinalBlogSite.Infrastructure",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\FinalBlogSite.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

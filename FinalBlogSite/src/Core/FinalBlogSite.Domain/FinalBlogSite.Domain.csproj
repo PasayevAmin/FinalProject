@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Utilities\Enums\" />
-    <Folder Include="Utilities\Extentions\" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.26" />
   </ItemGroup>
 
 </Project>
