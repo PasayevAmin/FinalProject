@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinalBlogSite.Application.Abstractions.Services
 {
-    internal interface ICategoryService
+    public interface ICategoryService
     {
         Task<ICollection<CategoryItemVM>> GetAllAsync(int page, int take);
         //Task<GetCategoryDto> GetAsync(int id);
