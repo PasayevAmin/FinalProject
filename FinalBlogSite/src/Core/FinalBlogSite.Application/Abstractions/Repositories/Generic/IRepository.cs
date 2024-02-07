@@ -34,8 +34,6 @@ namespace FinalBlogSite.Application.Abstractions.Repositories.Generic
         void SoftDelete(T entity);
         void ReverseDelete(T entity);
         Task SaveChangesAsync();
-        Task<IdentityResult> CreateUserAsync(AppUser user, string password);
-        Task<SignInResult> SignInAsync(string username, string password, bool rememberMe);
-        Task SignOutAsync();
+        
     }
 }

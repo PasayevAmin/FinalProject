@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalBlogSite.Application.Abstractions.Repositories
 {
-    public interface IAccountRepository:IRepository<AppUser>
+    public interface IAccountRepository:IIdentityRepository<AppUser>
     {
     }
 }

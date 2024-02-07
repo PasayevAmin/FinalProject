@@ -1,4 +1,5 @@
 ﻿using FinalBlogSite.Application.ViewModels.Account;
+using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,9 @@ namespace FinalBlogSite.Application.Abstractions.Services
 {
     public interface IAccountService
     {
-        Task<IdentityResult> RegisterAsync(RegisterVM model);
-        Task<SignInResult> LoginAsync(LogInVM model);
+        Task<IdentityResult> RegisterAsync(RegisterVM userVM);
+        Task<SignInResult> LoginAsync(LogInVM userVM);
+        Task<IdentityResult> CreateRoleAsync();
         Task LogoutAsync();
     }
         

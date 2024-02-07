@@ -132,7 +132,25 @@
                                                 <span class="switcher__btn dark-mode"><i class="flaticon-moon"></i></span>
                                             </nav>
                                         </li>
-                                        <li class="user"><a href="#"><i class="far fa-user"></i></a></li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" asp-action="logout" asp-controller="account">Logout</a>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <a class="dropdown-item" asp-action="LogIn" asp-controller="account" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" asp-action="register" asp-controller="account">Register</a>
+                                            </li>
+                                        }
+                                        <li class="user"><a asp-action="profile" asp-controller="home"><i class="far fa-user"></i></a></li>
                                         <li class="header-cart"><a href="#"><i class="far fa-shopping-basket"></i></a></li>
                                     </ul>
                                 </div>

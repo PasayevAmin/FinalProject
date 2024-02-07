@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Areas/Manage/Views/Account/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEFjY291bnRcTG9nSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Areas/Manage/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXEFjY291bnRcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Areas/Manage/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXERhc2hib2FyZFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
