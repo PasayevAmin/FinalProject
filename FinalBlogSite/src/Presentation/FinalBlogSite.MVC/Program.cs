@@ -3,22 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using FinalBlogSite.Persistence.ServiceRegistrations;
 using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using FinalBlogSite.Application.ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
-{
-    option.Password.RequiredLength = 8;
-    option.Password.RequireNonAlphanumeric = false;
-    option.Password.RequireDigit = true;
-    option.Password.RequireLowercase = true;
-    option.Password.RequireUppercase = true;
-    option.User.RequireUniqueEmail = true;
-    option.Lockout.AllowedForNewUsers = true;
-    option.Lockout.MaxFailedAccessAttempts = 5;
-    option.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(1);
-}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
 
 var app = builder.Build();
@@ -29,8 +20,9 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {

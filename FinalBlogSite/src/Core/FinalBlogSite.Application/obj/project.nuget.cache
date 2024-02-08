@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "CkOXvS2sjf6SdwnJiB4xzssLmt5alcJadEfxphBmczDTdRUCbvEzn79sMwP0rqrtYHMl3n8WOJACsMC1ANRVJw==",
+  "dgSpecHash": "3I2yl+yWM34IdL0TAyJn5WFAAy1gtAuLNuscEidkM99our9yE4b2vjFYjNC3DqLFrX6S1SC3pKDFePRJoSkVFQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Core\\FinalBlogSite.Application\\FinalBlogSite.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.26\\microsoft.aspnetcore.cryptography.internal.6.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.26\\microsoft.aspnetcore.cryptography.keyderivation.6.0.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.26\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.26.nupkg.sha512",

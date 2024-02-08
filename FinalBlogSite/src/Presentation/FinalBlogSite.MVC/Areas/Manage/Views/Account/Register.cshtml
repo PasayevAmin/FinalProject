@@ -1,69 +1,70 @@
-﻿@using FinalBlogSite.Application.ViewModels.Account;
-@using FinalBlogSite.Domain.Enums;
+﻿@using FinalBlogSite.Domain.Enums;
 @model RegisterVM
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
 
-<main class="main-content">
-    <div class="breadcrumb-area breadcrumb-height"
-         data-bg-image="assets/images/breadcrumb/bg/1-1-1919x388.jpg">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-item">
-                        <h2 class="breadcrumb-heading">Register Page</h2>
-                        <ul>
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>Register</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="login-register-area section-space-y-axis-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 pt-5 pt-lg-0">
-                    <form method="post">
-                        <div class="login-form">
-                            <h4 class="login-title">Register</h4>
-                            <div class="row">
-                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-                                <div class="col-md-6 col-12">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Majestic Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/manage/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/manage/vendors/base/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/manage/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/manage/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="auth-form-transparent text-left p-3">
+                            <div class="brand-logo">
+                                <img   src="https://png.pngtree.com/png-vector/20220903/ourmid/pngtree-transparent-register-now-banner-png-image_6136668.png" alt="logo">
+                            </div>
+                            <h4>New here?</h4>
+                            <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
                                     <label asp-for="Name">Name</label>
-                                    <input asp-for="Name" placeholder="Name" />
-                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <input asp-for="Name" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                                    <span asp-validation-for="Name"></span>
                                 </div>
-                                <div class="col-md-6 col-12">
+                                <div class="form-group">
                                     <label asp-for="Surname">Surname</label>
-                                    <input asp-for="Surname" placeholder="Surname" />
-                                    <span asp-validation-for="Surname" class="text-danger"></span>
+                                    <input asp-for="Surname" type="text" class="form-control" id="exampleInputName1" placeholder="Surname">
+                                    <span asp-validation-for="Surname"></span>
                                 </div>
-                                <div class="col-md-12">
-                                    <label asp-for="Username">Username</label>
-                                    <input asp-for="Username" placeholder="Username" />
-                                    <span asp-validation-for="Username" class="text-danger"></span>
+                                <div class="form-group">
+                                    <label asp-for="Username">UserName</label>
+                                    <input asp-for="Username" class="form-control" id="exampleInputName1" placeholder="UserName">
+                                    <span asp-validation-for="Username"></span>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="form-group">
                                     <label asp-for="Email">Email</label>
-                                    <input asp-for="Email" type="email" placeholder="Email" />
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <input asp-for="Email" class="form-control" id="exampleInputName1" placeholder="Email">
+                                    <span asp-validation-for="Email"></span>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="form-group">
                                     <label asp-for="Password">Password</label>
-                                    <input asp-for="Password" placeholder="Password" />
-                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <input asp-for="Password" class="form-control" id="exampleInputName1" placeholder="Password">
+                                    <span asp-validation-for="Password"></span>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="form-group">
                                     <label asp-for="ConfirmPassword">ConfirmPassword</label>
-                                    <input asp-for="ConfirmPassword" placeholder="ConfirmPassword" />
-                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                                </div>
-                                <div class="col-md-6">
-                                    <label asp-for="DateOfBirthy">DateOfBirthy</label>
-                                    <input asp-for="DateOfBirthy" placeholder="DateOfBirthy" />
-                                    <span asp-validation-for="DateOfBirthy" class="text-danger"></span>
+                                    <input asp-for="ConfirmPassword" class="form-control" id="exampleInputName1" placeholder="ConfirmPassword">
+                                    <span asp-validation-for="ConfirmPassword"></span>
                                 </div>
                                 <div class="col-md-6">
 
@@ -78,16 +79,31 @@
                                     }
                                     <span asp-validation-for="Gender" class="text-danger"></span>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-custom-size lg-size btn-pronia-primary">
-                                        Register
-                                    </button>
-                                </div>
-                            </div>
+
+
+                                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                                <button class="btn btn-light">Cancel</button>
+                            </form>
                         </div>
-                    </form>
+                    </div>
+                    <div class="col-lg-6 register-half-bg d-flex flex-row">
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020  All rights reserved.</p>
+                    </div>
                 </div>
             </div>
+            <!-- content-wrapper ends -->
         </div>
+        <!-- page-body-wrapper ends -->
     </div>
-</main>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/manage/vendors/base/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/manage/js/off-canvas.js"></script>
+    <script src="~/manage/js/hoverable-collapse.js"></script>
+    <script src="~/manage/js/template.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

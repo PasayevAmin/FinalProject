@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "am52HZUt1rlKtVbRnIz8QS4nuuqqsrMvweYTJ9e/d4Iz/95xpeH93OLAf294dZuwBGrjoFCgY4G04ekJ0RRCTA==",
+  "dgSpecHash": "gmW4Wp72pJBjrJbbPc+7VErHTnpfwCkH7kGy1D6UYyj/gLcJSbUXfj/6IAA/vdjDA1nPKomcZAwyLHZvF1bEDA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Infrastructure\\FinalBlogSite.Persistence\\FinalBlogSite.Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

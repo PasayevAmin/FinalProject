@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xI3GXj/RsK79IudQL+ti55ENOB7aIM6ki+7LPLbw16Dtp1RJqEWZp13uDIDGxcOL77GUs7NKIgC60MOXIMbhjg==",
+  "dgSpecHash": "3sYTLAZ1g/CGQgKBwkfcdYctM3wsntm/fmwMIVUaynp/rSFY/Qdmcc16RJ/B+DrRhuuhHwdUxWHuf3k2sMz7qA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\FinalBlogSite.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
