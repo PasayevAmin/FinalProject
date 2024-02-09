@@ -9,3 +9,9 @@ C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructur
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\refint\FinalBlogSite.Infrastructure.dll
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.pdb
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\ref\FinalBlogSite.Infrastructure.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Application.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Domain.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Application.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\bin\Debug\net6.0\FinalBlogSite.Domain.pdb
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Infrastructure\FinalBlogSite.Infrastructure\obj\Debug\net6.0\FinalBlogSite.Infrastructure.csproj.CopyComplete

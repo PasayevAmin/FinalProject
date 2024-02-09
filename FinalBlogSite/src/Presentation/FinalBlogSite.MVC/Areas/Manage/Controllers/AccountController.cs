@@ -24,11 +24,11 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        [HttpPost]
         public async Task<IActionResult> Register([FromForm] RegisterVM vm)
         {
-            await _accountService.Register(vm);
-            return NoContent();
+            var result = await _accountService.Register(vm, ModelState);
+            if (result) return RedirectToAction("index", vm.Role.ToString());
+            return View(vm);
         }
         public IActionResult LogIn()
         {
@@ -37,13 +37,14 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInVM vM,string returnurl)
         {
-            await _accountService.LogIn(vM);
-            return NoContent();
+            await _accountService.LogIn(vM,ModelState);
             if (returnurl is null)
             {
-                return RedirectToAction("Index", "Home", new { Area = "" });
+                return RedirectToAction("index", "Home", new { Area = "" });
+
             }
             return Redirect(returnurl);
+
 
 
         }
@@ -56,7 +57,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         public async Task<IActionResult> CreateRole()
         {
             await _accountService.CreateRoles();
-            return View();
+            return RedirectToAction("index", "Home", new { Area = "" });
         }
     }
 }

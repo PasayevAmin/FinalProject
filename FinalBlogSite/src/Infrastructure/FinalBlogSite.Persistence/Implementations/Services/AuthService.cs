@@ -6,12 +6,16 @@ using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using FinalBlogSite.Application.Abstractions.Extentions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using Microsoft.AspNetCore.Hosting;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
@@ -21,42 +25,52 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         private readonly IMapper _mapper;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IWebHostEnvironment _env;
 
-        public AuthService(UserManager<AppUser> userManager, IMapper mapper,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager)
+        public AuthService(UserManager<AppUser> userManager, IMapper mapper,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager,IWebHostEnvironment env)
         {
             _userManager = userManager;
             _mapper = mapper;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _env = env;
         }
 
-        public async Task LogIn(LogInVM dto)
+        
+
+        public async Task<bool> Register(RegisterVM vm,ModelStateDictionary modelstate)
         {
-            AppUser user = await _userManager.FindByNameAsync(dto.UserNameOrEmail);
-            if (user != null)
+            if (!modelstate.IsValid) return false;
+            if (vm.IsDigitNumber(vm.Name))
             {
-                user = await _userManager.FindByEmailAsync(dto.UserNameOrEmail);
-                if (user is null) throw new Exception("Username,Email or Password InCorrect");
+                modelstate.AddModelError("Name", "Name cannot contain numbers");
+                return false;
             }
-            if (await _userManager.CheckPasswordAsync(user, dto.Password)) throw new Exception("Username,Email or Password InCorrect");
-          
+            if (vm.IsDigitNumber(vm.Surname))
+            {
+                modelstate.AddModelError("Surname", "Surname cannot contain numbers");
+                return false;
+            }
 
-        }
 
-        public async Task Register(RegisterVM Vm)
-        {
-            if (await _userManager.Users.AnyAsync(x => x.UserName == Vm.Username || x.Email == Vm.Email)) throw new Exception("This email or username has been added");
-            AppUser user = _mapper.Map<AppUser>(Vm);
-            var result = await _userManager.CreateAsync(user,Vm.Password);
+            if (!ValidateEmail(vm.Email, modelstate)) return false;
+            if (!ValidateGender(vm.Gender, modelstate)) return false;
+
+            var user = await CreateUserAsync(vm, modelstate);
+            if (user == null) return false;
+
+            var result = await _userManager.CreateAsync(user, vm.Password);
             if (!result.Succeeded)
             {
-                StringBuilder builder = new StringBuilder();
-                foreach (var error in result.Errors)
+                foreach (var item in result.Errors)
                 {
-                    builder.AppendLine(error.Description);
+                    modelstate.AddModelError(string.Empty, item.Description);
                 }
-                throw new Exception(builder.ToString());
+                return false;
             }
+            await HandleUserRoleAsync(user, vm.Role);
+
+            return true;
         }
         public async Task Logout()
         {
@@ -75,6 +89,88 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 }
             }
         }
-        
+        private bool ValidateEmail(string email, ModelStateDictionary modelstate)
+        {
+            if (!email.CheckEmail())
+            {
+                modelstate.AddModelError("EmailAdress", "Email is not entered correctly");
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateGender(Gender gender, ModelStateDictionary modelstate)
+        {
+            if (!Enum.IsDefined(typeof(Gender), gender))
+            {
+                modelstate.AddModelError("Gender", "Please select a valid gender");
+                return false;
+            }
+            return true;
+        }
+        private async Task<AppUser> CreateUserAsync(RegisterVM vm, ModelStateDictionary modelstate)
+        {
+            var user = new AppUser
+            {
+                UserName = vm.Name.CapitalizeName() + vm.Surname.CapitalizeName(),
+                FirstName = vm.Name.CapitalizeName(),
+                LastName = vm.Surname.CapitalizeName(),
+                Email = vm.Email,
+                DateOfBirth = vm.DateOfBirthy,
+                Gender= vm.Gender,
+                Role = vm.Role
+            };
+
+            if (vm.Photo != null)
+            {
+                if (vm.Photo.CheckSize(10))
+                {
+                    modelstate.AddModelError("Photo", "Photo size incorrect");
+                    return null;
+                }
+                if (vm.Photo.CheckFile("image/"))
+                {
+                    modelstate.AddModelError("Photo", "Photo type incorrect");
+                    return null;
+                }
+                string filename = await vm.Photo.CreateFileAsync(_env.WebRootPath, "assets", "img");
+                user.ProfilePicture = filename;
+            }
+            return user;
+        }
+        private async Task HandleUserRoleAsync(AppUser user, UserRole role)
+        {
+            await _userManager.AddToRoleAsync(user, role.ToString());
+
+            
+        }
+
+        public async Task<bool> LogIn(LogInVM vm, ModelStateDictionary modelstate)
+        {
+            if (!modelstate.IsValid) return false;
+            AppUser user = await _userManager.FindByNameAsync(vm.UserNameOrEmail);
+            if (user == null)
+            {
+                user = await _userManager.FindByEmailAsync(vm.UserNameOrEmail);
+                if (user is null)
+                {
+                    modelstate.AddModelError(string.Empty, "not found");
+                    return false;
+                }
+
+            }
+            var result = await _signInManager.PasswordSignInAsync(user, vm.Password, vm.IsRemembered, true);
+            if (result.IsLockedOut)
+            {
+                modelstate.AddModelError(string.Empty, "Account is locked. Please try again after a few minutes.");
+                return false;
+            }
+            if (!result.Succeeded)
+            {
+                modelstate.AddModelError(string.Empty, "password or email incorrect");
+                return false;
+            }
+            return true;
+        }
+       
     }
 }

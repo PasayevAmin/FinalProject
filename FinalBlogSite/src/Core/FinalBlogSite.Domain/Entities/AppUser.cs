@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FinalBlogSite.Domain.Enums;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,18 @@ namespace FinalBlogSite.Domain.Entities
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string ProfilePicture { get; set; }
+        public Gender Gender { get; set; }
+        public UserRole Role { get; set; }
         public bool IsActive { get; set; }
         public string? Facebook { get; set; }
         public string? Twitter { get; set; }
 
         public ICollection<Post> Posts { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Followers> Followers { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
+
+
 
 
 

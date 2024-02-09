@@ -1,4 +1,5 @@
 ﻿using FinalBlogSite.Domain.Enums;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -39,6 +40,9 @@ namespace FinalBlogSite.Application.ViewModels.Account
         public string ConfirmPassword { get; set; }
         [Required(ErrorMessage = "You can't send empty this value")]
         public DateTime DateOfBirthy { get; set; }
-        
+        [Required]
+        public UserRole Role { get; set; }
+        public IFormFile Photo { get; set; }
+
     }
 }

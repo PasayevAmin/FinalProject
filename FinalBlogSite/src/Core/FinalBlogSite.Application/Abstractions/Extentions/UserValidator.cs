@@ -44,7 +44,7 @@ namespace FinalBlogSite.Application.Abstractions.Extentions
             }
             return false;
         }
-        public static bool IsDigit(this RegisterVM userVM, string str)
+        public static bool IsDigitNumber(this RegisterVM userVM, string str)
         {
             bool result = false;
 
@@ -63,6 +63,17 @@ namespace FinalBlogSite.Application.Abstractions.Extentions
                 result = Char.IsSymbol(letter);
             }
             return result;
+        }
+        
+        
+
+        public static bool CheckEmail(this string email)
+        {
+            if (string.IsNullOrEmpty(email)) return false;
+            string emailregex = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+            Regex regex = new Regex(emailregex);
+            return regex.IsMatch(email);
+
         }
 
     }
