@@ -16,4 +16,8 @@
     <ProjectReference Include="..\FinalBlogSite.Domain\FinalBlogSite.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validators\" />
+  </ItemGroup>
+
 </Project>

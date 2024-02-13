@@ -27,7 +27,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         public async Task<IActionResult> Register([FromForm] RegisterVM vm)
         {
             var result = await _accountService.RegisterAsync(vm, ModelState);
-            if (result) return RedirectToAction("index", vm.Role.ToString());
+            if (result) return RedirectToAction("index", "Home");
             return View(vm);
         }
         public IActionResult LogIn()
@@ -50,8 +50,10 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         }
         public async  Task<IActionResult> LogOut()
         {
-            await _accountService.Logout();
-            return RedirectToAction("Index", "Home", new { Area = "" });
+           var result= await _accountService.Logout();
+            if (result) return RedirectToAction("index", "Home", new { Area = "" });
+
+            return View();
 
         }
         public async Task<IActionResult> CreateRole()

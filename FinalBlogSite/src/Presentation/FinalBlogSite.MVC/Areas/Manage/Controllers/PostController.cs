@@ -5,10 +5,14 @@ using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Persistence.Implementations.Services;
 using Microsoft.AspNetCore.Mvc;
 using FinalBlogSite.Application.ViewModels.Posts;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalBlogSite.MVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
+    [Authorize(Roles = "Admin,Author")]
+
     public class PostController : Controller
     {
         private readonly IPostService _postService;

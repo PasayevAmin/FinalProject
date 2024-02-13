@@ -13,7 +13,7 @@ namespace FinalBlogSite.Application.Abstractions.Services
     {
         Task<bool> RegisterAsync(RegisterVM dto,ModelStateDictionary modelstate);
         Task<bool> LogInAsync(LogInVM dto, ModelStateDictionary modelstate);
-        Task Logout();
+        Task<bool> Logout();
         Task CreateRoles();
     }
 }

@@ -8,11 +8,13 @@ using FinalBlogSite.Application.ViewModels.Comment;
 using FinalBlogSite.Application.ViewModels.Posts;
 using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -23,13 +25,15 @@ namespace FinalBlogSite.Persistence.Implementations.Services
     {
         private readonly IPostRepository _postRepository;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ICategoryRepository _categoryRepository;
 
-        public PostService(IPostRepository postRepository,IMapper mapper,IWebHostEnvironment webHostEnvironment,ICategoryRepository categoryRepository)
+        public PostService(IPostRepository postRepository,IMapper mapper,IHttpContextAccessor httpContextAccessor,IWebHostEnvironment webHostEnvironment,ICategoryRepository categoryRepository)
         {
             _postRepository = postRepository;
             _mapper = mapper;
+            _httpContextAccessor = httpContextAccessor;
             _webHostEnvironment = webHostEnvironment;
             _categoryRepository = categoryRepository;
         }
@@ -58,7 +62,8 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 modelstate.AddModelError("CategoryId", "This category is not aviable");
                 return false;
             }
-           
+            
+
             if (!vm.Photo.CheckSize(10))
             {
                 modelstate.AddModelError("Photo", "Photo size incorrect");
@@ -72,15 +77,19 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             string filename = await vm.Photo.CreateFileAsync(_webHostEnvironment.WebRootPath, "assets", "img");
             Post post = new Post
             {
-                Title = vm.Title,
+                Title = vm.Title.Trim(),
+                
                 Content = vm.Content.Trim(),
                 LikeCount = vm.LikeCount,
                 CreatedAt = DateTime.Now,
                 Images = filename,
                 CategoryId = vm.CategoryId,
-                //AuthorId=vm.AuthorId
-                
+
             };
+            if (_httpContextAccessor.HttpContext.User.Identity != null)
+            {
+                post.AuthorId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            }
             await _postRepository.AddAsync(post);
             await _postRepository.SaveChangesAsync();
             return true;
@@ -111,10 +120,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 modelstate.AddModelError("SubjectId", "This Subject is not aviable");
                 return false;
             }
-            exist.Title = vm.Title;
+            exist.Title = vm.Title.Trim();
             exist.Content = vm.Content.Trim();
             exist.LikeCount = vm.LikeCount;
-            //exist.AuthorId = vm.AuthorId;
             exist.CategoryId = vm.CategoryId;
            
 
@@ -131,8 +139,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             vm.Content = exist.Content.Trim();
             vm.LikeCount = exist.LikeCount;
             vm.CategoryId = exist.CategoryId;
-            //vm.AuthorId=exist.AuthorId;
-            vm.Title = exist.Title;
+            vm.Title = exist.Title.Trim();
             return vm;
         }
     }

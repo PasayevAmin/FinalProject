@@ -1,4 +1,6 @@
-﻿<!doctype html>
+﻿@using FinalBlogSite.Domain.Enums;
+@model ProfileVM
+<!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -81,91 +83,27 @@
                     </div>
                     <div class="col-xl-8 col-lg-7">
                         <div class="blog-post-wrapper">
-                            <div class="latest__post-item">
-                                <div class="latest__post-thumb tgImage__hover">
-                                    <a href="blog-details.html"><img src="~/assets/img/lifestyle/life_style07.jpg" alt="img"></a>
-                                </div>
-                                <div class="latest__post-content">
-                                    <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                        <li>nov 22, 2022</li>
-                                    </ul>
-                                    <h3 class="title tgcommon__hover"><a href="blog-details.html">The multiverse is a hypothetical no group of the multiple universes.</a></h3>
-                                    <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon commitment, as part of a comprehensive new sustainability.</p>
-                                    <div class="latest__post-read-more">
-                                        <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
+                            @foreach (var item in Model.LastestPost)
+                            {
+                                <div class="latest__post-item">
+                                    <div class="latest__post-thumb tgImage__hover">
+                                        <a href="blog-details.html"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                    </div>
+                                    <div class="latest__post-content">
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                            <li><span class="by">By</span> <a href="blog.html">@item.Author.UserName</a></li>
+                                            <li>@item.CreatedAt</li>
+                                        </ul>
+                                        <h3 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h3>
+                                        <p>@item.Content</p>
+                                        <div class="latest__post-read-more">
+                                            <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="latest__post-item">
-                                <div class="latest__post-thumb tgImage__hover">
-                                    <a href="blog-details.html"><img src="~/assets/img/lifestyle/life_style08.jpg" alt="img"></a>
-                                </div>
-                                <div class="latest__post-content">
-                                    <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                        <li>nov 22, 2022</li>
-                                    </ul>
-                                    <h3 class="title tgcommon__hover"><a href="blog-details.html">Scientists speculate that our might not connection be held.</a></h3>
-                                    <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon commitment, as part of a comprehensive new sustainability.</p>
-                                    <div class="latest__post-read-more">
-                                        <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest__post-item">
-                                <div class="latest__post-thumb tgImage__hover">
-                                    <a href="blog-details.html"><img src="~/assets/img/lifestyle/life_style09.jpg" alt="img"></a>
-                                </div>
-                                <div class="latest__post-content">
-                                    <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                        <li>nov 22, 2022</li>
-                                    </ul>
-                                    <h3 class="title tgcommon__hover"><a href="blog-details.html">Experimentally a connection to the multiple communities.</a></h3>
-                                    <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon commitment, as part of a comprehensive new sustainability.</p>
-                                    <div class="latest__post-read-more">
-                                        <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest__post-item">
-                                <div class="latest__post-thumb tgImage__hover">
-                                    <a href="blog-details.html"><img src="~/assets/img/lifestyle/life_style10.jpg" alt="img"></a>
-                                </div>
-                                <div class="latest__post-content">
-                                    <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                        <li>nov 22, 2022</li>
-                                    </ul>
-                                    <h3 class="title tgcommon__hover"><a href="blog-details.html">The multiverse is a hypothetical no group of the multiple universes.</a></h3>
-                                    <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon commitment, as part of a comprehensive new sustainability.</p>
-                                    <div class="latest__post-read-more">
-                                        <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="latest__post-item">
-                                <div class="latest__post-thumb tgImage__hover">
-                                    <a href="blog-details.html"><img src="~/assets/img/lifestyle/life_style11.jpg" alt="img"></a>
-                                </div>
-                                <div class="latest__post-content">
-                                    <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">technology</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">alonso d.</a></li>
-                                        <li>nov 22, 2022</li>
-                                    </ul>
-                                    <h3 class="title tgcommon__hover"><a href="blog-details.html">That share universal hierarchy a large variety of sport these.</a></h3>
-                                    <p>In partnership with Sydney startup Trace, Envato is delivering on its sustainability promise as a B-Corp and meeting part of its recent commitment to the To Whom It Should Concern campaign. Envato is now officially carbon commitment, as part of a comprehensive new sustainability.</p>
-                                    <div class="latest__post-read-more">
-                                        <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                            }
+                            
                             <div class="pagination__wrap">
                                 <ul class="list-wrap">
                                     <li class="active"><a href="#">01</a></li>
@@ -182,11 +120,11 @@
                             <div class="widget sidebar-widget">
                                 <div class="tgAbout-me">
                                     <div class="tgAbout-thumb">
-                                        <img src="~/assets/img/others/about_me.png" alt="me">
+                                        <img src="~/assets/img/@Model.AppUser.FirstOrDefault(x=>x.IsActive==true).ProfilePicture" alt="me">
                                     </div>
                                     <div class="tgAbout-info">
-                                        <p class="intro">Hi there, I’m <span>Rosalina D.</span></p>
-                                        <span class="designation">Content Writer</span>
+                                        <p class="intro">Hi there, I’m <span>@User.Identity.Name</span></p>
+                                        <span class="designation">@Model.AppUser.FirstOrDefault(x=>x.IsActive==true).Role.ToString()</span>
                                     </div>
                                     <div class="tgAbout-social">
                                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -199,53 +137,28 @@
                             <div class="widget sidebar-widget widget_categories">
                                 <h4 class="widget-title">Trending Category</h4>
                                 <ul class="list-wrap">
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="~/assets/img/category/side_category01.jpg" alt="img"></a></div>
-                                        <a href="blog.html">technology</a>
-                                        <span class="float-right">12</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="~/assets/img/category/side_category02.jpg" alt="img"></a></div>
-                                        <a href="blog.html">business</a>
-                                        <span class="float-right">08</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="~/assets/img/category/side_category03.jpg" alt="img"></a></div>
-                                        <a href="blog.html">fitness</a>
-                                        <span class="float-right">13</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="~/assets/img/category/side_category04.jpg" alt="img"></a></div>
-                                        <a href="blog.html">Gadgets</a>
-                                        <span class="float-right">09</span>
-                                    </li>
-                                    <li>
-                                        <div class="thumb"><a href="blog.html"><img src="~/assets/img/category/side_category05.jpg" alt="img"></a></div>
-                                        <a href="blog.html">politics</a>
-                                        <span class="float-right">15</span>
-                                    </li>
+                                    @foreach (var item in Model.RecendPost)
+                                    {
+                                        <li>
+                                            <a href="blog.html">@item.Category.Name</a>
+                                            <span class="float-right">@item.Category.Posts.Count</span>
+                                        </li>
+
+                                    }
                                 </ul>
                             </div>
                             <div class="widget sidebar-widget">
                                 <div class="sidePost-active">
-                                    <div class="sidePost__item" data-background="assets/img/category/side_post01.jpg">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Technology</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
+                                    @foreach (var item in Model.CategoryPost)
+                                    {
+                                        <div class="sidePost__item" data-background="assets/img/@item.Images">
+                                            <div class="sidePost__content">
+                                                <a href="blog.html" class="tag">@item.Category.Name</a>
+                                                <h5 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="sidePost__item" data-background="assets/img/category/side_post02.jpg">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Travel</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
-                                        </div>
-                                    </div>
-                                    <div class="sidePost__item" data-background="assets/img/category/side_post02.jpg">
-                                        <div class="sidePost__content">
-                                            <a href="blog.html" class="tag">Gaming</a>
-                                            <h5 class="title tgcommon__hover"><a href="blog-details.html">Tips for helping to make an your startup a success</a></h5>
-                                        </div>
-                                    </div>
+                                    }
+                                    
                                 </div>
                             </div>
                             <div class="widget sidebar-widget">
@@ -263,34 +176,24 @@
                                     <div class="sidebarInsta__slider-wrap">
                                         <div class="swiper-container sidebarInsta-active">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta01.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta02.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta03.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta04.jpg" alt="img"></a>
-                                                </div>
+                                                @foreach (var item in Model.LastestPost)
+                                                {
+                                                    <div class="swiper-slide">
+                                                        <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                                    </div>
+                                                }
+                                                
                                             </div>
                                         </div>
                                         <div class="swiper-container sidebarInsta-active-2" dir="rtl">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta05.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta06.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta07.jpg" alt="img"></a>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/instagram/side_insta08.jpg" alt="img"></a>
-                                                </div>
+                                                @foreach (var item in Model.RecendPost)
+                                                {
+                                                    <div class="swiper-slide">
+                                                        <a href="https://www.instagram.com/" target="_blank"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                                    </div>
+                                                }
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -308,143 +211,7 @@
 
     </main>
     <!-- main-area-end -->
-    <!-- footer-area -->
-    <footer class="footer-area black-bg">
-        <div class="container">
-            <div class="footer__top-wrap">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Worldwide</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">U.N.</a></li>
-                                <li><a href="#">Conflicts</a></li>
-                                <li><a href="#">Terrorism</a></li>
-                                <li><a href="#">Disasters</a></li>
-                                <li><a href="#">Global Economy</a></li>
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Religion</a></li>
-                                <li><a href="#">Scandals</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Politics</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">Executive</a></li>
-                                <li><a href="#">Senate</a></li>
-                                <li><a href="#">House</a></li>
-                                <li><a href="#">Judiciary</a></li>
-                                <li><a href="#">Global Economy</a></li>
-                                <li><a href="#">Foreign policy</a></li>
-                                <li><a href="#">Polls</a></li>
-                                <li><a href="#">Elections</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Entertainment</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">Celebrity News</a></li>
-                                <li><a href="#">Movies</a></li>
-                                <li><a href="#">TV News</a></li>
-                                <li><a href="#">Disasters</a></li>
-                                <li><a href="#">Music News</a></li>
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Style News</a></li>
-                                <li><a href="#">Entertainment Video</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Business</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Conflicts</a></li>
-                                <li><a href="#">Terrorism</a></li>
-                                <li><a href="#">Disasters</a></li>
-                                <li><a href="#">Global Economy</a></li>
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Religion</a></li>
-                                <li><a href="#">Scandals</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Health</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">Movies</a></li>
-                                <li><a href="#">Conflicts</a></li>
-                                <li><a href="#">Terrorism</a></li>
-                                <li><a href="#">Disasters</a></li>
-                                <li><a href="#">Global Economy</a></li>
-                                <li><a href="#">Scandals</a></li>
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Religion</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
-                        <div class="footer__widget">
-                            <h4 class="fw-title">Trending In</h4>
-                            <ul class="list-wrap">
-                                <li><a href="#">U.N.</a></li>
-                                <li><a href="#">Conflicts</a></li>
-                                <li><a href="#">Terrorism</a></li>
-                                <li><a href="#">Disasters</a></li>
-                                <li><a href="#">Global Economy</a></li>
-                                <li><a href="#">Environment</a></li>
-                                <li><a href="#">Religion</a></li>
-                                <li><a href="#">Scandals</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__logo-wrap">
-                <div class="row align-items-center">
-                    <div class="col-lg-3 col-md-4">
-                        <div class="footer__logo logo">
-                            <a href="index.html"><img src="~/assets/img/logo/w_logo.png" alt="Logo"></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <div class="footer__social">
-                            <ul class="list-wrap">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook <span>25K</span></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i> Twitter <span>44K</span></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i> Youtube <span>91K</span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__copyright">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="copyright__text">
-                            <p>Copyright & Design By <span></span> - 2022</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="copyright__menu">
-                            <ul class="list-wrap">
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Advertise</a></li>
-                                <li><a href="#">Store</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer-area-end -->
+    
     <!-- JS here -->
     <script src="~/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="~/assets/js/bootstrap.min.js"></script>

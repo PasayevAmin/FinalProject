@@ -40,7 +40,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> RegisterAsync(RegisterVM vm,ModelStateDictionary modelstate)
         {
-            if (!modelstate.IsValid) return false;
+            //if (!modelstate.IsValid) return false;
             if (vm.IsDigitNumber(vm.Name))
             {
                 modelstate.AddModelError("Name", "Name cannot contain numbers");
@@ -71,9 +71,14 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             await HandleUserRoleAsync(user, vm.Role);
             return true;
         }
-        public async Task Logout()
+        public async Task<bool> Logout()
         {
             await _signInManager.SignOutAsync();
+            AppUser user = new AppUser
+            {
+                IsActive = false
+             };
+            return true;
         }
         public async Task CreateRoles()
         {
@@ -110,7 +115,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         {
             var user = new AppUser
             {
-                UserName = vm.Name.CapitalizeName() + vm.Surname.CapitalizeName(),
+                UserName = vm.Username.Trim(),
                 FirstName = vm.Name.CapitalizeName(),
                 LastName = vm.Surname.CapitalizeName(),
                 Email = vm.Email,
@@ -122,7 +127,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
             if (vm.Photo != null)
             {
-                if (vm.Photo.CheckSize(10))
+                if (!vm.Photo.CheckSize(10))
                 {
                     modelstate.AddModelError("Photo", "Photo size incorrect");
                     return null;
@@ -169,6 +174,8 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 modelstate.AddModelError(string.Empty, "password or email incorrect");
                 return false;
             }
+            user.IsActive = true;
+
             return true;
         }
        

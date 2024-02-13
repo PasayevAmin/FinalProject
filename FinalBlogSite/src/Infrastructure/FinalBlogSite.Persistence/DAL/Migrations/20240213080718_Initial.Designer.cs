@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalBlogSite.Persistence.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240212130732_initial")]
-    partial class initial
+    [Migration("20240213080718_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -154,7 +154,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AuthorId")
+                    b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
@@ -177,12 +177,12 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("PostId");
 
@@ -237,13 +237,10 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AuthorId1")
+                    b.Property<string>("AuthorId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CommentCount")
@@ -279,7 +276,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId1");
+                    b.HasIndex("AuthorId");
 
                     b.HasIndex("CategoryId");
 
@@ -421,17 +418,15 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Comment", b =>
                 {
-                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Author")
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "AppUser")
                         .WithMany("Comments")
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("FinalBlogSite.Domain.Entities.Post", "Post")
                         .WithMany("Comments")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostId");
 
-                    b.Navigation("Author");
+                    b.Navigation("AppUser");
 
                     b.Navigation("Post");
                 });
@@ -460,13 +455,11 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 {
                     b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Author")
                         .WithMany("Posts")
-                        .HasForeignKey("AuthorId1");
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("FinalBlogSite.Domain.Entities.Category", "Category")
                         .WithMany("Posts")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Author");
 

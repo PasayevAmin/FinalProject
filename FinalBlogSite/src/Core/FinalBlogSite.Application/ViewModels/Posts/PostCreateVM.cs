@@ -15,9 +15,9 @@ namespace FinalBlogSite.Application.ViewModels.Posts
         public string? Content { get; set; }
         public int? LikeCount { get; set; } = 0;
         public int? CommentCount { get; set; } = 0;
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public List<Category>? Categories { get; set; }
-        public int AuthorId { get; set; }
+        public string? AuthorId { get; set; }
         public List<AppUser>? Authors { get; set; }
     }
 }

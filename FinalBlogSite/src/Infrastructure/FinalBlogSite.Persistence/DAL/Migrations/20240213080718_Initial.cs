@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinalBlogSite.Persistence.DAL.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -229,9 +229,8 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LikeCount = table.Column<int>(type: "int", nullable: true),
                     CommentCount = table.Column<int>(type: "int", nullable: true),
-                    AuthorId = table.Column<int>(type: "int", nullable: true),
-                    AuthorId1 = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -241,16 +240,15 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Posts_AspNetUsers_AuthorId1",
-                        column: x => x.AuthorId1,
+                        name: "FK_Posts_AspNetUsers_AuthorId",
+                        column: x => x.AuthorId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Posts_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -261,8 +259,8 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LikeCount = table.Column<int>(type: "int", nullable: false),
-                    PostId = table.Column<int>(type: "int", nullable: false),
-                    AuthorId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    PostId = table.Column<int>(type: "int", nullable: true),
+                    AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -272,16 +270,15 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Comments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comments_AspNetUsers_AuthorId",
-                        column: x => x.AuthorId,
+                        name: "FK_Comments_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Comments_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -324,9 +321,9 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_AuthorId",
+                name: "IX_Comments_AppUserId",
                 table: "Comments",
-                column: "AuthorId");
+                column: "AppUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_PostId",
@@ -344,9 +341,9 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_AuthorId1",
+                name: "IX_Posts_AuthorId",
                 table: "Posts",
-                column: "AuthorId1");
+                column: "AuthorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_CategoryId",

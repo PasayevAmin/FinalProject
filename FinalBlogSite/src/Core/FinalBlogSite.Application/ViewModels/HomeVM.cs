@@ -11,5 +11,8 @@ namespace FinalBlogSite.Application.ViewModels
     {
         public List<Post> LastestPost { get; set; }
         public List<Post> RecendPost { get; set; }
+        public List<Post> TitlePost { get; set; }
+        public List<Post> CategoryPost { get; set; }
+        public List<Post> LikePost { get; set; }
     }
 }
