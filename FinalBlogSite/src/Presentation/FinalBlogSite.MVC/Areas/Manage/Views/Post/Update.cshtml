@@ -1,0 +1,56 @@
+﻿@using FinalBlogSite.Domain.Entities;
+@model PostUpdateVM
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update Post</h4>
+
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" class="form-control" placeholder="Title">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Content">Content</label>
+                                <input asp-for="Content" class="form-control" placeholder="Content">
+                                <span asp-validation-for="Content" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LikeCount">LikeCount</label>
+                                <input asp-for="LikeCount" class="form-control" placeholder="LikeCount">
+                                <span asp-validation-for="LikeCount" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CommentCount">CommentCount</label>
+                                <input asp-for="CommentCount" class="form-control" placeholder="CommentCount">
+                                <span asp-validation-for="CommentCount" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photo</label>
+                                <input asp-for="Photo" class="form-control" placeholder="Photo">
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CategoryId">Cattegory</label>
+                                <select asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))">
+                                    <option selected disabled>Select one</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"> </span>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

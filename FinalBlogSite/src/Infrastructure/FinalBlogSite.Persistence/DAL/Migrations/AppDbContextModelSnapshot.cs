@@ -50,6 +50,12 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
@@ -77,8 +83,10 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ProfilePicture")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -144,7 +152,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AppUserId")
+                    b.Property<string>("AuthorId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
@@ -172,11 +180,33 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("AuthorId");
 
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Followers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("FollowerId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FollowerId1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FollowerId1");
+
+                    b.ToTable("Folowers");
                 });
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Notification", b =>
@@ -205,7 +235,10 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("AppUserId")
+                    b.Property<int?>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AuthorId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("CategoryId")
@@ -244,7 +277,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("AuthorId1");
 
                     b.HasIndex("CategoryId");
 
@@ -386,9 +419,9 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Comment", b =>
                 {
-                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Author")
+                        .WithMany("Comments")
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("FinalBlogSite.Domain.Entities.Post", "Post")
                         .WithMany("Comments")
@@ -396,15 +429,26 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("Author");
 
                     b.Navigation("Post");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Followers", b =>
+                {
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Follower")
+                        .WithMany("Followers")
+                        .HasForeignKey("FollowerId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Follower");
                 });
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Notification", b =>
                 {
                     b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "AppUser")
-                        .WithMany()
+                        .WithMany("Notifications")
                         .HasForeignKey("AppUserId");
 
                     b.Navigation("AppUser");
@@ -412,9 +456,9 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Post", b =>
                 {
-                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "AppUser")
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Author")
                         .WithMany("Posts")
-                        .HasForeignKey("AppUserId");
+                        .HasForeignKey("AuthorId1");
 
                     b.HasOne("FinalBlogSite.Domain.Entities.Category", "Category")
                         .WithMany("Posts")
@@ -422,7 +466,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AppUser");
+                    b.Navigation("Author");
 
                     b.Navigation("Category");
                 });
@@ -480,6 +524,12 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.AppUser", b =>
                 {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Followers");
+
+                    b.Navigation("Notifications");
+
                     b.Navigation("Posts");
                 });
 

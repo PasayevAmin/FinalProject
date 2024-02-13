@@ -20,9 +20,9 @@ namespace FinalBlogSite.Application.Abstractions.Extentions
             return false;
         }
 
-        public static bool CheckSize(this IFormFile file, int kb)
+        public static bool CheckSize(this IFormFile file, int mb)
         {
-            if (file.Length < 1024 * kb)
+            if (file.Length < 1024*1024 * mb)
             {
                 return true;
             }

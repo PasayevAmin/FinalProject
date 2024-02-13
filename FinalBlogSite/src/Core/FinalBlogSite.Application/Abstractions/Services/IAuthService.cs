@@ -11,8 +11,8 @@ namespace FinalBlogSite.Application.Abstractions.Services
 {
     public interface IAuthService
     {
-        Task<bool> Register(RegisterVM dto,ModelStateDictionary modelstate);
-        Task<bool> LogIn(LogInVM dto, ModelStateDictionary modelstate);
+        Task<bool> RegisterAsync(RegisterVM dto,ModelStateDictionary modelstate);
+        Task<bool> LogInAsync(LogInVM dto, ModelStateDictionary modelstate);
         Task Logout();
         Task CreateRoles();
     }

@@ -1,5 +1,7 @@
 ﻿using FinalBlogSite.Application.Abstractions.Repositories.Generic;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Domain.Entities;
+using FinalBlogSite.Domain.Entities.Common;
 using FinalBlogSite.Persistence.DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,76 +14,112 @@ using System.Threading.Tasks;
 
 namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
 {
-    public class Repository<T> : IRepository<T> where T : class, new()
+    public class Repository<T> : IRepository<T> where T : BaseEntity, new()
     {
         private readonly AppDbContext _context;
-        private readonly DbSet<T> _table;
+        private readonly DbSet<T> _dbSet;
         public Repository(AppDbContext context)
         {
             _context = context;
-            _table = context.Set<T>();
+            _dbSet = context.Set<T>();
         }
-        public Task AddAsync(T entity)
+        public IQueryable<T> GetAll(bool isTracking = false, bool queryFilter = false, params string[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> entity = _dbSet;
+            if (queryFilter) entity = entity.IgnoreQueryFilters();
+            entity = Includes(entity, includes);
+            return isTracking ? entity : entity.AsNoTracking();
         }
 
-        
-
-        public void Delete(T entity)
+        public IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null,
+         Expression<Func<T, object>>? orderexpression = null,
+         bool isDescending = false, bool queryFilter = false, bool isTracking = false,
+         int skip = 0, int take = 0, params string[] includes)
         {
-            throw new NotImplementedException();
-        }
+            IQueryable<T> entity = _dbSet;
 
-        public IQueryable<T> GetAll(bool ignooreQuery = false, bool isTracking = false, params string[] includes)
+            if (expression != null) entity = entity.Where(expression);
+            if (orderexpression != null)
+            {
+                if (isDescending) entity = entity.OrderByDescending(orderexpression);
+                else entity = entity.OrderBy(orderexpression);
+            }
+            if (skip != 0) entity = entity.Skip(skip);
+            if (take != 0) entity = entity.Take(take);
+            entity = Includes(entity, includes);
+            if (queryFilter) entity = entity.IgnoreQueryFilters();
+            return isTracking ? entity : entity.AsNoTracking();
+        }
+        public async Task<bool> IsExist(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null, Expression<Func<T, object>>? orderExpression = null, bool isDescending = false, int skip = 0, int take = 0, bool isTracking = false, bool ignoreQuery = false, params string[] includes)
+        public async Task<T> GetByIdAsync(int id, bool isTracking = false, bool queryFilter = false, params string[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> entity = _dbSet.Where(t => t.Id == id);
+            if (queryFilter) entity = entity.IgnoreQueryFilters();
+            if (!isTracking) entity.AsNoTracking();
+            entity = Includes(entity, includes);
+            return await entity.FirstOrDefaultAsync();
         }
 
-        public Task<T> GetByExxpressionAsync(Expression<Func<T, bool>>? expression = null, bool isTracking = false, bool ignoreQuery = false, params string[] includes)
+        public async Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool isTracking = false, bool queryFilter = false, params string[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> entity = _dbSet.Where(expression);
+            if (queryFilter) entity = entity.IgnoreQueryFilters();
+            if (!isTracking) entity.AsNoTracking();
+            entity = Includes(entity, includes);
+            return await entity.FirstOrDefaultAsync();
         }
-
-        public Task<T> GetByIdAsync(int id, bool isTracking = false, bool ignoreQuery = false, params string[] includes)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity);
         }
-
-        public Task<bool> IsExistedAsync(Expression<Func<T, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ReverseDelete(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task SaveChangesAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-       
-
-      
-
-        public void SoftDelete(T entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Update(entity);
         }
-       
-    
-}
+        public async Task<int> CountAsync()
+        {
+            return await _dbSet.CountAsync();
+        }
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
+        public void Delete(T entity)
+        {
+            _dbSet.Remove(entity);
+        }
+        private static IQueryable<T> Includes(IQueryable<T> entity, params string[] includes)
+        {
+            if (includes != null)
+            {
+                for (int i = 0; i < includes.Length; i++)
+                {
+                    entity = entity.Include(includes[i]);
+                }
+            }
+            return entity;
+        }
+
+        public void Includes(T entity, params string[] includes)
+        {
+            if (includes != null)
+            {
+                for (int i = 0; i < includes.Length; i++)
+                {
+                    _dbSet.Include(includes[i]);
+                }
+            }
+        }
+        public async Task<ICollection<E>> GetEntity<E>() where E : class
+        {
+            return await _context.Set<E>().ToListAsync();
+        }
+
+
+
+    }
 }

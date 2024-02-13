@@ -8,8 +8,8 @@ namespace FinalBlogSite.Domain.Enums
 {
     public enum UserRole
     {
-        Author,
-        Admin,
-        Member
+        Author=1,
+        Admin=2,
+        Member=3
     }
 }

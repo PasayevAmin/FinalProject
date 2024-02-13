@@ -1,5 +1,8 @@
-﻿using FinalBlogSite.Application.ViewModels.Comment;
-using FinalBlogSite.Application.ViewModels.Post;
+﻿using FinalBlogSite.Application.ViewModels;
+using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels.Posts;
+using FinalBlogSite.Domain.Entities;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +13,14 @@ namespace FinalBlogSite.Application.Abstractions.Services
 {
     public  interface ICommentService
     {
-        Task<IEnumerable<CommentItemVM>> GetAll(int page, int take);
 
-        Task CreateAsync(CommentCreateVM dto);
-        Task UpdateAsync(int id, CommentUpdateVM dto);
-        Task DeleteAsync(int id);
-        Task SoftDeleteAsync(int id);
-        Task ReverseDeleteAsync(int id);
+
+        Task<bool> CreateAsync(CommentCreateVM vm, ModelStateDictionary modelstate);
+        Task<CommentCreateVM> CreatedAsync(CommentCreateVM vm);
+        Task<bool> DeleteAsync(int id);
+        Task<PaginationVM<Comment>> GetAllAsync(int page = 1, int take = 3);
+        Task<bool> UpdateAsync(int id, CommentUpdateVM vm, ModelStateDictionary modelstate);
+        Task<CommentUpdateVM> UpdatedAsync(int id, CommentUpdateVM vm);
+
     }
 }

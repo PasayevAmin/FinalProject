@@ -15,7 +15,7 @@ namespace FinalBlogSite.Domain.Entities
         public string? Content { get; set; }
         public int? LikeCount { get; set; } = 0;
         public int? CommentCount { get; set; } = 0;
-        public string? AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         public AppUser? Author { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; } = null!;

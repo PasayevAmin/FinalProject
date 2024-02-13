@@ -26,7 +26,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Register([FromForm] RegisterVM vm)
         {
-            var result = await _accountService.Register(vm, ModelState);
+            var result = await _accountService.RegisterAsync(vm, ModelState);
             if (result) return RedirectToAction("index", vm.Role.ToString());
             return View(vm);
         }
@@ -37,7 +37,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInVM vM,string returnurl)
         {
-            await _accountService.LogIn(vM,ModelState);
+            await _accountService.LogInAsync(vM,ModelState);
             if (returnurl is null)
             {
                 return RedirectToAction("index", "Home", new { Area = "" });

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalBlogSite.Application.ViewModels.Category
+namespace FinalBlogSite.Application.ViewModels.Categorys
 {
     public class CategoryCreateVM
     {

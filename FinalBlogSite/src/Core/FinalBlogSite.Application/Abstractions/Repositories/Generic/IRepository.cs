@@ -1,4 +1,5 @@
-﻿using FinalBlogSite.Domain.Entities;
+﻿using FinalBlogSite.Application.ViewModels;
+using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Domain.Entities.Common;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -12,28 +13,24 @@ namespace FinalBlogSite.Application.Abstractions.Repositories.Generic
 {
     public interface IRepository<T> where T : class, new()
     {
-        IQueryable<T> GetAll(bool ignooreQuery = false, bool isTracking = false,
-           params string[] includes);
-
-        IQueryable<T> GetAllWhere(
-            Expression<Func<T,
-            bool>>? expression = null,
-            Expression<Func<T, object>>? orderExpression = null,
+        IQueryable<T> GetAll(bool isTracking = false, bool queryFilter = false, params string[] includes);
+        IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null,
+            Expression<Func<T, object>>? orderexpression = null,
             bool isDescending = false,
+            bool isTracking = false,
+            bool queryFilter = false,
             int skip = 0,
             int take = 0,
-            bool isTracking = false,
-            bool ignoreQuery = false,
             params string[] includes);
-        Task<T> GetByIdAsync(int id, bool isTracking = false, bool ignoreQuery = false, params string[] includes);
-        Task<T> GetByExxpressionAsync(Expression<Func<T, bool>>? expression = null, bool isTracking = false, bool ignoreQuery = false, params string[] includes);
-        Task<bool> IsExistedAsync(Expression<Func<T, bool>> expression);
+        Task<bool> IsExist(Expression<Func<T, bool>> expression);
+        Task<T> GetByIdAsync(int id, bool isTracking = false, bool queryFilter = false, params string[] includes);
+        Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool isTracking = false, bool queryFilter = false, params string[] includes);
         Task AddAsync(T entity);
-        void Update(T entity);
         void Delete(T entity);
-        void SoftDelete(T entity);
-        void ReverseDelete(T entity);
+        void Update(T entity);
         Task SaveChangesAsync();
-        
+        void Includes(T entity, params string[] includes);
+        Task<ICollection<E>> GetEntity<E>() where E : class;
+
     }
 }

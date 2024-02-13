@@ -1,48 +1,139 @@
-﻿using FinalBlogSite.Application.Abstractions.Services;
-using FinalBlogSite.Application.ViewModels.Post;
+﻿using AutoMapper;
+using FinalBlogSite.Application.Abstractions.Extentions;
+using FinalBlogSite.Application.Abstractions.Repositories;
+using FinalBlogSite.Application.Abstractions.Services;
+using FinalBlogSite.Application.ViewModels;
+using FinalBlogSite.Application.ViewModels.Categorys;
+using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels.Posts;
+using FinalBlogSite.Domain.Entities;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
     public class PostService : IPostService
     {
-        public Task CreateAsync(PostCreateVM dto)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly IPostRepository _postRepository;
+        private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public Task DeleteAsync(int id)
+        public PostService(IPostRepository postRepository,IMapper mapper,IWebHostEnvironment webHostEnvironment,ICategoryRepository categoryRepository)
         {
-            throw new NotImplementedException();
+            _postRepository = postRepository;
+            _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
+            _categoryRepository = categoryRepository;
         }
-
-        public Task<IEnumerable<PostItemVM>> GetAll(int page, int take)
+        public async Task<PaginationVM<Post>> GetAllAsync(int page = 1, int take = 3)
         {
-            throw new NotImplementedException();
+            if (page < 1 || take < 1) throw new Exception("Bad request");
+            ICollection<Post> comments = await _postRepository.GetAllWhere(skip: (page - 1) * take, take: take, orderexpression: x => x.Id, isDescending: true).ToListAsync();
+            if (comments == null) throw new Exception("Not Found");
+            int count = await _postRepository.GetAll().CountAsync();
+            if (count < 0) throw new Exception("Not Found");
+            double totalpage = Math.Ceiling((double)count / take);
+            PaginationVM<Post> vm = new PaginationVM<Post>
+            {
+                Items = comments.ToList(),
+                CurrentPage = page,
+                TotalPage = totalpage
+            };
+            return vm;
         }
-
-        public Task<PostGetVM> GetByIdAsync(int id)
+        public async Task<bool> CreateAsync(PostCreateVM vm, ModelStateDictionary modelstate)
         {
-            throw new NotImplementedException();
+            if (!modelstate.IsValid) return false;
+
+            if (!await _categoryRepository.IsExist(s => s.Id == vm.CategoryId))
+            {
+                modelstate.AddModelError("CategoryId", "This category is not aviable");
+                return false;
+            }
+           
+            if (!vm.Photo.CheckSize(10))
+            {
+                modelstate.AddModelError("Photo", "Photo size incorrect");
+                return false;
+            }
+            if (!vm.Photo.CheckFile("image/"))
+            {
+                modelstate.AddModelError("Photo", "Photo type incorrect");
+                return false;
+            }
+            string filename = await vm.Photo.CreateFileAsync(_webHostEnvironment.WebRootPath, "assets", "img");
+            Post post = new Post
+            {
+                Title = vm.Title,
+                Content = vm.Content.Trim(),
+                LikeCount = vm.LikeCount,
+                CreatedAt = DateTime.Now,
+                Images = filename,
+                CategoryId = vm.CategoryId,
+                //AuthorId=vm.AuthorId
+                
+            };
+            await _postRepository.AddAsync(post);
+            await _postRepository.SaveChangesAsync();
+            return true;
         }
-
-        public Task ReverseDeleteAsync(int id)
+        public async Task<PostCreateVM> CreatedAsync(PostCreateVM vm)
         {
-            throw new NotImplementedException();
+            vm.Categories = await _categoryRepository.GetAll().ToListAsync();
+            return vm;
         }
-
-        public Task SoftDeleteAsync(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            if (id < 1) throw new Exception("Bad request");
+            Post exist = await _postRepository.GetByIdAsync(id);
+            if (exist == null) throw new Exception("not found");
+            _postRepository.Delete(exist);
+            await _postRepository.SaveChangesAsync();
+            return true;
         }
-
-        public Task UpdateAsync(int id, PostUpdateVM dto)
+        public async Task<bool> UpdateAsync(int id, PostUpdateVM vm, ModelStateDictionary modelstate)
         {
-            throw new NotImplementedException();
+            if (id < 0) throw new Exception("Bad Request");
+            if (!modelstate.IsValid) return false;
+            Post exist = await _postRepository.GetByIdAsync(id);
+            if (exist == null) throw new Exception("not found");
+
+            if (!await _categoryRepository.IsExist(s => s.Id == vm.CategoryId))
+            {
+                modelstate.AddModelError("SubjectId", "This Subject is not aviable");
+                return false;
+            }
+            exist.Title = vm.Title;
+            exist.Content = vm.Content.Trim();
+            exist.LikeCount = vm.LikeCount;
+            //exist.AuthorId = vm.AuthorId;
+            exist.CategoryId = vm.CategoryId;
+           
+
+            _postRepository.Update(exist);
+            await _postRepository.SaveChangesAsync();
+            return true;
+        }
+        public async Task<PostUpdateVM> UpdatedAsync(int id, PostUpdateVM vm)
+        {
+            if (id < 0) throw new Exception("Bad request");
+            Post exist = await _postRepository.GetByIdAsync(id);
+            if (exist == null) throw new Exception("not found");
+            vm.Categories = await _categoryRepository.GetAll().ToListAsync();
+            vm.Content = exist.Content.Trim();
+            vm.LikeCount = exist.LikeCount;
+            vm.CategoryId = exist.CategoryId;
+            //vm.AuthorId=exist.AuthorId;
+            vm.Title = exist.Title;
+            return vm;
         }
     }
 }
