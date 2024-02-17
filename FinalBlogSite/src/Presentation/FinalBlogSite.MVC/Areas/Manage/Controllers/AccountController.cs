@@ -32,9 +32,14 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Register( RegisterVM vm)
         {
-            var result = await _accountService.RegisterAsync(vm, ModelState);
-            if (result) return RedirectToAction("index", "Home", new { Area = "" });
-            return View(vm);
+            
+            if (!await _accountService.RegisterAsync(vm, ModelState))
+            {
+                return View(vm);
+
+            }
+            return RedirectToAction("index", "Home", new { Area = "" });
+
         }
         public IActionResult LogIn()
         {
@@ -43,13 +48,13 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> LogIn(LogInVM vM,string returnurl)
         {
-            await _accountService.LogInAsync(vM,ModelState);
-            if (returnurl is null)
+            if (!await _accountService.LogInAsync(vM, ModelState))
             {
-                return RedirectToAction("index", "Home", new { Area = "" });
+                return View(vM);
 
             }
-            return Redirect(returnurl);
+            return RedirectToAction("index", "Home", new { Area = "" });
+
 
 
 

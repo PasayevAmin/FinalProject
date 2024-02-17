@@ -16,7 +16,10 @@ namespace FinalBlogSite.Application.Abstractions.Services
         Task<PaginationVM<Post>> GetAllAsync(int page = 1, int take = 3);
         Task<bool> UpdateAsync(int id, PostUpdateVM vm, ModelStateDictionary modelstate);
         Task<PostUpdateVM> UpdatedAsync(int id, PostUpdateVM vm);
-        Task<bool> Liked(int id);
+        Task<List<Post>> GetPosts();
+        Task<Post> GetPost(int postId);
+        Task<bool> LikePost(int postId);
+        Task<bool> UnlikePost(int postId);
 
     }
 }

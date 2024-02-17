@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "X5SK+J0+XO8yzh5Ndn88UFTTnTu4quSCfVyXi9PJnF9Bmt9roS+LWuwXzZ681N4emycMZNjMsH0y6sPDQcogSA==",
+  "dgSpecHash": "WH6YDOO3oOVwBidDs+Oxftf60wzEkIBtdUOlCtVQD54+7zi4bugJrhCok5GjKF+CuAl64X8bGT8cXdH3S9YJmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\FinalBlogSite.MVC.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\mailkit\\4.3.0\\mailkit.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

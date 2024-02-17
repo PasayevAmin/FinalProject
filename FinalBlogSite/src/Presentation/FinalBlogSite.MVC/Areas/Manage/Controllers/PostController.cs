@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using FinalBlogSite.Application.ViewModels.Posts;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace FinalBlogSite.MVC.Areas.Manage.Controllers
 {
@@ -20,6 +22,33 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         public PostController(IPostService postService)
         {
             _postService = postService;
+        }
+        [HttpPost]
+        public async Task<IActionResult> LikePost(int postId)
+        {
+
+            await _postService.LikePost(postId);
+            var updatedPost = await _postService.GetPost(postId);
+            var jsonOptions = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            return Json(updatedPost, jsonOptions);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> UnlikePost(int postId)
+        {
+
+            await _postService.UnlikePost(postId);
+            var updatedPost = await _postService.GetPost(postId);
+            var jsonOptions = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            return Json(updatedPost, jsonOptions);
         }
         public async Task<IActionResult> Index(int page = 1, int take = 10)
         {
@@ -59,13 +88,32 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             if (result) return RedirectToAction(nameof(Index));
             return NotFound();
         }
-        public async Task<IActionResult> Like(int id)
+        [HttpPost]
+        public async Task<IActionResult> LikedPost(int postId)
         {
-             var result=await _postService.Liked(id);
-            if (result) return RedirectToAction(nameof(Index));
-            return NotFound();
 
-            return View();
+            await _postService.LikePost(postId);
+            var updatedPost = await _postService.GetPost(postId);
+            var jsonOptions = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            return Json(updatedPost, jsonOptions);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> UnlikedPost(int postId)
+        {
+
+            await _postService.UnlikePost(postId);
+            var updatedPost = await _postService.GetPost(postId);
+            var jsonOptions = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+            };
+
+            return Json(updatedPost, jsonOptions);
         }
     }
 }

@@ -19,11 +19,12 @@ namespace FinalBlogSite.Domain.Entities
         public bool? IsActive { get; set; }
         public string? Facebook { get; set; }
         public string? Twitter { get; set; }
-
-        public ICollection<Post> Posts { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Follow> Follows { get; set; }
-        public ICollection<Notification> Notifications { get; set; }
+        public int FollowerCount { get; set; }
+        public ICollection<Like>? Likes { get; set; }
+        public ICollection<Post>? Posts { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
+        public ICollection<Follow>? Follows { get; set; }
+        public ICollection<Notification>? Notifications { get; set; }
 
 
 

@@ -20,7 +20,8 @@ namespace FinalBlogSite.Domain.Entities
         public int? CategoryId { get; set; }
         public Category? Category { get; set; } = null!;
         public ICollection<Comment>? Comments { get; set; }
-        
+        public ICollection<Like>? Likes { get; set; }
+
 
     }
 }

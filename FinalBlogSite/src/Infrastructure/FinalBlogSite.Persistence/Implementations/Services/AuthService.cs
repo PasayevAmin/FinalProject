@@ -16,31 +16,78 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.AspNetCore.Hosting;
+using static System.Net.WebRequestMethods;
+using Microsoft.AspNetCore.Http;
+using FinalBlogSite.Application.Abstractions.Repositories;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
     public class AuthService : IAuthService
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly IFollowerRepository _followerRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IWebHostEnvironment _env;
 
-        public AuthService(UserManager<AppUser> userManager, IMapper mapper,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager,IWebHostEnvironment env)
+        public AuthService(UserManager<AppUser> userManager,IFollowerRepository followerRepository,IHttpContextAccessor httpContextAccessor, IMapper mapper,SignInManager<AppUser> signInManager,RoleManager<IdentityRole> roleManager,IWebHostEnvironment env)
         {
             _userManager = userManager;
+            _followerRepository = followerRepository;
+            _httpContextAccessor = httpContextAccessor;
             _mapper = mapper;
             _signInManager = signInManager;
             _roleManager = roleManager;
             _env = env;
         }
+        public async Task Follow(string followedId)
+        {
+            string userId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
-        
+            AppUser user = await _userManager.FindByIdAsync(userId);
+            AppUser followed = await _userManager.FindByIdAsync(followedId);
+
+            followed.FollowerCount++;
+
+
+            Follow foll = new Follow
+            {
+
+                FollowerId = userId
+            };
+
+            await _followerRepository.CreateAsync(foll);
+            await _followerRepository.SaveChangesAsync();
+        }
+        public async Task Unfollow(string followedId)
+        {
+            string userId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+            AppUser user = await _userManager.FindByIdAsync(userId);
+            AppUser followed = await _userManager.FindByIdAsync(followedId);
+
+            followed.FollowerCount--;
+
+            Follow foll = await _followerRepository.GetSingleAsync(f => f.FollowerId == userId);
+
+            if (foll != null)
+            {
+                _followerRepository.Delete(foll);
+                await _followerRepository.SaveChangesAsync();
+            }
+        }
+        public async Task<List<AppUser>> GetUsers(string searchTerm)
+        {
+
+            return await _userManager.Users.Where(x => x.UserName.ToLower().Contains(searchTerm.ToLower()) || x.FirstName.ToLower().Contains(searchTerm.ToLower()) || x.LastName.ToLower().Contains(searchTerm.ToLower())).ToListAsync();
+        }
+
 
         public async Task<bool> RegisterAsync(RegisterVM vm,ModelStateDictionary modelstate)
         {
-            if (!modelstate.IsValid) return false;
+            //if (!modelstate.IsValid) return false;
             if (vm.IsDigitNumber(vm.Name))
             {
                 modelstate.AddModelError("Name", "Name cannot contain numbers");
@@ -64,7 +111,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             {
                 foreach (var item in result.Errors)
                 {
-                    modelstate.AddModelError(string.Empty, item.Description);
+                    modelstate.AddModelError(String.Empty, item.Description);
                 }
                 return false;
             }

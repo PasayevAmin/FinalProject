@@ -1,4 +1,15 @@
-﻿ @model HomeVM 
+﻿@using FinalBlogSite.Domain.Entities;
+ ﻿@using Humanizer
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AppUser> _userManager
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+    }
+}
+ @model HomeVM 
 <!-- main-area -->
 <main>
 
@@ -85,7 +96,42 @@
                                         <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                         <ul class="post__activity list-wrap">
                                              
-                                            <li><i class="fal fa-heart"></i>@item.LikeCount</li>
+                                            <div class="like-data">
+                                                <div class="dropdown">
+                                                    @if (item.Likes is not null )
+                                                    {
+                                                        if (item.Likes.Any(like => like.LikerId == item.Author.Id))
+                                                        {
+                                                            <span>
+                                                                <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-postId="@item.Id">
+                                                                    <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="mdi mdi-heart"></i>
+                                                                </a>
+                                                            </span>
+
+
+                                                        }
+                                                      
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <span>
+                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-postId="@item.Id">
+                                                                <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                            </a>
+                                                        </span>
+                                                    }
+
+                                                </div>
+                                            </div>
+                                            <div class="total-like-block ml-2 mr-3">
+                                                <div class="dropdown">
+                                                    <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                                        @item.LikeCount
+                                                    </span>
+
+                                                </div>
+                                            </div>
                                             <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
@@ -137,7 +183,7 @@
                             </div>
                         </div>
                     </div>
-                }
+                } 
                 
             </div>
         </div>
@@ -405,4 +451,42 @@
 </main>
 
 <!-- main-area-end -->
+@section likescripts {
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.likeToggle', function (e) {
+                e.preventDefault();
 
+                var likeToggleElement = $(this);
+                var postId = likeToggleElement.data('post-id');
+                var liked = likeToggleElement.data('liked');
+                var likeCountElement = $('.total-like-block span');
+
+                // Toggle the state
+                likeToggleElement.data('liked', !liked);
+                var icon = likeToggleElement.find('i');
+                if (liked) {
+                    icon.removeClass('mdi mdi-heart').addClass('fal fa-heart');
+                } else {
+                    icon.removeClass('fal fa-heart').addClass('mdi mdi-heart');
+                }
+
+                // Send AJAX request to the server to update the database
+                $.ajax({
+                    url: liked ? '/Post/UnlikePost' : '/Post/LikePost',
+                    type: 'POST',
+                    data: { postId: postId },
+                    success: function (data) {
+                        var newLikeCount = parseInt(likeCountElement.text());
+                        newLikeCount += liked ? -1 : 1;
+                        likeCountElement.text(newLikeCount);
+                    },
+                    error: function (error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+
+}

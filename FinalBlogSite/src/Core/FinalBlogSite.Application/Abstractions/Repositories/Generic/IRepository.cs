@@ -13,7 +13,7 @@ namespace FinalBlogSite.Application.Abstractions.Repositories.Generic
 {
     public interface IRepository<T> where T : class, new()
     {
-        IQueryable<T> GetAll(bool isTracking = false, bool queryFilter = false, params string[] includes);
+        IQueryable<T> GetAll(Expression<Func<T, bool>>? expression = null, params string[] includes);
         IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null,
             Expression<Func<T, object>>? orderexpression = null,
             bool isDescending = false,
@@ -32,6 +32,9 @@ namespace FinalBlogSite.Application.Abstractions.Repositories.Generic
         void Includes(T entity, params string[] includes);
         Task<ICollection<E>> GetEntity<E>() where E : class;
         IQueryable<T> GetAllnotDeleted(bool isTracking = false, params string[] includes);
+        Task CreateAsync(T entity);
+        Task<T> GetSingleAsync(Expression<Func<T, bool>> expression, params string[] includes);
+
 
     }
 }

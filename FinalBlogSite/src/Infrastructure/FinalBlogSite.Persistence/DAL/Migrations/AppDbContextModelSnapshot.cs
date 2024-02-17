@@ -50,6 +50,9 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("FollowerCount")
+                        .HasColumnType("int");
+
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
@@ -187,6 +190,42 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.CommentLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LikerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("LikerId");
+
+                    b.ToTable("CommentLikes");
+                });
+
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Follow", b =>
                 {
                     b.Property<int>("Id")
@@ -195,14 +234,63 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FollowerId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FollowerId");
 
                     b.ToTable("Folowers");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LikerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LikerId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Likes");
                 });
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Notification", b =>
@@ -275,6 +363,46 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Reply", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AuthorId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("RepliedCommentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("RepliedCommentId");
+
+                    b.ToTable("Replies");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -425,6 +553,23 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Navigation("Post");
                 });
 
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.CommentLike", b =>
+                {
+                    b.HasOne("FinalBlogSite.Domain.Entities.Comment", "Comment")
+                        .WithMany("CommentLikes")
+                        .HasForeignKey("CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Liker")
+                        .WithMany()
+                        .HasForeignKey("LikerId");
+
+                    b.Navigation("Comment");
+
+                    b.Navigation("Liker");
+                });
+
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Follow", b =>
                 {
                     b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Follower")
@@ -432,6 +577,23 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .HasForeignKey("FollowerId");
 
                     b.Navigation("Follower");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Like", b =>
+                {
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Liker")
+                        .WithMany("Likes")
+                        .HasForeignKey("LikerId");
+
+                    b.HasOne("FinalBlogSite.Domain.Entities.Post", "Post")
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Liker");
+
+                    b.Navigation("Post");
                 });
 
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Notification", b =>
@@ -456,6 +618,21 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Reply", b =>
+                {
+                    b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorId");
+
+                    b.HasOne("FinalBlogSite.Domain.Entities.Comment", "RepliedComment")
+                        .WithMany("Replies")
+                        .HasForeignKey("RepliedCommentId");
+
+                    b.Navigation("Author");
+
+                    b.Navigation("RepliedComment");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -515,6 +692,8 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     b.Navigation("Follows");
 
+                    b.Navigation("Likes");
+
                     b.Navigation("Notifications");
 
                     b.Navigation("Posts");
@@ -525,9 +704,18 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Navigation("Posts");
                 });
 
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Comment", b =>
+                {
+                    b.Navigation("CommentLikes");
+
+                    b.Navigation("Replies");
+                });
+
             modelBuilder.Entity("FinalBlogSite.Domain.Entities.Post", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }

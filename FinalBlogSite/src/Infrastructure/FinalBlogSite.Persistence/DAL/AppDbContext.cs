@@ -20,7 +20,9 @@ namespace FinalBlogSite.Persistence.DAL
         public DbSet<Post> Posts { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<CommentLike> CommentLikes { get; set; }
+        public DbSet<Reply> Replies { get; set; }
         public DbSet<Follow> Folowers { get; set; }
 
 

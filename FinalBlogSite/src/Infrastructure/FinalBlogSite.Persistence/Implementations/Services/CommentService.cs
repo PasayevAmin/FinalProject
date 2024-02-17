@@ -4,6 +4,7 @@ using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
@@ -24,54 +26,50 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         private readonly IPostRepository _post;
         private readonly IHttpContextAccessor _httpContext;
         private readonly IAuthService _authService;
+        private readonly IReplyRepository _replyRepository;
 
-        public CommentService(ICommentRepository comment,IMapper mapper,IPostRepository post,IHttpContextAccessor httpContext,IAuthService authService)
+        public CommentService(ICommentRepository comment,IMapper mapper,IPostRepository post,IHttpContextAccessor httpContext,IAuthService authService,IReplyRepository replyRepository)
         {
             _comment = comment;
             _mapper = mapper;
             _post = post;
             _httpContext = httpContext;
             _authService = authService;
+            _replyRepository = replyRepository;
         }
-        public async Task<bool> CreateAsync(CommentCreateVM vm, ModelStateDictionary modelstate)
+
+        public Task<bool> CreateAsync(CommentCreateVM vm, ModelStateDictionary modelstate)
         {
-            if (!modelstate.IsValid) return false;
+            throw new NotImplementedException();
+        }
 
-            //if (!await _post.IsExist(s => s.Id == vm.PostId))
-            //{
-            //    modelstate.AddModelError("SubjectId", "This Subject is not aviable");
-            //    return false;
-            //}
-            string username = "";
-            if (_httpContext.HttpContext.User.Identity != null)
-            {
-                username = _httpContext.HttpContext.User.Identity.Name;
-            }
-            AppUser user = await _authService.GetUserAsync(username);
-            Post post = await _post.GetByExpressionAsync(x => x.Id == vm.PostId, isDeleted: false, includes: new string[] { nameof(Post.Comments) });
-            
+        public async Task<List<string>> CreateComment(CommentCreateVM vm)
+        {
+            List<string> str = new List<string>();
+            Comment comment = _mapper.Map<Comment>(vm);
+            Post post = await _post.GetByExpressionAsync(x => x.Id == vm.PostId, isDeleted: false);
 
-            Comment comment = new Comment
-            {
-                Content = vm.Content.Trim(),
-                LikeCount = vm.LikeCount,
-                CreatedAt =DateTime.Now,
-                IsDeleted = false,
-            };
-            comment.PostId = post.Id;
-            
-
-            await _comment.AddAsync(comment);
+            comment.AppUserId = _httpContext.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            comment.PostId = vm.PostId;
+            await _comment.CreateAsync(comment);
             await _comment.SaveChangesAsync();
-            return true;
+
+            return str;
         }
 
-        public async Task<CommentCreateVM> CreatedAsync(CommentCreateVM vm)
+
+        public async Task<List<string>> CreateReply(CreateReplyVM vm)
         {
-            vm.Posts = await _post.GetAll().ToListAsync();
-            return vm;
-        }
+            List<string> str = new List<string>();
+            Reply reply = _mapper.Map<Reply>(vm);
 
+            reply.AuthorId = _httpContext.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            reply.RepliedCommentId = vm.CommentId;
+            await _replyRepository.CreateAsync(reply);
+            await _replyRepository.SaveChangesAsync();
+
+            return str;
+        }
 
 
 

@@ -17,5 +17,6 @@ namespace FinalBlogSite.Application.Abstractions.Services
         Task Logout();
         Task CreateRoles();
         Task<AppUser> GetUserAsync(string userName);
+        Task<List<AppUser>> GetUsers(string searchTerm);
     }
 }

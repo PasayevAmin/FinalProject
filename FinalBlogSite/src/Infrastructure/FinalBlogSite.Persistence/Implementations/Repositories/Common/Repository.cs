@@ -24,12 +24,21 @@ namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
             _context = context;
             _dbSet = context.Set<T>();
         }
-        public IQueryable<T> GetAll(bool isTracking = false, bool queryFilter = false, params string[] includes)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>>? expression = null, params string[] includes)
         {
-            IQueryable<T> entity = _dbSet;
-            if (queryFilter) entity = entity.IgnoreQueryFilters();
-            entity = Includes(entity, includes);
-            return isTracking ? entity : entity.AsNoTracking();
+            var query = _dbSet.AsQueryable();
+
+            if (expression != null)
+            {
+                query = query.Where(expression);
+            }
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return query;
         }
 
         public IQueryable<T> GetAllWhere(Expression<Func<T, bool>>? expression = null,
@@ -129,7 +138,23 @@ namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
             if (includes != null) query = Includes(query, includes);
             return query;
         }
+        public async Task CreateAsync(T entity)
+        {
+            await _dbSet.AddAsync(entity);
+        }
+        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> expression, params string[] includes)
+        {
+            var query = _dbSet.AsQueryable();
 
+            query = query.Where(expression);
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.SingleOrDefaultAsync();
+        }
 
 
     }

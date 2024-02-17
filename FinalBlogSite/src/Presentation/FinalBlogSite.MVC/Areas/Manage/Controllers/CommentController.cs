@@ -2,6 +2,7 @@
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Persistence.Implementations.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,49 +13,44 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;
+        private readonly IPostService _postService;
 
-        public CommentController(ICommentService commentService)
+        public CommentController(ICommentService commentService, IPostService postService)
         {
             _commentService = commentService;
+            _postService = postService;
         }
-        
-        public async Task<IActionResult> Index(int page = 1, int take = 10)
+
+        [HttpPost]
+        public async Task<IActionResult> CreateComment(CommentCreateVM vm)
         {
-            PaginationVM<Comment> vm = await _commentService.GetAllAsync(page, take);
-            if (vm.Items == null) return NotFound();
-            return View(vm);
-        }
-        public async Task<IActionResult> Create()
-        {
-            CommentCreateVM vm = new CommentCreateVM();
-            vm = await _commentService.CreatedAsync(vm);
-            return View(vm);
+            if (!ModelState.IsValid)
+            {
+                return View("~/Views/Home/Index.cshtml", new HomeVM { CreateCommentVM = vm, Posts = await _postService.GetPosts() });
+            }
+
+            var res = await _commentService.CreateComment(vm);
+            if (res.Any())
+            {
+                throw new Exception();
+            }
+            return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public async Task<IActionResult> Create(CommentCreateVM vm)
+        public async Task<IActionResult> CreateReply(CreateReplyVM vm)
         {
-            if (await _commentService.CreateAsync(vm, ModelState))
-                return RedirectToAction(nameof(Index));
-            return View(await _commentService.CreatedAsync(vm));
-        }
-        public async Task<IActionResult> Update(int id)
-        {
-            CommentUpdateVM vm = new CommentUpdateVM();
-            vm = await _commentService.UpdatedAsync(id, vm);
-            return View(vm);
-        }
-        [HttpPost]
-        public async Task<IActionResult> Update(int id, CommentUpdateVM vm)
-        {
-            if (await _commentService.UpdateAsync(id, vm, ModelState))
-                return RedirectToAction(nameof(Index));
-            return View(await _commentService.UpdatedAsync(id, vm));
-        }
-        public async Task<IActionResult> Delete(int id)
-        {
-            var result = await _commentService.DeleteAsync(id);
-            if (result) return RedirectToAction(nameof(Index));
-            return NotFound();
+            if (!ModelState.IsValid)
+            {
+                return View("~/Views/Home/Index.cshtml", new HomeVM { CreateReplyVM = vm, Posts = await _postService.GetPosts() });
+            }
+
+            var res = await _commentService.CreateReply(vm);
+            if (res.Any())
+            {
+                throw new Exception();
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
-}
+
+    }
