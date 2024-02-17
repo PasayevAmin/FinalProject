@@ -5,11 +5,13 @@ using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Application.ViewModels.Comment;
 using FinalBlogSite.Domain.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,31 +22,45 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         private readonly ICommentRepository _comment;
         private readonly IMapper _mapper;
         private readonly IPostRepository _post;
+        private readonly IHttpContextAccessor _httpContext;
+        private readonly IAuthService _authService;
 
-        public CommentService(ICommentRepository comment,IMapper mapper,IPostRepository post)
+        public CommentService(ICommentRepository comment,IMapper mapper,IPostRepository post,IHttpContextAccessor httpContext,IAuthService authService)
         {
             _comment = comment;
             _mapper = mapper;
             _post = post;
+            _httpContext = httpContext;
+            _authService = authService;
         }
         public async Task<bool> CreateAsync(CommentCreateVM vm, ModelStateDictionary modelstate)
         {
             if (!modelstate.IsValid) return false;
-           
-            if (!await _post.IsExist(s => s.Id == vm.PostId))
+
+            //if (!await _post.IsExist(s => s.Id == vm.PostId))
+            //{
+            //    modelstate.AddModelError("SubjectId", "This Subject is not aviable");
+            //    return false;
+            //}
+            string username = "";
+            if (_httpContext.HttpContext.User.Identity != null)
             {
-                modelstate.AddModelError("SubjectId", "This Subject is not aviable");
-                return false;
+                username = _httpContext.HttpContext.User.Identity.Name;
             }
-           
+            AppUser user = await _authService.GetUserAsync(username);
+            Post post = await _post.GetByExpressionAsync(x => x.Id == vm.PostId, isDeleted: false, includes: new string[] { nameof(Post.Comments) });
+            
+
             Comment comment = new Comment
             {
                 Content = vm.Content.Trim(),
                 LikeCount = vm.LikeCount,
                 CreatedAt =DateTime.Now,
-                PostId = vm.PostId,
-                
+                IsDeleted = false,
             };
+            comment.PostId = post.Id;
+            
+
             await _comment.AddAsync(comment);
             await _comment.SaveChangesAsync();
             return true;
@@ -61,7 +77,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
-            if (id < 1) throw new Exception("Bad request");
+            if (id < 0) throw new Exception("Bad request");
             Comment exist = await _comment.GetByIdAsync(id);
             if (exist == null) throw new Exception("not found");
             _comment.Delete(exist);
@@ -89,20 +105,26 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         public async Task<bool> UpdateAsync(int id, CommentUpdateVM vm, ModelStateDictionary modelstate)
         {
             if (id < 0) throw new Exception("Bad Request");
-            if (!modelstate.IsValid) return false;
             Comment exist = await _comment.GetByIdAsync(id);
             if (exist == null) throw new Exception("not found");
-           
-            if (!await _post.IsExist(s => s.Id == vm.PostId))
+
+            if (vm.Content != exist.Content)
             {
-                modelstate.AddModelError("SubjectId", "This Subject is not aviable");
-                return false;
+                ICollection<Comment> comments = await _comment.GetAllnotDeleted().ToListAsync();
+
+                if (comments.Where(x => x.Content == vm.Content && x.PostId == vm.PostId).Count() >= 1)
+                {
+                    modelstate.AddModelError("Name", "You have this meal in your Meals");
+                    return false;
+                }
+
             }
-            
-            exist.Content = vm.Content.Trim();
+            exist.Content = vm.Content;
             exist.LikeCount = vm.LikeCount;
-            exist.PostId = vm.PostId;
+            exist.CreatedAt = DateTime.UtcNow;
+            exist.IsDeleted = false;
             
+
             _comment.Update(exist);
             await _comment.SaveChangesAsync();
             return true;

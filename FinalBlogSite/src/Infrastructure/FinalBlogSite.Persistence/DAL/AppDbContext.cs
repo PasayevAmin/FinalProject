@@ -21,7 +21,7 @@ namespace FinalBlogSite.Persistence.DAL
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
-        public DbSet<Followers> Folowers { get; set; }
+        public DbSet<Follow> Folowers { get; set; }
 
 
 

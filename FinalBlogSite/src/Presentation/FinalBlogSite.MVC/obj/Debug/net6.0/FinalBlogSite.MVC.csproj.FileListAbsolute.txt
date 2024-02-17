@@ -264,3 +264,11 @@ C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\FluentValidation.dll
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\MailKit.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\MimeKit.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\ASUS\OneDrive\İş masası\FinalProject\FinalBlogSite\src\Presentation\FinalBlogSite.MVC\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll

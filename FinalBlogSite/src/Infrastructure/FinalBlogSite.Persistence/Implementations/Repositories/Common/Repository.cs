@@ -11,6 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
 {
@@ -64,9 +65,12 @@ namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
             return await entity.FirstOrDefaultAsync();
         }
 
-        public async Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool isTracking = false, bool queryFilter = false, params string[] includes)
+        public async Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool? isDeleted = false, bool isTracking = false, bool queryFilter = false, params string[] includes)
         {
             IQueryable<T> entity = _dbSet.Where(expression);
+            if(isDeleted == true) entity = entity.Where(x => x.IsDeleted == true);
+            else if (isDeleted == false) entity = entity.Where(x => x.IsDeleted == false);
+            else if (isDeleted == null) entity = entity.Where(x => x.IsDeleted == null);
             if (queryFilter) entity = entity.IgnoreQueryFilters();
             if (!isTracking) entity.AsNoTracking();
             entity = Includes(entity, includes);
@@ -117,6 +121,13 @@ namespace FinalBlogSite.Persistence.Implementations.Repositories.Common
         public async Task<ICollection<E>> GetEntity<E>() where E : class
         {
             return await _context.Set<E>().ToListAsync();
+        }
+        public IQueryable<T> GetAllnotDeleted(bool isTracking = false, params string[] includes)
+        {
+            IQueryable<T> query = _dbSet;
+            if (!isTracking) query = query.AsNoTracking();
+            if (includes != null) query = Includes(query, includes);
+            return query;
         }
 
 

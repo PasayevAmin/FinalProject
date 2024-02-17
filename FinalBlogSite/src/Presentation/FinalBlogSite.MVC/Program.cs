@@ -4,6 +4,7 @@ using FinalBlogSite.Persistence.ServiceRegistrations;
 using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using FinalBlogSite.Application.ServiceRegistration;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
-
+builder.Services.Configure<MailSetting>(builder.Configuration.GetSection("MailSettings"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

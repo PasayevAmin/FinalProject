@@ -40,7 +40,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> RegisterAsync(RegisterVM vm,ModelStateDictionary modelstate)
         {
-            //if (!modelstate.IsValid) return false;
+            if (!modelstate.IsValid) return false;
             if (vm.IsDigitNumber(vm.Name))
             {
                 modelstate.AddModelError("Name", "Name cannot contain numbers");
@@ -69,16 +69,13 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 return false;
             }
             await HandleUserRoleAsync(user, vm.Role);
+            await _signInManager.SignInAsync(user, true);
             return true;
         }
-        public async Task<bool> Logout()
+        public async Task Logout()
         {
             await _signInManager.SignOutAsync();
-            AppUser user = new AppUser
-            {
-                IsActive = false
-             };
-            return true;
+            
         }
         public async Task CreateRoles()
         {
@@ -178,6 +175,10 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
             return true;
         }
-       
+        public async Task<AppUser> GetUserAsync(string userName)
+        {
+            return await _userManager.Users.Include(x => x.Posts).Include(x=>x.Comments).FirstOrDefaultAsync(x => x.UserName == userName);
+        }
+
     }
 }

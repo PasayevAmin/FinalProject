@@ -22,13 +22,13 @@
                                 <input asp-for="LikeCount" class="form-control" placeholder="LikeCount">
                                 <span asp-validation-for="LikeCount" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            @* <div class="form-group">
                                 <label asp-for="PostId">Post</label>
                                 <select asp-for="PostId" asp-items="new SelectList(Model.Posts,nameof(Post.Id),nameof(Post.Title))">
                                     <option selected disabled>Select one</option>
                                 </select>
                                 <span asp-validation-for="PostId" class="text-danger"> </span>
-                            </div>
+                            </div> *@
                           
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

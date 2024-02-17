@@ -82,9 +82,10 @@
                                             <li class="category"><a href="blog.html">@item.Category.Name</a></li>
                                             <li><span class="by">By</span> <a href="blog.html">@Model.LastestPost.FirstOrDefault().CreatedBy</a></li>
                                         </ul>
-                                        <h4 class="title tgcommon__hover"><a href="blog-details.html">Scientists speculate that ours might not be held</a></h4>
+                                        <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                         <ul class="post__activity list-wrap">
-                                            <li><i class="mdi mdi-heart"></i>@item.LikeCount</li>
+                                             
+                                            <li><i class="fal fa-heart"></i>@item.LikeCount</li>
                                             <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
@@ -285,7 +286,7 @@
                                     </ul>
                                     <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                     <ul class="post__activity list-wrap">
-                                        <li><i class="fal fa-signal"></i>@item.LikeCount</li>
+                                        <li><i class="fal fa-heart"></i>@item.LikeCount</li>
                                         <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.LikeCount</a></li>
                                         <li><i class="fal fa-share-alt"></i> 29</li>
                                     </ul>
@@ -353,7 +354,7 @@
                                 </ul>
                                 <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                 <ul class="post__activity list-wrap">
-                                    <li><i class="fal fa-signal"></i> @item.LikeCount</li>
+                                    <li><i class="fal fa-heart"></i> @item.LikeCount</li>
                                     <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                     <li><i class="fal fa-share-alt"></i> 32</li>
                                 </ul>
@@ -396,8 +397,12 @@
                 </div>
             </div>
         </div>
+       
+
     </section>
     <!-- newsletter-area-end -->
 
 </main>
-<!-- main-area-end -->  
+
+<!-- main-area-end -->
+

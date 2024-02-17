@@ -37,7 +37,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             }
             if (await _repository.IsExist(l => l.Name == Vm.Name))
             {
-                modelstate.AddModelError("Name", "This group is already exist");
+                modelstate.AddModelError("Name", "This Name is already exist");
                 return false;
             }
             await _repository.AddAsync(_mapper.Map<Category>(Vm));

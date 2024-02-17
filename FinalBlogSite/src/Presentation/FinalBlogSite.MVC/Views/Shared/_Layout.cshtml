@@ -99,7 +99,7 @@
                                 <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
                                     <ul class="navigation">
                                         <li class="active menu-item-has-children">
-                                            <a href="#">Home</a>
+                                            <a asp-action="index" asp-controller="home">Home</a>
                                             <ul class="sub-menu">
                                                 <li class="active"><a href="index.html">Home Default</a></li>
                                                 <li><a href="index-2.html">Home Interior</a></li>
@@ -111,7 +111,21 @@
                                                 <li><a href="index-8.html">Home Minimal</a></li>
                                             </ul>
                                         </li>
-                                        <li><a asp-action="profile" asp-controller="home">Lifestyle</a></li>
+                                        
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            if (User.IsInRole("Member"))
+                                            {
+                                                <li><a asp-action="memberprofile" asp-controller="home">My Profile</a></li>
+                                            }
+                                            if (User.IsInRole("Author"))
+                                            {
+                                                <li><a asp-action="profile" asp-controller="home">My Profile</a></li>
+
+                                            }
+                                            
+
+                                        }
                                         <li><a href="travel.html">Travel</a></li>
                                         <li class="menu-item-has-children">
                                             <a href="#">Post Type</a>
@@ -150,7 +164,19 @@
                                                 <a class="dropdown-item" asp-action="register" asp-controller="account" asp-area="manage">Register</a>
                                             </li>
                                         }
-                                        <li class="user"><a asp-action="profile" asp-controller="home"><i class="far fa-user"></i></a></li>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            if (User.IsInRole("Member"))
+                                            {
+                                                <li class="user"><a asp-action="memberprofile" asp-controller="home"><i class="far fa-user"></i></a></li>
+                                                
+                                            }
+                                            if (User.IsInRole("Author"))
+                                            {
+                                                <li class="user"><a asp-action="profile" asp-controller="home"><i class="far fa-user"></i></a></li>
+
+                                            }
+                                        }
                                         <li class="header-cart"><a href="#"><i class="far fa-shopping-basket"></i></a></li>
                                     </ul>
                                 </div>

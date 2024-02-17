@@ -6,6 +6,8 @@ using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json.Linq;
 using Humanizer;
+using Microsoft.AspNetCore.SignalR;
+using FinalBlogSite.Application.ViewModels.MailSender;
 
 namespace FinalBlogSite.MVC.Areas.Manage.Controllers
 {
@@ -14,20 +16,24 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
     public class AccountController : Controller
     {
         private readonly IAuthService _accountService;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IMailService _mailService;
 
-        public AccountController(IAuthService accountService)
+        public AccountController(IAuthService accountService,UserManager<AppUser> userManager ,IMailService mailService)
         {
             _accountService = accountService;
+            _userManager = userManager;
+            _mailService = mailService;
         }
         public IActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register([FromForm] RegisterVM vm)
+        public async Task<IActionResult> Register( RegisterVM vm)
         {
             var result = await _accountService.RegisterAsync(vm, ModelState);
-            if (result) return RedirectToAction("index", "Home");
+            if (result) return RedirectToAction("index", "Home", new { Area = "" });
             return View(vm);
         }
         public IActionResult LogIn()
@@ -50,16 +56,53 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         }
         public async  Task<IActionResult> LogOut()
         {
-           var result= await _accountService.Logout();
-            if (result) return RedirectToAction("index", "Home", new { Area = "" });
+            await _accountService.Logout();
+            return RedirectToAction("index", "Home", new { Area = "" });
 
-            return View();
 
         }
         public async Task<IActionResult> CreateRole()
         {
             await _accountService.CreateRoles();
             return RedirectToAction("index", "Home", new { Area = "" });
+        }
+        public async Task<IActionResult> ForgotPassword()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM vM)
+        {
+            if (!ModelState.IsValid) return View(vM);
+            var user=await _userManager.FindByEmailAsync(vM.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("Email", "Email not Found");
+                return View(vM);
+            }
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string link = Url.Action("ResetPassword","Account",new {userId=user.Id,Token=token},HttpContext.Request.Scheme);
+            await _mailService.SendEmailAsync(new MailRequestVM { ToEmail = vM.Email, Subject = "ResetPasswords", Body = $"<a href='{link}'>ResetPassword</a>" });
+            return RedirectToAction(nameof(LogIn));
+        }
+        public async Task<IActionResult> ResetPassword(string userId,string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            var User =await _userManager.FindByIdAsync(userId);
+            if (User == null) return NotFound();
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM vm, string userId, string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            if (!ModelState.IsValid) return View(vm);
+            var User = await _userManager.FindByIdAsync(userId);
+            if (User == null) return NotFound();
+            var IdentityUser=await _userManager.ResetPasswordAsync(User,token,vm.ConfirmPassword);
+            return RedirectToAction(nameof(LogIn));
         }
     }
 }

@@ -24,13 +24,14 @@ namespace FinalBlogSite.Application.Abstractions.Repositories.Generic
             params string[] includes);
         Task<bool> IsExist(Expression<Func<T, bool>> expression);
         Task<T> GetByIdAsync(int id, bool isTracking = false, bool queryFilter = false, params string[] includes);
-        Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool isTracking = false, bool queryFilter = false, params string[] includes);
+        Task<T> GetByExpressionAsync(Expression<Func<T, bool>> expression, bool? isDeleted = false, bool isTracking = false, bool queryFilter = false, params string[] includes);
         Task AddAsync(T entity);
         void Delete(T entity);
         void Update(T entity);
         Task SaveChangesAsync();
         void Includes(T entity, params string[] includes);
         Task<ICollection<E>> GetEntity<E>() where E : class;
+        IQueryable<T> GetAllnotDeleted(bool isTracking = false, params string[] includes);
 
     }
 }

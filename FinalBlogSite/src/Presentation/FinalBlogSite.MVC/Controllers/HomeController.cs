@@ -31,11 +31,21 @@ namespace FinalBlogSite.MVC.Controllers
         }
         public async Task<IActionResult> Profile()
         {
+            AuthorProfileVM vM = new AuthorProfileVM
+            {
+                AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x=>x.Category).ToListAsync(),
+                AppUser = await _context.AppUsers.ToListAsync(),
+
+            };
+            return View(vM);
+        }
+        public async Task<IActionResult> MemberProfile()
+        {
             ProfileVM vm = new ProfileVM
             {
                 LastestPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderByDescending(x => x.Id).ToListAsync(),
                 RecendPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).ToListAsync(),
-               AppUser=await _context.AppUsers.ToListAsync(),
+                AppUser = await _context.AppUsers.ToListAsync(),
                 CategoryPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x => x.CategoryId).Take(2).ToListAsync(),
 
 
@@ -43,6 +53,7 @@ namespace FinalBlogSite.MVC.Controllers
             };
             return View(vm);
         }
+       
 
 
 

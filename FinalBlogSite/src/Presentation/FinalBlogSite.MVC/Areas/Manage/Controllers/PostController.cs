@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace FinalBlogSite.MVC.Areas.Manage.Controllers
 {
     [Area("Manage")]
-    [Authorize(Roles = "Admin,Author")]
+    //[Authorize(Roles = "Admin,Author")]
 
     public class PostController : Controller
     {
@@ -58,6 +58,14 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             var result = await _postService.DeleteAsync(id);
             if (result) return RedirectToAction(nameof(Index));
             return NotFound();
+        }
+        public async Task<IActionResult> Like(int id)
+        {
+             var result=await _postService.Liked(id);
+            if (result) return RedirectToAction(nameof(Index));
+            return NotFound();
+
+            return View();
         }
     }
 }

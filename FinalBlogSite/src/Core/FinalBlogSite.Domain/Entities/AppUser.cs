@@ -10,7 +10,6 @@ namespace FinalBlogSite.Domain.Entities
 {
     public class AppUser:IdentityUser
     {
-        public int Id { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -23,7 +22,7 @@ namespace FinalBlogSite.Domain.Entities
 
         public ICollection<Post> Posts { get; set; }
         public ICollection<Comment> Comments { get; set; }
-        public ICollection<Followers> Followers { get; set; }
+        public ICollection<Follow> Follows { get; set; }
         public ICollection<Notification> Notifications { get; set; }
 
 

@@ -28,6 +28,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ICategoryRepository _categoryRepository;
+        private Dictionary<int, int> postLikes;
 
         public PostService(IPostRepository postRepository,IMapper mapper,IHttpContextAccessor httpContextAccessor,IWebHostEnvironment webHostEnvironment,ICategoryRepository categoryRepository)
         {
@@ -36,6 +37,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             _httpContextAccessor = httpContextAccessor;
             _webHostEnvironment = webHostEnvironment;
             _categoryRepository = categoryRepository;
+            postLikes = new Dictionary<int, int>();
         }
         public async Task<PaginationVM<Post>> GetAllAsync(int page = 1, int take = 3)
         {
@@ -104,6 +106,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             if (id < 1) throw new Exception("Bad request");
             Post exist = await _postRepository.GetByIdAsync(id);
             if (exist == null) throw new Exception("not found");
+            exist.Images.DeleteFile(_webHostEnvironment.WebRootPath, "assets", "img");
             _postRepository.Delete(exist);
             await _postRepository.SaveChangesAsync();
             return true;
@@ -141,6 +144,18 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             vm.CategoryId = exist.CategoryId;
             vm.Title = exist.Title.Trim();
             return vm;
+        }
+        public async Task<bool> Liked(int id)
+        {
+            if (postLikes.ContainsKey(id))
+            {
+                postLikes[id]++;
+            }
+            else
+            {
+                postLikes[id] = 1;
+            }
+            return true;
         }
     }
 }

@@ -624,12 +624,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\fonts\flaticon.woff2))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\0ed1d48a-6e87-4b0a-8c52-8208a7a029d02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\18cfad0c-5a04-4a86-becc-c9384fd3758d93ecd3d0820e7652fef1f50826b73984.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/0ed1d48a-6e87-4b0a-8c52-8208a7a029d02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
+      <RelativePath>assets/img/18cfad0c-5a04-4a86-becc-c9384fd3758d93ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -638,14 +638,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\0ed1d48a-6e87-4b0a-8c52-8208a7a029d02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\18cfad0c-5a04-4a86-becc-c9384fd3758d93ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\298c54d7-a360-4ab0-9e63-20e0ba4b8cc693ecd3d0820e7652fef1f50826b73984.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\228ed603-b4a3-48c0-8577-dc5f0beb7e0e2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/298c54d7-a360-4ab0-9e63-20e0ba4b8cc693ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
+      <RelativePath>assets/img/228ed603-b4a3-48c0-8577-dc5f0beb7e0e2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -654,14 +654,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\298c54d7-a360-4ab0-9e63-20e0ba4b8cc693ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\228ed603-b4a3-48c0-8577-dc5f0beb7e0e2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\3169ee0c-9b0c-4e47-8aa0-576a1bfc33e32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\55fee7b7-84cf-48ad-856c-771394f48bc893ecd3d0820e7652fef1f50826b73984.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/3169ee0c-9b0c-4e47-8aa0-576a1bfc33e32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
+      <RelativePath>assets/img/55fee7b7-84cf-48ad-856c-771394f48bc893ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -670,14 +670,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\3169ee0c-9b0c-4e47-8aa0-576a1bfc33e32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\55fee7b7-84cf-48ad-856c-771394f48bc893ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\51e080f3-dd7e-4685-9af3-864b2b8293d7325117.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6a708752-02b4-4e94-bd3d-3f8c85385e681184495.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/51e080f3-dd7e-4685-9af3-864b2b8293d7325117.jpg</RelativePath>
+      <RelativePath>assets/img/6a708752-02b4-4e94-bd3d-3f8c85385e681184495.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -686,14 +686,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\51e080f3-dd7e-4685-9af3-864b2b8293d7325117.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6a708752-02b4-4e94-bd3d-3f8c85385e681184495.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\54bc9bd5-e2b1-460d-8def-ea7f69857c9393ecd3d0820e7652fef1f50826b73984.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\8ff81f57-7569-4f8c-958e-4e7e8e98bfa093ecd3d0820e7652fef1f50826b73984.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/54bc9bd5-e2b1-460d-8def-ea7f69857c9393ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
+      <RelativePath>assets/img/8ff81f57-7569-4f8c-958e-4e7e8e98bfa093ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -702,183 +702,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\54bc9bd5-e2b1-460d-8def-ea7f69857c9393ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\5dd64b8e-8f79-48c9-a48e-7b3a99ec7e6a93ecd3d0820e7652fef1f50826b73984.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/5dd64b8e-8f79-48c9-a48e-7b3a99ec7e6a93ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\5dd64b8e-8f79-48c9-a48e-7b3a99ec7e6a93ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6845f5c6-a5db-41c4-83dc-aa24c20ab6602srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/6845f5c6-a5db-41c4-83dc-aa24c20ab6602srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6845f5c6-a5db-41c4-83dc-aa24c20ab6602srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\69398b69-4ac3-4996-9e19-19e0a871fb782srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/69398b69-4ac3-4996-9e19-19e0a871fb782srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\69398b69-4ac3-4996-9e19-19e0a871fb782srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\69b77d2f-1f4a-4cbc-a574-23f61af7c4c32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/69b77d2f-1f4a-4cbc-a574-23f61af7c4c32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\69b77d2f-1f4a-4cbc-a574-23f61af7c4c32srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6cd63844-940a-4626-a753-39781c035ed02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/6cd63844-940a-4626-a753-39781c035ed02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6cd63844-940a-4626-a753-39781c035ed02srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6fef9959-df04-42dc-9451-e7fa6736ac4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/6fef9959-df04-42dc-9451-e7fa6736ac4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\6fef9959-df04-42dc-9451-e7fa6736ac4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\820a8f22-8ed3-40e4-a10a-2f53b1d62e342srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/820a8f22-8ed3-40e4-a10a-2f53b1d62e342srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\820a8f22-8ed3-40e4-a10a-2f53b1d62e342srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\85190d1a-0681-40c0-9ac7-2aff536b9cf493ecd3d0820e7652fef1f50826b73984.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/85190d1a-0681-40c0-9ac7-2aff536b9cf493ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\85190d1a-0681-40c0-9ac7-2aff536b9cf493ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\86849623-8c68-4841-86a9-61f45d3bbdee2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/86849623-8c68-4841-86a9-61f45d3bbdee2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\86849623-8c68-4841-86a9-61f45d3bbdee2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\875a4955-28b3-4210-8dd1-46874edebabe2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/875a4955-28b3-4210-8dd1-46874edebabe2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\875a4955-28b3-4210-8dd1-46874edebabe2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\a53e946e-d25e-4b6e-bce5-9f272f050e8a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/a53e946e-d25e-4b6e-bce5-9f272f050e8a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\a53e946e-d25e-4b6e-bce5-9f272f050e8a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\8ff81f57-7569-4f8c-958e-4e7e8e98bfa093ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\adventure\adventure01.jpg))">
       <SourceType>Package</SourceType>
@@ -1071,22 +895,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\adventure\adventure12.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\be4cdc31-6863-4f40-af3a-c8f05a6322472srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/be4cdc31-6863-4f40-af3a-c8f05a6322472srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\be4cdc31-6863-4f40-af3a-c8f05a6322472srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\bg\banner_bg.jpg))">
       <SourceType>Package</SourceType>
@@ -1840,22 +1648,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\blog\blog30.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\c96731d4-01f5-4532-8a88-05570a621b222srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/c96731d4-01f5-4532-8a88-05570a621b222srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\c96731d4-01f5-4532-8a88-05570a621b222srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\category\category01.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
@@ -2096,54 +1888,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\category\trending_thumb02.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\d248f65c-d5b1-4760-be4d-76183bcf9bdf93ecd3d0820e7652fef1f50826b73984.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/d248f65c-d5b1-4760-be4d-76183bcf9bdf93ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\d248f65c-d5b1-4760-be4d-76183bcf9bdf93ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\d264e1b4-733c-4946-b641-9d268f22fb0a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/d264e1b4-733c-4946-b641-9d268f22fb0a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\d264e1b4-733c-4946-b641-9d268f22fb0a2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\e88a7b13-e585-4423-9161-a7fc580a1e4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/e88a7b13-e585-4423-9161-a7fc580a1e4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\e88a7b13-e585-4423-9161-a7fc580a1e4b2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\favicon.png))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>
@@ -2159,22 +1903,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\favicon.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\fb017554-2076-41bf-92e2-cbb6241e23cd2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalBlogSite.MVC</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalBlogSite.MVC</BasePath>
-      <RelativePath>assets/img/fb017554-2076-41bf-92e2-cbb6241e23cd2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\fb017554-2076-41bf-92e2-cbb6241e23cd2srsSpuZG0821IdAizBRdVVivfdyTCpMwNnT.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\instagram\insta01.jpg))">
       <SourceType>Package</SourceType>

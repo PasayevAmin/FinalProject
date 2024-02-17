@@ -37,7 +37,7 @@
                                 <span asp-validation-for="Photo" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="CategoryId">Cattegory</label>
+                                <label asp-for="CategoryId">Category</label>
                                 <select asp-for="CategoryId" asp-items="new SelectList(Model.Categories,nameof(Category.Id),nameof(Category.Name))">
                                     <option selected disabled>Select one</option>
                                 </select>

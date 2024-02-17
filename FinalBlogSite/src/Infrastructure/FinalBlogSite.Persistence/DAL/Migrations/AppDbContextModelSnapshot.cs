@@ -129,7 +129,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedAt")
@@ -166,7 +166,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<int>("LikeCount")
@@ -187,7 +187,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Followers", b =>
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Follow", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -195,16 +195,12 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("FollowerId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("FollowerId1")
-                        .IsRequired()
+                    b.Property<string>("FollowerId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FollowerId1");
+                    b.HasIndex("FollowerId");
 
                     b.ToTable("Folowers");
                 });
@@ -258,7 +254,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Property<string>("Images")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool?>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<int?>("LikeCount")
@@ -429,13 +425,11 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                     b.Navigation("Post");
                 });
 
-            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Followers", b =>
+            modelBuilder.Entity("FinalBlogSite.Domain.Entities.Follow", b =>
                 {
                     b.HasOne("FinalBlogSite.Domain.Entities.AppUser", "Follower")
-                        .WithMany("Followers")
-                        .HasForeignKey("FollowerId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Follows")
+                        .HasForeignKey("FollowerId");
 
                     b.Navigation("Follower");
                 });
@@ -519,7 +513,7 @@ namespace FinalBlogSite.Persistence.DAL.Migrations
                 {
                     b.Navigation("Comments");
 
-                    b.Navigation("Followers");
+                    b.Navigation("Follows");
 
                     b.Navigation("Notifications");
 
