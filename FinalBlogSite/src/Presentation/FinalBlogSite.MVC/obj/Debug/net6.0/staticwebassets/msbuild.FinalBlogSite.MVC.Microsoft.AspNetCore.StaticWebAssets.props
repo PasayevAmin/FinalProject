@@ -624,6 +624,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\fonts\flaticon.woff2))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FinalBlogSite.MVC</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FinalBlogSite.MVC</BasePath>
+      <RelativePath>assets/img/4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\img\a2520c42-df47-4c67-b1e3-95e73a791fb793ecd3d0820e7652fef1f50826b73984.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalBlogSite.MVC</SourceId>

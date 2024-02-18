@@ -6,6 +6,7 @@ using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Application.ViewModels.Comment;
 using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
+using FinalBlogSite.MVC.MiddleWears.Exseptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -75,9 +76,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> DeleteAsync(int id)
         {
-            if (id < 0) throw new Exception("Bad request");
+            if (id < 0) throw new WrongRequestExceptions("Bad request");
             Comment exist = await _comment.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
             _comment.Delete(exist);
             await _comment.SaveChangesAsync();
             return true;
@@ -85,11 +86,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<PaginationVM<Comment>> GetAllAsync(int page = 1, int take = 3)
         {
-            if (page < 1 || take < 1) throw new Exception("Bad request");
+            if (page < 1 || take < 1) throw new WrongRequestExceptions("Bad request");
             ICollection<Comment> comments = await _comment.GetAllWhere(skip: (page - 1) * take, take: take, orderexpression: x => x.Id, isDescending: true).ToListAsync();
-            if (comments == null) throw new Exception("Not Found");
+            if (comments == null) throw new NotFoundExceptions("Not Found");
             int count = await _comment.GetAll().CountAsync();
-            if (count < 0) throw new Exception("Not Found");
+            if (count < 0) throw new NotFoundExceptions("Not Found");
             double totalpage = Math.Ceiling((double)count / take);
             PaginationVM<Comment> vm = new PaginationVM<Comment>
             {
@@ -102,9 +103,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> UpdateAsync(int id, CommentUpdateVM vm, ModelStateDictionary modelstate)
         {
-            if (id < 0) throw new Exception("Bad Request");
+            if (id < 0) throw new WrongRequestExceptions("Bad Request");
             Comment exist = await _comment.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
 
             if (vm.Content != exist.Content)
             {
@@ -129,9 +130,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<CommentUpdateVM> UpdatedAsync(int id, CommentUpdateVM vm)
         {
-            if (id < 0) throw new Exception("Bad request");
+            if (id < 0) throw new WrongRequestExceptions("Bad request");
             Comment exist = await _comment.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
             vm.Posts = await _post.GetAll().ToListAsync();
             vm.Content = exist.Content.Trim();
             vm.LikeCount = exist.LikeCount;

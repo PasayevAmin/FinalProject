@@ -7,6 +7,7 @@ using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Application.ViewModels.Comment;
 using FinalBlogSite.Application.ViewModels.Posts;
 using FinalBlogSite.Domain.Entities;
+using FinalBlogSite.MVC.MiddleWears.Exseptions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -47,11 +48,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<PaginationVM<Post>> GetAllAsync(int page = 1, int take = 3)
         {
-            if (page < 1 || take < 1) throw new Exception("Bad request");
+            if (page < 1 || take < 1) throw new WrongRequestExceptions("Bad request");
             ICollection<Post> comments = await _postRepository.GetAllWhere(skip: (page - 1) * take, take: take, orderexpression: x => x.Id, isDescending: true).ToListAsync();
-            if (comments == null) throw new Exception("Not Found");
+            if (comments == null) throw new NotFoundExceptions("Not Found");
             int count = await _postRepository.GetAll().CountAsync();
-            if (count < 0) throw new Exception("Not Found");
+            if (count < 0) throw new NotFoundExceptions("Not Found");
             double totalpage = Math.Ceiling((double)count / take);
             PaginationVM<Post> vm = new PaginationVM<Post>
             {
@@ -109,9 +110,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<bool> DeleteAsync(int id)
         {
-            if (id < 1) throw new Exception("Bad request");
+            if (id < 1) throw new WrongRequestExceptions("Bad request");
             Post exist = await _postRepository.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
             exist.Images.DeleteFile(_webHostEnvironment.WebRootPath, "assets", "img");
             _postRepository.Delete(exist);
             await _postRepository.SaveChangesAsync();
@@ -119,10 +120,10 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<bool> UpdateAsync(int id, PostUpdateVM vm, ModelStateDictionary modelstate)
         {
-            if (id < 0) throw new Exception("Bad Request");
+            if (id < 0) throw new WrongRequestExceptions("Bad Request");
             if (!modelstate.IsValid) return false;
             Post exist = await _postRepository.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
 
             if (!await _categoryRepository.IsExist(s => s.Id == vm.CategoryId))
             {
@@ -141,9 +142,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<PostUpdateVM> UpdatedAsync(int id, PostUpdateVM vm)
         {
-            if (id < 0) throw new Exception("Bad request");
+            if (id < 0) throw new WrongRequestExceptions("Bad request");
             Post exist = await _postRepository.GetByIdAsync(id);
-            if (exist == null) throw new Exception("not found");
+            if (exist == null) throw new NotFoundExceptions("not found");
             vm.Categories = await _categoryRepository.GetAll().ToListAsync();
             vm.Content = exist.Content.Trim();
             vm.LikeCount = exist.LikeCount;
@@ -186,31 +187,52 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         }
         public async Task<bool> LikePost(int postId)
         {
-            var currentUserId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.Users.Include(x => x.Likes)
-                .SingleOrDefaultAsync(u => u.Id == currentUserId);
+           
+                var currentUserId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                if (currentUserId == null)
+                {
+                    
+                    return false;
+                }
 
-            var post = await _postRepository.GetSingleAsync(p => p.Id == postId);
+                var currentUser = await _userManager.Users.Include(x => x.Likes)
+                    .SingleOrDefaultAsync(u => u.Id == currentUserId);
 
-            var existingLike = await _likeRepository.GetSingleAsync(l => l.PostId == postId && l.LikerId == currentUser.Id);
-            if (currentUser.Likes.Any(x => x.PostId == postId))
-            {
-                return false;
-            }
-            var like = new Like
-            {
-                LikerId = currentUser.Id,
-                PostId = postId
-            };
+                if (currentUser == null)
+                {
+                   
+                    return false;
+                }
 
-            await _likeRepository.CreateAsync(like);
+                var existingLike = await _likeRepository.GetSingleAsync(l => l.PostId == postId && l.LikerId == currentUser.Id);
+                if (existingLike != null)
+                {
+                    
+                    return false;
+                }
 
-            post.LikeCount++;
+                var like = new Like
+                {
+                    LikerId = currentUser.Id,
+                    PostId = postId
+                };
 
-            _postRepository.Update(post);
+                await _likeRepository.CreateAsync(like);
 
-            await _postRepository.SaveChangesAsync();
-            return true;
+                var post = await _postRepository.GetSingleAsync(p => p.Id == postId);
+                if (post == null)
+                {
+                   
+                    return false;
+                }
+
+                post.LikeCount++;
+                _postRepository.Update(post);
+
+                await _postRepository.SaveChangesAsync();
+                return true; 
+            
+
         }
         public async Task<bool> UnlikePost(int postId)
         {

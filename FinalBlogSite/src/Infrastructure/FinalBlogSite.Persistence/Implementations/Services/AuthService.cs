@@ -61,6 +61,10 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             await _followerRepository.CreateAsync(foll);
             await _followerRepository.SaveChangesAsync();
         }
+        public async Task<AppUser> GetUserById(string userId)
+        {
+            return await _userManager.FindByIdAsync(userId);
+        }
         public async Task Unfollow(string followedId)
         {
             string userId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;

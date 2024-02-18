@@ -1,5 +1,8 @@
 ﻿@using FinalBlogSite.Domain.Enums;
 @model AuthorProfileVM
+@{
+    bool isFollowing = Model.Follows.Any(x => x.FollowerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -106,17 +109,7 @@
                                 </div>
                             }
                             
-                            <div class="pagination__wrap">
-                                <ul class="list-wrap">
-                                    <li class="@(Model.Posts.CurrentPage<=1?"disabled":"")"><a asp-action="profile" asp-controller="home" asp-route-page="@Model.Posts.CurrentPage-1">Previous</a></li>
-                                    @for (int i = 0; i < Model.Posts.TotalPage; i++)
-                                    {
-                                        <li class=" @(Model.Posts.CurrentPage-1==i?"active":"")"><a asp-route-page="@(i+1)" asp-action="profile" asp-controller="home">@(i+1)</a></li>
-
-                                    }
-                                    <li class="@(Model.Posts.TotalPage<=Model.Posts.CurrentPage?"disabled":"")"><a asp-route-page="@(Model.Posts.CurrentPage+1)" asp-action="profile" asp-controller="home"><i class="fas fa-angle-double-right"></i></a></li>
-                                </ul>
-                            </div>
+                            @await Html.PartialAsync("PaginationPartialView",Model.Posts)
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6">
@@ -131,11 +124,41 @@
                                         <span class="designation">@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name)?.Author.Role.ToString()</span>
                                         
                                     </div>
-                                    <form method="post">
-                                    <a  asp-action="create" asp-controller="follower" asp-area="manage">
-                                        <img src="https://cdn.pixabay.com/photo/2021/03/18/10/21/subscribe-6104536_1280.png" alt="Follow" style=" width: 150px; height: 150px;">
-                                    </a>
-                                    </form>
+                                    @if (User.Identity.Name == Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName)
+                                    {
+                                        <div class="social-links">
+                                            <ul class="header-nav d-flex flex-wrap justify-start p-0 m-0">
+                                                <li><a asp-action="Edit" asp-route-username="@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName"><i class="ri-pencil-line"></i></a></li>
+                                                <li><a href="javascript:void();"><i class="ri-settings-4-line"></i></a></li>
+                                            </ul>
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        if (!isFollowing)
+                                        {
+                                            <div class="social-links">
+                                                <ul class="header-nav d-flex flex-wrap justify-start p-0 m-0">
+                                                    <a asp-controller="Profile" asp-action="Follow" asp-route-followeeId="@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.Id">
+                                                    <li class=" rounded p-2  mr-3"> Follow</li></a>
+
+                                                </ul>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="social-links">
+                                                <ul class="header-nav d-flex flex-wrap justify-start p-0 m-0">
+                                                    <a asp-controller="Profile" asp-action="Unfollow" asp-route-followeeId="@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.Id">
+                                                    <li class=" rounded p-2  mr-3"> Unfollow</li></a>
+
+                                                </ul>
+                                            </div>
+                                        }
+
+
+                                    }
 
                                     <div class="tgAbout-social">
                                         

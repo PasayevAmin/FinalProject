@@ -65,8 +65,9 @@ namespace FinalBlogSite.MVC.Controllers
             {
                 AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x=>x.Category).Include(x=>x.Author).ToListAsync(),
                 //AppUser = await _context..ToListAsync(),
-                Posts = await _postService.GetAllAsync(page, take)
-
+                Posts = await _postService.GetAllAsync(page, take),
+                Follows=await _context.Folowers.ToListAsync(),
+                
             };
              
             if (vM.Posts.Items == null) return NotFound();
@@ -80,12 +81,17 @@ namespace FinalBlogSite.MVC.Controllers
                 RecendPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).ToListAsync(),
                 CategoryPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x => x.CategoryId).Take(2).ToListAsync(),
 
-
+                
 
             };
             return View(vm);
         }
-       
+        public async Task<IActionResult> ErrorPage(string error = "it stopped")
+        {
+            return View(model: error);
+        }
+
+
 
 
 

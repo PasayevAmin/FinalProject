@@ -103,7 +103,7 @@
                                                         if (item.Likes.Any(like => like.LikerId == item.Author.Id))
                                                         {
                                                             <span>
-                                                                <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-postId="@item.Id">
+                                                                <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
                                                                     <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="mdi mdi-heart"></i>
                                                                 </a>
                                                             </span>
@@ -116,7 +116,7 @@
                                                     {
 
                                                         <span>
-                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-postId="@item.Id">
+                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
                                                                 <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
                                                             </a>
                                                         </span>
@@ -453,39 +453,40 @@
 <!-- main-area-end -->
 @section likescripts {
     <script>
-        $(document).ready(function () {
-            $(document).on('click', '.likeToggle', function (e) {
-                e.preventDefault();
-
-                var likeToggleElement = $(this);
-                var postId = likeToggleElement.data('post-id');
-                var liked = likeToggleElement.data('liked');
-                var likeCountElement = $('.total-like-block span');
-
-                // Toggle the state
-                likeToggleElement.data('liked', !liked);
-                var icon = likeToggleElement.find('i');
-                if (liked) {
-                    icon.removeClass('mdi mdi-heart').addClass('fal fa-heart');
-                } else {
-                    icon.removeClass('fal fa-heart').addClass('mdi mdi-heart');
-                }
-
-                // Send AJAX request to the server to update the database
-                $.ajax({
-                    url: liked ? '/Post/UnlikePost' : '/Post/LikePost',
-                    type: 'POST',
-                    data: { postId: postId },
-                    success: function (data) {
-                        var newLikeCount = parseInt(likeCountElement.text());
-                        newLikeCount += liked ? -1 : 1;
-                        likeCountElement.text(newLikeCount);
-                    },
-                    error: function (error) {
-                        console.error('Error:', error);
+        // Like işlemini AJAX ile gerçekleştir
+        document.getElementById("likeForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            fetch(this.action, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload(); // Sayfayı yenile
+                    } else {
+                        console.error('Failed to like the post.');
                     }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                 });
-            });
+        });
+
+        // Unlike işlemini AJAX ile gerçekleştir
+        document.getElementById("unlikeForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            fetch(this.action, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload(); // Sayfayı yenile
+                    } else {
+                        console.error('Failed to unlike the post.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
     </script>
 

@@ -4,6 +4,7 @@ using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
 using FinalBlogSite.Domain.Entities;
+using FinalBlogSite.MVC.MiddleWears.Exseptions;
 using FinalBlogSite.Persistence.DAL;
 using FinalBlogSite.Persistence.Implementations.Repositories;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -47,11 +48,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<CategoryUpdateVM> Update(int id)
         {
-            if (id <= 0) throw new Exception("Bad Request");
+            if (id <= 0) throw new WrongRequestExceptions("Bad Request");
 
             Category category = await _repository.GetByIdAsync(id, true);
 
-            if (category == null) throw new Exception("Not Found");
+            if (category == null) throw new NotFoundExceptions("Not Found");
             CategoryUpdateVM categoryVM = new CategoryUpdateVM
             {
                 Name = category.Name,
@@ -64,11 +65,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> Delete(int id)
         {
-            if (id <= 0) throw new Exception("Bad Request");
+            if (id <= 0) throw new WrongRequestExceptions("Bad Request");
 
             Category existed = await _repository.GetByIdAsync(id, true);
 
-            if (existed == null) throw new Exception("Not Found");
+            if (existed == null) throw new NotFoundExceptions("Not Found");
 
             _repository.Delete(existed);
 
@@ -80,11 +81,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<bool> UpdatePost(int id, CategoryUpdateVM vM,ModelStateDictionary modelstate)
         {
-            if (id <= 0) throw new Exception("Bad Request");
+            if (id <= 0) throw new WrongRequestExceptions("Bad Request");
 
             Category existed = await _repository.GetByIdAsync(id, true);
 
-            if (existed == null) throw new Exception("Not Found");
+            if (existed == null) throw new NotFoundExceptions("Not Found");
 
             //if (await _repository.IsExist(l => l.Name == vM.Name&& l.Id==id))
             //{
@@ -99,11 +100,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
         public async Task<PaginationVM<Category>> GetAllAsync(int page = 1, int take = 3)
         {
-            if (page < 1 || take < 1) throw new Exception("Bad request");
+            if (page < 1 || take < 1) throw new WrongRequestExceptions("Bad request");
             ICollection<Category> categories = await _repository.GetAllWhere(skip: (page - 1) * take, take: take, orderexpression: x => x.Id, isDescending: true).ToListAsync();
-            if (categories == null) throw new Exception("Not Found");
+            if (categories == null) throw new NotFoundExceptions("Not Found");
             int count = await _repository.GetAll().CountAsync();
-            if (count < 0) throw new Exception("Not Found");
+            if (count < 0) throw new NotFoundExceptions("Not Found");
             double totalpage = Math.Ceiling((double)count / take);
             PaginationVM<Category> vm = new PaginationVM<Category>
             {

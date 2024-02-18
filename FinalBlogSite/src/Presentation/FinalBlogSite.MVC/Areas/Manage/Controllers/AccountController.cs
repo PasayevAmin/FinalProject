@@ -109,5 +109,19 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             var IdentityUser=await _userManager.ResetPasswordAsync(User,token,vm.ConfirmPassword);
             return RedirectToAction(nameof(LogIn));
         }
+        public async Task<IActionResult> Follow(string followeeId)
+        {
+            await _accountService.Follow(followeeId);
+            AppUser user = await _accountService.GetUserById(followeeId);
+            return RedirectToAction("User", "Profile", new { username = user.UserName });
+        }
+        public async Task<IActionResult> Unfollow(string followeeId)
+        {
+            await _accountService.Unfollow(followeeId);
+            AppUser user = await _accountService.GetUserById(followeeId);
+            return RedirectToAction("User", "Profile", new { username = user.UserName });
+        }
     }
+
 }
+

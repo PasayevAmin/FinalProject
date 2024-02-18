@@ -12,6 +12,7 @@ namespace FinalBlogSite.Application.ViewModels
         public List<Post> AuthorPost { get; set; }
         public List<AppUser> AppUser { get; set; }
         public PaginationVM<Post> Posts { get; set; }
+        public List<Follow> Follows { get; set; }
 
     }
 }

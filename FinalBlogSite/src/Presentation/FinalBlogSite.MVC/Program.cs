@@ -5,6 +5,7 @@ using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using FinalBlogSite.Application.ServiceRegistration;
 using System.Configuration;
+using FinalBlogSite.MVC.MiddleWears;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,8 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
     );
 });
+app.UseMiddleware<GlobalExceptionMiddlewares>();
+
 
 app.MapControllerRoute(
     name: "default",

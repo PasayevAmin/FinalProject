@@ -24,25 +24,24 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             _postService = postService;
         }
         [HttpPost]
-        public async Task<IActionResult> LikePost(int postId)
+        public async Task<IActionResult> LikedPost(int Id)
         {
-
-            await _postService.LikePost(postId);
-            var updatedPost = await _postService.GetPost(postId);
-            var jsonOptions = new JsonSerializerOptions
+            var likeResult = await _postService.LikePost(Id);
+            if (!likeResult)
             {
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
+                // Hata durumunu işleme alabilirsiniz.
+                return BadRequest("Post cannot be liked.");
+            }
 
-            return Json(updatedPost, jsonOptions);
-
+            return Ok(); // Başarılı yanıt
         }
+
         [HttpPost]
-        public async Task<IActionResult> UnlikePost(int postId)
+        public async Task<IActionResult> UnlikePost(int Id)
         {
 
-            await _postService.UnlikePost(postId);
-            var updatedPost = await _postService.GetPost(postId);
+            await _postService.UnlikePost(Id);
+            var updatedPost = await _postService.GetPost(Id);
             var jsonOptions = new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.Preserve,
@@ -88,32 +87,20 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             if (result) return RedirectToAction(nameof(Index));
             return NotFound();
         }
-        [HttpPost]
-        public async Task<IActionResult> LikedPost(int postId)
-        {
+        //[HttpPost]
+        //public async Task<IActionResult> LikedPost(int postId)
+        //{
 
-            await _postService.LikePost(postId);
-            var updatedPost = await _postService.GetPost(postId);
-            var jsonOptions = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
+        //    await _postService.LikePost(postId);
+        //    var updatedPost = await _postService.GetPost(postId);
+        //    var jsonOptions = new JsonSerializerOptions
+        //    {
+        //        ReferenceHandler = ReferenceHandler.Preserve,
+        //    };
 
-            return Json(updatedPost, jsonOptions);
+        //    return Json(updatedPost, jsonOptions);
 
-        }
-        [HttpPost]
-        public async Task<IActionResult> UnlikedPost(int postId)
-        {
-
-            await _postService.UnlikePost(postId);
-            var updatedPost = await _postService.GetPost(postId);
-            var jsonOptions = new JsonSerializerOptions
-            {
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
-
-            return Json(updatedPost, jsonOptions);
-        }
+        //}
+        
     }
 }

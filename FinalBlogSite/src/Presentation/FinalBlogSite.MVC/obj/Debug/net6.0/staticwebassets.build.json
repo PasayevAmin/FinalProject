@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NhEcOAO7k7q6Wr4BCwZYkHLyMbAgPBEEfT8hGGmQ0VQ=",
+  "Hash": "24DRLh6edmXLg4yacq8vSbaA7yR062Fe9jO/TAWXp1Y=",
   "Source": "FinalBlogSite.MVC",
   "BasePath": "_content/FinalBlogSite.MVC",
   "Mode": "Default",
@@ -712,6 +712,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\flaticon.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\a2520c42-df47-4c67-b1e3-95e73a791fb793ecd3d0820e7652fef1f50826b73984.jpg",

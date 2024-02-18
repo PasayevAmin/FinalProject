@@ -16,7 +16,10 @@ namespace FinalBlogSite.Application.Abstractions.Services
         Task<bool> LogInAsync(LogInVM dto, ModelStateDictionary modelstate);
         Task Logout();
         Task CreateRoles();
+        Task<AppUser> GetUserById(string userId);
         Task<AppUser> GetUserAsync(string userName);
         Task<List<AppUser>> GetUsers(string searchTerm);
+        Task Follow(string followedId);
+        Task Unfollow(string followedId);
     }
 }
