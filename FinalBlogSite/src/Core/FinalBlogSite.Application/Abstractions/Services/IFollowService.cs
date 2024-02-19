@@ -1,5 +1,5 @@
 ﻿using FinalBlogSite.Application.ViewModels.Comment;
-using FinalBlogSite.Application.ViewModels.Follow;
+using FinalBlogSite.Application.ViewModels.Follows;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;

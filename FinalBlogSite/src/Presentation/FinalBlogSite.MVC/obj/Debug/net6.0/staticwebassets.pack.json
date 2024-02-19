@@ -161,6 +161,10 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\flaticon.woff2"
     },
     {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\3f43be25-43cb-4441-b8dd-4628d6857689bjorn_lothbrok_hd_vikings.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\3f43be25-43cb-4441-b8dd-4628d6857689bjorn_lothbrok_hd_vikings.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg"
     },
@@ -215,6 +219,14 @@
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\adventure\\adventure12.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\adventure\\adventure12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\b7f5f345-97a6-4fea-8044-f8b453fb7851ronaldo.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\b7f5f345-97a6-4fea-8044-f8b453fb7851ronaldo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\ba16cf9a-561a-4b90-9694-417cf962e298ronaldo.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\ba16cf9a-561a-4b90-9694-417cf962e298ronaldo.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\bg\\banner_bg.jpg",
@@ -1135,6 +1147,446 @@
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\scss\\utils\\_typography.scss",
       "PackagePath": "staticwebassets\\assets\\scss\\utils\\_typography.scss"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\css\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\plugins\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\contuct\\css\\plugins\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\plugins\\fancybox.min.css",
+      "PackagePath": "staticwebassets\\contuct\\css\\plugins\\fancybox.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\plugins\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\contuct\\css\\plugins\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\plugins\\swiper.min.css",
+      "PackagePath": "staticwebassets\\contuct\\css\\plugins\\swiper.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\css\\style.css",
+      "PackagePath": "staticwebassets\\contuct\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\blog\\8.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\blog\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\8.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\customers\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\customers\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\large\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\large\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\faces\\large\\1.png",
+      "PackagePath": "staticwebassets\\contuct\\img\\faces\\large\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\icons\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\icons\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\icons\\zoom.svg",
+      "PackagePath": "staticwebassets\\contuct\\img\\icons\\zoom.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\partners\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\partners\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\partners\\1.svg",
+      "PackagePath": "staticwebassets\\contuct\\img\\partners\\1.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\partners\\2.svg",
+      "PackagePath": "staticwebassets\\contuct\\img\\partners\\2.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\photo\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\photo\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\photo\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\photo\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\photo\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\photo\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\1\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\1\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2\\1.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2\\1.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\2\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\2\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\3\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\3\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\4\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\4\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\2.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\3.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\3.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\4.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\5.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\5.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\5\\7.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\5\\7.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\1.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\2.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\2.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\3.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\4.gif",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\4.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\5.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\6.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\7.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\img\\works\\6\\8.jpg",
+      "PackagePath": "staticwebassets\\contuct\\img\\works\\6\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\js\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\main.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\.DS_Store",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\ScrollTo.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\ScrollTo.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\ScrollTrigger.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\ScrollTrigger.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\fancybox.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\fancybox.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\gsap.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\gsap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\jquery.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\smooth-scroll.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\smooth-scroll.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\swiper.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\swiper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\swup.min.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\swup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\js\\plugins\\tilt.js",
+      "PackagePath": "staticwebassets\\contuct\\js\\plugins\\tilt.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\scss\\_common.scss",
+      "PackagePath": "staticwebassets\\contuct\\scss\\_common.scss"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\scss\\_components.scss",
+      "PackagePath": "staticwebassets\\contuct\\scss\\_components.scss"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\contuct\\scss\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\contuct\\scss\\style.scss",
+      "PackagePath": "staticwebassets\\contuct\\scss\\style.scss"
     },
     {
       "Id": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\manage\\css\\maps\\style.css.map",

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FinalBlogSite.Application.ViewModels.Comment;
-using FinalBlogSite.Application.ViewModels.Follow;
+using FinalBlogSite.Application.ViewModels.Follows;
 using FinalBlogSite.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,6 @@ namespace FinalBlogSite.Application.MappingProfile
         public FollowProfile()
         {
             CreateMap<CreateFollowVM, Follow>();
-            CreateMap<UpdateFollowVM, Follow>().ReverseMap();
         }
     }
 }

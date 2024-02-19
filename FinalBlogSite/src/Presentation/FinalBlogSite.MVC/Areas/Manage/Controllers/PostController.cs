@@ -29,11 +29,11 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             var likeResult = await _postService.LikePost(Id);
             if (!likeResult)
             {
-                // Hata durumunu işleme alabilirsiniz.
+                
                 return BadRequest("Post cannot be liked.");
             }
 
-            return Ok(); // Başarılı yanıt
+            return Ok(); 
         }
 
         [HttpPost]
@@ -65,7 +65,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         public async Task<IActionResult> Create(PostCreateVM vm)
         {
             if (await _postService.CreateAsync(vm, ModelState))
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Profile", "Home", new {Area=""});
             return View(await _postService.CreatedAsync(vm));
         }
         public async Task<IActionResult> Update(int id)

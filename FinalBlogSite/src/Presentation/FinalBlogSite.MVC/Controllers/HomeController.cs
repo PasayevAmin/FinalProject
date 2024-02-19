@@ -63,7 +63,7 @@ namespace FinalBlogSite.MVC.Controllers
         {
             AuthorProfileVM vM = new AuthorProfileVM
             {
-                AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x=>x.Category).Include(x=>x.Author).ToListAsync(),
+                AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x=>x.Category).Include(x=>x.Author).OrderByDescending(x=>x.CreatedAt).ToListAsync(),
                 //AppUser = await _context..ToListAsync(),
                 Posts = await _postService.GetAllAsync(page, take),
                 Follows=await _context.Folowers.ToListAsync(),
@@ -89,6 +89,10 @@ namespace FinalBlogSite.MVC.Controllers
         public async Task<IActionResult> ErrorPage(string error = "it stopped")
         {
             return View(model: error);
+        }
+        public IActionResult ContuctUs()
+        {
+            return View();
         }
 
 

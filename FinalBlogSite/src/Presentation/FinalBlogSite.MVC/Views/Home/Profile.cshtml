@@ -1,7 +1,8 @@
-﻿@using FinalBlogSite.Domain.Enums;
+﻿
+@using FinalBlogSite.Domain.Enums;
 @model AuthorProfileVM
 @{
-    bool isFollowing = Model.Follows.Any(x => x.FollowerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
+    // bool isFollowing = Model.Follows.Any(x => x.FollowerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
 }
 <!doctype html>
 <html class="no-js" lang="en">
@@ -99,12 +100,19 @@
                                             <li class="category"><a href="blog.html">@item.Category.Name</a></li>
                                             <li><span class="by">By</span> <a href="blog.html">@item.Author.UserName</a></li>
                                             <li>@item.CreatedAt</li>
+
                                         </ul>
                                         <h3 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h3>
                                         <p>@item.Content</p>
-                                        <div class="latest__post-read-more">
+                                        @* <div class="latest__post-read-more">
                                             <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                        </div>
+                                        </div> *@
+                                        <ul class="tgbanner__content-meta list-wrap">
+                                            <li><a href="blog-details.html"><i class="fal fa-heart"></i> @item.LikeCount</a></li>
+
+                                            <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+                                            <li><i class="fal fa-share-alt"></i> 29</li>
+                                        </ul>
                                     </div>
                                 </div>
                             }
@@ -124,7 +132,10 @@
                                         <span class="designation">@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name)?.Author.Role.ToString()</span>
                                         
                                     </div>
-                                    @if (User.Identity.Name == Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName)
+                                    <div class="tgAbout-create">
+                                        <a class="btn btn-success" asp-action="create" asp-controller="post" asp-area="manage">Share Post</a>
+                                    </div>
+                                   @*  @if (User.Identity.Name == Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName)
                                     {
                                         <div class="social-links">
                                             <ul class="header-nav d-flex flex-wrap justify-start p-0 m-0">
@@ -158,7 +169,7 @@
                                         }
 
 
-                                    }
+                                    } *@
 
                                     <div class="tgAbout-social">
                                         
@@ -204,7 +215,7 @@
                                             <img src="~/assets/img/instagram/insta_logo.png" alt="img">
                                         </div>
                                         <div class="sidebarInsta__info">
-                                            <h6 class="name"><a href="#">ins.co/sarso.co</a></h6>
+                                            <h6 class="name"><a href="#">@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName</a></h6>
                                             <span class="designation">Code Supply Co.</span>
                                         </div>
                                     </div>

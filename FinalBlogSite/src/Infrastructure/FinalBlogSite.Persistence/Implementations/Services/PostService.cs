@@ -87,10 +87,11 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             Post post = new Post
             {
                 Title = vm.Title.Trim(),
-                
+
                 Content = vm.Content.Trim(),
-                LikeCount = vm.LikeCount,
+                LikeCount = 0,
                 CreatedAt = DateTime.Now,
+                CommentCount = 0,
                 Images = filename,
                 CategoryId = vm.CategoryId,
 
@@ -134,6 +135,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             exist.Content = vm.Content.Trim();
             exist.LikeCount = vm.LikeCount;
             exist.CategoryId = vm.CategoryId;
+            exist.CommentCount=vm.CommentCount;
            
 
             _postRepository.Update(exist);
@@ -148,6 +150,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             vm.Categories = await _categoryRepository.GetAll().ToListAsync();
             vm.Content = exist.Content.Trim();
             vm.LikeCount = exist.LikeCount;
+            vm.CommentCount=exist.CommentCount;
             vm.CategoryId = exist.CategoryId;
             vm.Title = exist.Title.Trim();
             return vm;

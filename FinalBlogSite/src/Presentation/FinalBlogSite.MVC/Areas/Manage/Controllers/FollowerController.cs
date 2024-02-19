@@ -1,6 +1,6 @@
 ﻿using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels.Categorys;
-using FinalBlogSite.Application.ViewModels.Follow;
+using FinalBlogSite.Application.ViewModels.Follows;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalBlogSite.MVC.Areas.Manage.Controllers
