@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalBlogSite.Application.ViewModels.Comment
+namespace FinalBlogSite.Application.ViewModels
 {
     public class CommentItemVM
     {

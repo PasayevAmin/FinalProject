@@ -1,4 +1,4 @@
-﻿using FinalBlogSite.Application.ViewModels.Comment;
+﻿using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Follows;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;

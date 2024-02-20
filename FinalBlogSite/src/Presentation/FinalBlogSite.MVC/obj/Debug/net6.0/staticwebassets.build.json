@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WuNjEHQoUS+I7pr3RYArXlOZQ8REMXz1mU+zO19D9Vs=",
+  "Hash": "IiwSGPW4+wOH/+eHyfVZoMJFKu/+G+xSj8zRCBC0JdA=",
   "Source": "FinalBlogSite.MVC",
   "BasePath": "_content/FinalBlogSite.MVC",
   "Mode": "Default",
@@ -714,6 +714,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\flaticon.woff2"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\3b408a2e-6443-4a80-9bc7-55102e636613wp1812254.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/3b408a2e-6443-4a80-9bc7-55102e636613wp1812254.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\3b408a2e-6443-4a80-9bc7-55102e636613wp1812254.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\3f43be25-43cb-4441-b8dd-4628d6857689bjorn_lothbrok_hd_vikings.jpg",
       "SourceId": "FinalBlogSite.MVC",
       "SourceType": "Discovered",
@@ -746,6 +763,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\5a1b06a7-f729-492c-a087-daaa7b46091cbreaking-bad-van-artwork-27.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/5a1b06a7-f729-492c-a087-daaa7b46091cbreaking-bad-van-artwork-27.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\5a1b06a7-f729-492c-a087-daaa7b46091cbreaking-bad-van-artwork-27.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\a2520c42-df47-4c67-b1e3-95e73a791fb793ecd3d0820e7652fef1f50826b73984.jpg",
@@ -2072,6 +2106,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\fe7b2166-c2e1-47ec-9fc3-b0d229199afa44acf0c89a96f3cd5e3aaaa6c7c61dfc.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/fe7b2166-c2e1-47ec-9fc3-b0d229199afa44acf0c89a96f3cd5e3aaaa6c7c61dfc.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\fe7b2166-c2e1-47ec-9fc3-b0d229199afa44acf0c89a96f3cd5e3aaaa6c7c61dfc.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\instagram\\insta_logo.png",

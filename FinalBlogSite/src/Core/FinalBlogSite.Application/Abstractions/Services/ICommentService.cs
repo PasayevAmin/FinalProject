@@ -1,5 +1,5 @@
 ﻿using FinalBlogSite.Application.ViewModels;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Posts;
 using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
@@ -22,6 +22,7 @@ namespace FinalBlogSite.Application.Abstractions.Services
         Task<bool> UpdateAsync(int id, CommentUpdateVM vm, ModelStateDictionary modelstate);
         Task<CommentUpdateVM> UpdatedAsync(int id, CommentUpdateVM vm);
         Task<List<string>> CreateReply(CreateReplyVM vm);
+        Task<CommentIndexVM> GetComment(int postId);
 
 
 

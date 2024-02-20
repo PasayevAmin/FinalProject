@@ -1,5 +1,5 @@
 ﻿using FinalBlogSite.Application.Abstractions.Services;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Persistence.Implementations.Services;
@@ -23,8 +23,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         {
             _postService = postService;
         }
-        [HttpPost]
-        public async Task<IActionResult> LikedPost(int Id)
+        public async Task<IActionResult> LikedPost(int Id,string returnurl)
         {
             var likeResult = await _postService.LikePost(Id);
             if (!likeResult)
@@ -32,22 +31,30 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
                 
                 return BadRequest("Post cannot be liked.");
             }
+            if (returnurl is null)
+            {
+                return RedirectToAction("Index", "Home",new {Area=""});
+            }
 
-            return Ok(); 
+            return Redirect(returnurl); 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> UnlikePost(int Id)
+        
+        public async Task<IActionResult> UnlikedPost(int Id,string returnurl)
         {
 
-            await _postService.UnlikePost(Id);
-            var updatedPost = await _postService.GetPost(Id);
-            var jsonOptions = new JsonSerializerOptions
+            var likeResult = await _postService.UnlikePost(Id);
+            if (!likeResult)
             {
-                ReferenceHandler = ReferenceHandler.Preserve,
-            };
 
-            return Json(updatedPost, jsonOptions);
+                return BadRequest("Post cannot be liked.");
+            }
+            if (returnurl is null)
+            {
+                return RedirectToAction("Index", "Home", new { Area = "" });
+            }
+
+            return Redirect(returnurl);
         }
         public async Task<IActionResult> Index(int page = 1, int take = 10)
         {

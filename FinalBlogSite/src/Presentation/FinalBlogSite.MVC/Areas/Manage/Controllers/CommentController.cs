@@ -1,7 +1,7 @@
 ﻿using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Persistence.Implementations.Services;
@@ -20,9 +20,12 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             _commentService = commentService;
             _postService = postService;
         }
-
-        [HttpPost]
-        public async Task<IActionResult> CreateComment(CommentCreateVM vm)
+        public async Task<IActionResult> Index(int id)
+        {
+              await _commentService.GetComment(id);
+            return View();
+        }
+        public async Task<IActionResult> Create(CommentCreateVM vm,string returnurl)
         {
             if (!ModelState.IsValid)
             {
@@ -34,9 +37,13 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             {
                 throw new Exception();
             }
-            return RedirectToAction("Index", "Home");
+            if (returnurl is null)
+            {
+                return RedirectToAction("Index", "Home",new {Area=""});
+
+            }
+            return Redirect(returnurl);
         }
-        [HttpPost]
         public async Task<IActionResult> CreateReply(CreateReplyVM vm)
         {
             if (!ModelState.IsValid)

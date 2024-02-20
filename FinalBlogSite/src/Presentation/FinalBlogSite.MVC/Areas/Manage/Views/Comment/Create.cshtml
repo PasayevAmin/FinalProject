@@ -1,4 +1,4 @@
-﻿@using FinalBlogSite.Application.ViewModels.Comment;
+﻿@using FinalBlogSite.Application.ViewModels;
 @using FinalBlogSite.Domain.Entities;
 @model CommentCreateVM
 
@@ -17,18 +17,8 @@
                                 <input asp-for="Content" class="form-control" placeholder="Content">
                                 <span asp-validation-for="Content" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="LikeCount">LikeCount</label>
-                                <input asp-for="LikeCount" class="form-control" placeholder="LikeCount">
-                                <span asp-validation-for="LikeCount" class="text-danger"></span>
-                            </div>
-                            @* <div class="form-group">
-                                <label asp-for="PostId">Post</label>
-                                <select asp-for="PostId" asp-items="new SelectList(Model.Posts,nameof(Post.Id),nameof(Post.Title))">
-                                    <option selected disabled>Select one</option>
-                                </select>
-                                <span asp-validation-for="PostId" class="text-danger"> </span>
-                            </div> *@
+                           
+                          
                           
 
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

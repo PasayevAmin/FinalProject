@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Follows;
 using FinalBlogSite.Domain.Entities;
 using System;

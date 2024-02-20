@@ -11,8 +11,12 @@ namespace FinalBlogSite.Application.ViewModels
     {
         public List<Post> LastestPost { get; set; }
         public List<Post> RecendPost { get; set; }
-        public List<AppUser> AppUser { get; set; }
+        public List<AppUser> AppUsers { get; set; }
+        public AppUser AppUser { get; set; }
+
         public List<Post> CategoryPost { get; set; }
+        public PaginationVM<Post> Posts { get; set; }
+
 
     }
 }

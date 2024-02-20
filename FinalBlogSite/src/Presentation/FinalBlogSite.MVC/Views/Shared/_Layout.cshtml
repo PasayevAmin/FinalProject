@@ -134,9 +134,18 @@
                                         </li>
                                         @if (User.Identity.IsAuthenticated)
                                         {
-                                            <li>
-                                                <a class="dropdown-item" asp-action="profile" asp-controller="home">@User.Identity.Name</a>
-                                            </li>
+                                            if (User.IsInRole("Author"))
+                                            {
+                                                <li>
+                                                    <a class="dropdown-item" asp-action="profile" asp-controller="home">@User.Identity.Name</a>
+                                                </li>
+                                            }
+                                            if (User.IsInRole("Member"))
+                                            {
+                                                <li>
+                                                    <a class="dropdown-item" asp-action="memberprofile" asp-controller="home">@User.Identity.Name</a>
+                                                </li>
+                                            }
                                             <li>
                                                 <a class="dropdown-item" asp-action="logout" asp-controller="account" asp-area="manage">Logout</a>
                                             </li>
@@ -163,7 +172,6 @@
 
                                             }
                                         }
-                                        <li class="header-cart"><a href="#"><i class="far fa-shopping-basket"></i></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -398,7 +406,7 @@
     <script src="~/assets/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-KXeDPCBgMWlW1y4V1d5MwI1lvMHq4lYXxIMTcDkFxjA=" crossorigin="anonymous"></script>
 
-    @await RenderSectionAsync("likescripts",false);
+    @* @await RenderSectionAsync("likescripts",false); *@
 
 </body>
 

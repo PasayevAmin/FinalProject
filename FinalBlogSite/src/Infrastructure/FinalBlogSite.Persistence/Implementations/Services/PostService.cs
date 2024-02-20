@@ -4,7 +4,7 @@ using FinalBlogSite.Application.Abstractions.Repositories;
 using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Posts;
 using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.MVC.MiddleWears.Exseptions;
@@ -178,6 +178,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             return await _postRepository.GetSingleAsync(x => x.Id == postId);
 
         }
+       
         public async Task<List<Post>> GetMyPosts()
         {
             var currentUserId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
@@ -260,6 +261,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             }
             return true;
         }
+
 
         }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using FinalBlogSite.Application.Abstractions.Repositories;
 using FinalBlogSite.Application.Abstractions.Services;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Follows;
 using FinalBlogSite.Domain.Entities;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

@@ -1,14 +1,7 @@
 ﻿@using FinalBlogSite.Domain.Entities;
  ﻿@using Humanizer
 @using Microsoft.AspNetCore.Identity;
-@inject UserManager<AppUser> _userManager
-@{
-    if (User.Identity.IsAuthenticated)
-    {
-        AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-    }
-}
  @model HomeVM 
 <!-- main-area -->
 <main>
@@ -85,7 +78,7 @@
                                 <div class="trending__post">
                                     <div class="trending__post-thumb tgImage__hover">
                                         <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
-                                        <a href="blog-details.html"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                        <a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><img src="~/assets/img/@item.Images" alt="img"></a>
                                         <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                     </div>
                                     <div class="trending__post-content">
@@ -95,44 +88,96 @@
                                         </ul>
                                         <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                         <ul class="post__activity list-wrap">
-                                             
-                                            <div class="like-data">
-                                                <div class="dropdown">
-                                                    @if (item.Likes is not null )
-                                                    {
-                                                        if (item.Likes.Any(like => like.LikerId == item.Author.Id))
-                                                        {
-                                                            <span>
-                                                                <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
-                                                                    <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="mdi mdi-heart"></i>
-                                                                </a>
-                                                            </span>
+                                             <li>
+                                                <div class="like-data">
+                                                    <div class="dropdown">
+                                                        
+
+                                                            @if (Model.AppUser is not null)
+                                                            {
+                                                                if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
+                                                                {
+                                                                    <span>
+                                                                        <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                            <i class="fa fa-heart"></i>
+                                                                        </a>
+
+                                                                    </span>
 
 
-                                                        }
-                                                      
-                                                    }
-                                                    else
-                                                    {
+                                                                }
+                                                              else
+                                                               {
 
-                                                        <span>
-                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
-                                                                <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
-                                                            </a>
+                                                                <span>
+                                                                    <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                        <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                                    </a>
+
+                                                                </span>
+                                                              }
+                                                            }
+
+
+
+                                                            else
+                                                            {
+
+                                                                <span>
+                                                                    <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                        <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                                    </a>
+
+                                                                </span>
+                                                            }
+                                                        
+
+                                                    </div>
+                                                </div>
+
+                                             </li>
+                                             <li>
+                                                <div class="total-like-block ml-2 mr-3">
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                                            @item.LikeCount
                                                         </span>
-                                                    }
 
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="total-like-block ml-2 mr-3">
-                                                <div class="dropdown">
-                                                    <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                                        @item.LikeCount
-                                                    </span>
 
+                                             </li>
+                                            <li>
+                                                <div class="like-data">
+                                                    <div class="dropdown">
+
+
+                                                        @* @if (Model.AppUser is not null)
+                                                        {
+                                                            if (item.Comments.Any(like => like.AppUserId == Model.AppUser.Id))
+                                                            {
+                                                                <span>
+                                                                    <a asp-controller="comment" asp-action="CreateComment" asp-area="manage" asp-route-Id="@item.Id">
+                                                                        <i class="fa fa-comment-dots"></i>
+                                                                    </a>
+
+                                                                </span>
+
+
+                                                            }
+                                                            
+                                                        } *@
+
+
+
+                                                        
+
+
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+
+                                            </li>
+                                            <li><a href="blog-details.html"> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
                                     </div>
@@ -332,7 +377,65 @@
                                     </ul>
                                     <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                     <ul class="post__activity list-wrap">
-                                        <li><i class="fal fa-heart"></i>@item.LikeCount</li>
+                                        <li>
+                                            <div class="like-data">
+                                                <div class="dropdown">
+
+
+                                                    @if (Model.AppUser is not null)
+                                                    {
+                                                        if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
+                                                        {
+                                                            <span>
+                                                                <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                    <i class="fa fa-heart"></i>
+                                                                </a>
+
+                                                            </span>
+
+
+                                                        }
+                                                        else
+                                                        {
+
+                                                            <span>
+                                                                <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                    <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                                </a>
+
+                                                            </span>
+                                                        }
+                                                    }
+
+
+
+                                                    else
+                                                    {
+
+                                                        <span>
+                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                            </a>
+
+                                                        </span>
+                                                    }
+
+
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                        <li>
+                                            <div class="total-like-block ml-2 mr-3">
+                                                <div class="dropdown">
+                                                    <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                                        @item.LikeCount
+                                                    </span>
+
+                                                </div>
+                                            </div>
+
+                                        </li>
                                         <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.LikeCount</a></li>
                                         <li><i class="fal fa-share-alt"></i> 29</li>
                                     </ul>
@@ -400,7 +503,65 @@
                                 </ul>
                                 <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                 <ul class="post__activity list-wrap">
-                                    <li><i class="fal fa-heart"></i> @item.LikeCount</li>
+                                    <li>
+                                        <div class="like-data">
+                                            <div class="dropdown">
+
+
+                                                @if (Model.AppUser is not null)
+                                                {
+                                                    if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
+                                                    {
+                                                        <span>
+                                                            <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                <i class="fa fa-heart"></i>
+                                                            </a>
+
+                                                        </span>
+
+
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <span>
+                                                            <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                            </a>
+
+                                                        </span>
+                                                    }
+                                                }
+
+
+
+                                                else
+                                                {
+
+                                                    <span>
+                                                        <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                            <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                        </a>
+
+                                                    </span>
+                                                }
+
+
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                    <li>
+                                        <div class="total-like-block ml-2 mr-3">
+                                            <div class="dropdown">
+                                                <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                                    @item.LikeCount
+                                                </span>
+
+                                            </div>
+                                        </div>
+
+                                    </li>
                                     <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                     <li><i class="fal fa-share-alt"></i> 32</li>
                                 </ul>
@@ -436,7 +597,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <button class="btn" type="submit"><span class="text">Subscribe</span> <i class="fas fa-paper-plane"></i></button>
+                                <a class="btn" asp-action="contuctus" asp-controller="home"><span class="text">Contuct Us</span> <i class="fas fa-paper-plane"></i></a>
                             </form>
                         </div>
                     </div>
@@ -451,13 +612,16 @@
 </main>
 
 <!-- main-area-end -->
-@section likescripts {
+@* @section likescripts {
     <script>
         // Like işlemini AJAX ile gerçekleştir
         document.getElementById("likeForm").addEventListener("submit", function (event) {
             event.preventDefault();
             fetch(this.action, {
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer YOUR_API_KEY'
+                }
             })
                 .then(response => {
                     if (response.ok) {
@@ -475,7 +639,10 @@
         document.getElementById("unlikeForm").addEventListener("submit", function (event) {
             event.preventDefault();
             fetch(this.action, {
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer YOUR_API_KEY'
+                }
             })
                 .then(response => {
                     if (response.ok) {
@@ -490,4 +657,5 @@
         });
     </script>
 
-}
+
+} *@

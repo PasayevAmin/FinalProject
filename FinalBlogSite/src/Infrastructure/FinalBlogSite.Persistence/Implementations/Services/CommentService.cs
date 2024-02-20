@@ -3,10 +3,11 @@ using FinalBlogSite.Application.Abstractions.Repositories;
 using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Categorys;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.MVC.MiddleWears.Exseptions;
+using FinalBlogSite.Persistence.Implementations.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -39,15 +40,13 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             _replyRepository = replyRepository;
         }
 
-        public Task<bool> CreateAsync(CommentCreateVM vm, ModelStateDictionary modelstate)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public async Task<List<string>> CreateComment(CommentCreateVM vm)
         {
             List<string> str = new List<string>();
             Comment comment = _mapper.Map<Comment>(vm);
+            comment.LikeCount = 0;
             Post post = await _post.GetByExpressionAsync(x => x.Id == vm.PostId, isDeleted: false);
 
             comment.AppUserId = _httpContext.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
@@ -138,6 +137,17 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             vm.LikeCount = exist.LikeCount;
             vm.PostId = exist.PostId;
             return vm;
+        }
+        public async Task<CommentIndexVM> GetComment(int postId)
+        {
+            CommentIndexVM commentIndex = new CommentIndexVM
+            {
+                Comments = await _comment.GetAll(x => x.Id == postId).Include(x=>x.Post).ToListAsync(),
+            };
+
+
+            return commentIndex;
+
         }
     }
 }

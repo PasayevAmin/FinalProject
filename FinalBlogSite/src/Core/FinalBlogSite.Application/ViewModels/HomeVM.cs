@@ -1,4 +1,4 @@
-﻿using FinalBlogSite.Application.ViewModels.Comment;
+﻿using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Application.ViewModels.Posts;
 using FinalBlogSite.Application.ViewModels.Reply;
 using FinalBlogSite.Domain.Entities;
@@ -18,7 +18,7 @@ namespace FinalBlogSite.Application.ViewModels
         public List<Post> CategoryPost { get; set; }
         public List<Post> LikePost { get; set; }
         public List<Post> Posts { get; set; }
-        public List<AppUser> AppUsers { get; set; }
+        public AppUser AppUser { get; set; }
         public PostCreateVM? CreatePostVM { get; set; }
         public CommentCreateVM CreateCommentVM { get; set; } = new CommentCreateVM();
         public CreateReplyVM CreateReplyVM { get; set; } = new CreateReplyVM();

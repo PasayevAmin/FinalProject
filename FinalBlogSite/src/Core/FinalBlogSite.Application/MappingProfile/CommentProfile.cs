@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using FinalBlogSite.Application.ViewModels.Categorys;
-using FinalBlogSite.Application.ViewModels.Comment;
+using FinalBlogSite.Application.ViewModels;
 using FinalBlogSite.Domain.Entities;
 using System;
 using System.Collections.Generic;

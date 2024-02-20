@@ -24,6 +24,10 @@ namespace FinalBlogSite.Persistence.DAL
         public DbSet<CommentLike> CommentLikes { get; set; }
         public DbSet<Reply> Replies { get; set; }
         public DbSet<Follow> Folowers { get; set; }
+        public DbSet<Setting> Settings { get; set; }
+        public DbSet<AppUser> AppUsers { get; set; }
+
+
 
 
 

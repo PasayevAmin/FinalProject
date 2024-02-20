@@ -4,6 +4,11 @@
 @{
     // bool isFollowing = Model.Follows.Any(x => x.FollowerId == User.FindFirstValue(ClaimTypes.NameIdentifier));
 }
+@{
+    var userPostCategory = Model.Categories
+    .FirstOrDefault(category => category.Posts
+        .Any(post => post.Author.UserName == User.Identity.Name));
+}
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -108,7 +113,55 @@
                                             <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
                                         </div> *@
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <li><a href="blog-details.html"><i class="fal fa-heart"></i> @item.LikeCount</a></li>
+                                            @if (Model.AppUser is not null)
+                                            {
+                                                if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
+                                                {
+                                                    <span>
+                                                        <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+
+                                                    </span>
+
+
+                                                }
+                                                else
+                                                {
+
+                                                    <span>
+                                                        <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                            <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                        </a>
+
+                                                    </span>
+                                                }
+                                            }
+
+
+
+                                            else
+                                            {
+
+                                                <span>
+                                                    <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                        <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                    </a>
+
+                                                </span>
+                                            }
+                                            <li>
+                                                <div class="total-like-block ml-2 mr-3">
+                                                    <div class="dropdown">
+                                                        <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                                                            @item.LikeCount
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+
+                                            </li>
+
 
                                             <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
@@ -183,14 +236,17 @@
                             <div class="widget sidebar-widget widget_categories">
                                 <h4 class="widget-title">Trending Category</h4>
                                 <ul class="list-wrap">
-                                    @foreach (var item in Model.AuthorPost)
+                                    @if (userPostCategory != null)
                                     {
-                                        <li>
-                                            <a href="blog.html">@item.Category.Name</a>
-                                            <span class="float-right">@item.Category.Posts.Count</span>
+                                        
+                                    
+                                    <li>
+                                            <a href="blog.html">@userPostCategory.Name</a>
+                                            <span class="float-right">@userPostCategory.Posts.Count</span>
                                         </li>
 
                                     }
+                                    
                                 </ul>
                             </div>
                             <div class="widget sidebar-widget">
