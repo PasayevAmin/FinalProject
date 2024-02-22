@@ -18,29 +18,69 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
     public class CommentService : ICommentService
     {
         private readonly ICommentRepository _comment;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IMapper _mapper;
         private readonly IPostRepository _post;
         private readonly IHttpContextAccessor _httpContext;
         private readonly IAuthService _authService;
         private readonly IReplyRepository _replyRepository;
 
-        public CommentService(ICommentRepository comment,IMapper mapper,IPostRepository post,IHttpContextAccessor httpContext,IAuthService authService,IReplyRepository replyRepository)
+        public CommentService(ICommentRepository comment,UserManager<AppUser> userManager,IMapper mapper,IPostRepository post,IHttpContextAccessor httpContext,IAuthService authService,IReplyRepository replyRepository)
         {
             _comment = comment;
+            _userManager = userManager;
             _mapper = mapper;
             _post = post;
             _httpContext = httpContext;
             _authService = authService;
             _replyRepository = replyRepository;
         }
+        public async Task<bool> AddComment(CommentCreateVM model)
+        {
+            var currentUserId = _httpContext.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            if (currentUserId == null)
+            {
+                return false;
+            }
 
-       
+            var currentUser = await _userManager.Users.SingleOrDefaultAsync(u => u.Id == currentUserId);
+            if (currentUser == null)
+            {
+                return false;
+            }
+
+            var post = await _post.GetSingleAsync(p => p.Id == model.PostId);
+            if (post == null)
+            {
+                return false;
+            }
+
+            var comment = new Comment
+            {
+                PostId = model.PostId,
+                Content = model.Content,
+                LikeCount=0,
+                CreatedAt = DateTime.UtcNow 
+            };
+
+            await _comment.CreateAsync(comment);
+
+            post.CommentCount++;
+            _post.Update(post);
+
+            await _post.SaveChangesAsync();
+            return true;
+        }
+
+
+
 
         public async Task<List<string>> CreateComment(CommentCreateVM vm)
         {

@@ -98,7 +98,7 @@
                             {
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
-                                        <a href="blog-details.html"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                        <a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><img src="~/assets/img/@item.Images" alt="img"></a>
                                     </div>
                                     <div class="latest__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
@@ -271,7 +271,7 @@
                                             <img src="~/assets/img/instagram/insta_logo.png" alt="img">
                                         </div>
                                         <div class="sidebarInsta__info">
-                                            <h6 class="name"><a href="#">@Model.AuthorPost.FirstOrDefault(x=>x.Author.UserName==User.Identity.Name).Author.UserName</a></h6>
+                                            <h6 class="name"><a href="#">@Model.AppUser.UserName</a></h6>
                                             <span class="designation">Code Supply Co.</span>
                                         </div>
                                     </div>

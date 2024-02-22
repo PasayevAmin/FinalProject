@@ -4,6 +4,7 @@ using FinalBlogSite.Domain.Entities;
 using FinalBlogSite.Persistence.DAL;
 using FinalBlogSite.Persistence.Implementations.Repositories;
 using FinalBlogSite.Persistence.Implementations.Services;
+using MailKit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using MailService = FinalBlogSite.Persistence.Implementations.Services.MailService;
 
 namespace FinalBlogSite.Persistence.ServiceRegistrations
 {
@@ -43,7 +45,8 @@ namespace FinalBlogSite.Persistence.ServiceRegistrations
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IFollowerRepository, FollowRepository>();
             services.AddScoped<IFollowService, FollowService>();
-            services.AddScoped<IMailService, MailService>();
+            services.AddScoped<IEmailService, EmailServuce>();
+            services.AddScoped<Application.Abstractions.Services.IMailService, MailService>();
             services.AddScoped<ILikeRepository, LikeRepository>();
             services.AddScoped<IReplyRepository, ReplyRepository>();
 

@@ -1,0 +1,31 @@
+﻿@using FinalBlogSite.Application.ViewModels;
+@using FinalBlogSite.Domain.Entities;
+@model CommentCreateVM
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create Comment</h4>
+
+                      
+
+                        <form asp-action="AddComment" asp-controller="Comment" method="post">
+                            <input type="hidden" asp-for="PostId" value="@Model.PostId" />
+                            <div class="form-group">
+                                <label asp-for="Content">Comment:</label>
+                                <textarea class="form-control" asp-for="Content"></textarea>
+                                <span asp-validation-for="Content" class="text-danger"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

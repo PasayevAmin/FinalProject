@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IiwSGPW4+wOH/+eHyfVZoMJFKu/+G+xSj8zRCBC0JdA=",
+  "Hash": "sjfcgfleB8h47I+DwiuZT0mi6JiHeLyXmR8GsND/psA=",
   "Source": "FinalBlogSite.MVC",
   "BasePath": "_content/FinalBlogSite.MVC",
   "Mode": "Default",
@@ -712,6 +712,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\flaticon.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\181b766a-0f02-45e7-9684-9820fb59c53fragnar-lothbrok-4k-176x4vheeo04tx1n.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/181b766a-0f02-45e7-9684-9820fb59c53fragnar-lothbrok-4k-176x4vheeo04tx1n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\181b766a-0f02-45e7-9684-9820fb59c53fragnar-lothbrok-4k-176x4vheeo04tx1n.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\23f23215-6a7c-4518-85b5-798326f9906eronaldo-cristiano-2017-real-madrid-ballon-d-or-2016-0026751808hjpg-1698686328-120749.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/23f23215-6a7c-4518-85b5-798326f9906eronaldo-cristiano-2017-real-madrid-ballon-d-or-2016-0026751808hjpg-1698686328-120749.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\23f23215-6a7c-4518-85b5-798326f9906eronaldo-cristiano-2017-real-madrid-ballon-d-or-2016-0026751808hjpg-1698686328-120749.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\3b408a2e-6443-4a80-9bc7-55102e636613wp1812254.jpg",

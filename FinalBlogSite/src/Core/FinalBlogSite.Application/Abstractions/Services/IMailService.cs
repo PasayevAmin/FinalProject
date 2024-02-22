@@ -10,5 +10,6 @@ namespace FinalBlogSite.Application.Abstractions.Services
     public interface IMailService
     {
         Task SendEmailAsync(MailRequestVM mailRequest);
+
     }
 }

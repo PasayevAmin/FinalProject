@@ -1,21 +1,14 @@
-﻿using AutoMapper.Internal;
-using FinalBlogSite.Application.Abstractions.Services;
+﻿using FinalBlogSite.Application.Abstractions.Services;
 using FinalBlogSite.Application.ViewModels.MailSender;
 using FinalBlogSite.Domain.Entities;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ContentType = MimeKit.ContentType;
 
 namespace FinalBlogSite.Persistence.Implementations.Services
 {
-    public class MailService:IMailService
+    public class MailService : IMailService
     {
         private readonly MailSetting _mailSettings;
         public MailService(IOptions<MailSetting> mailSettings)

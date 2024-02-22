@@ -3,6 +3,9 @@
 @using Microsoft.AspNetCore.Identity;
 
  @model HomeVM 
+@{
+    int count = 1;
+}
 <!-- main-area -->
 <main>
 
@@ -12,12 +15,12 @@
             <div class="tgbanner__grid">
                 <div class="tgbanner__post big-post">
                     <div class="tgbanner__thumb tgImage__hover">
-                        <a href="blog-details.html"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
+                        <a asp-action="details" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Id"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
                     </div>
                     <div class="tgbanner__content">
                         <ul class="tgbanner__content-meta list-wrap">
                             <li class="category"><a href="blog.html">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
-                            <li><span class="by">By</span> <a href="blog.html"> @Model.RecendPost.FirstOrDefault().Author.UserName</a></li>
+                            <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@Model.RecendPost.FirstOrDefault().Author.UserName"> @Model.RecendPost.FirstOrDefault().Author.UserName</a></li>
                             <li>@Model.RecendPost.FirstOrDefault().CreatedAt</li>
                         </ul>
                         <h2 class="title tgcommon__hover"><a href="blog-details.html">@Model.RecendPost.FirstOrDefault().Title</a></h2>
@@ -26,7 +29,7 @@
                 <div class="tgbanner__side-post">
                     <div class="tgbanner__post small-post">
                         <div class="tgbanner__thumb tgImage__hover">
-                            <a href="blog-details.html"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
+                            <a asp-action="details" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Id"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
                         </div>
                         <div class="tgbanner__content">
                             <ul class="tgbanner__content-meta list-wrap">
@@ -37,7 +40,7 @@
                     </div>
                     <div class="tgbanner__post small-post">
                         <div class="tgbanner__thumb tgImage__hover">
-                            <a href="blog-details.html"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
+                            <a asp-action="details" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Id"><img src="~/assets/img/@Model.RecendPost.FirstOrDefault().Images" alt="img"></a>
                         </div>
                         <div class="tgbanner__content">
                             <ul class="tgbanner__content-meta list-wrap">
@@ -84,42 +87,28 @@
                                     <div class="trending__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
                                             <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                            <li><span class="by">By</span> <a href="blog.html">@Model.LastestPost.FirstOrDefault().CreatedBy</a></li>
+                                            <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                         </ul>
                                         <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                         <ul class="post__activity list-wrap">
                                              <li>
                                                 <div class="like-data">
                                                     <div class="dropdown">
-                                                        
 
-                                                            @if (Model.AppUser is not null)
+
+                                                        @if (Model.AppUser is not null)
+                                                        {
+                                                            if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
                                                             {
-                                                                if (item.Likes.Any(like => like.LikerId == Model.AppUser.Id))
-                                                                {
-                                                                    <span>
-                                                                        <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
-                                                                            <i class="fa fa-heart"></i>
-                                                                        </a>
-
-                                                                    </span>
-
-
-                                                                }
-                                                              else
-                                                               {
-
                                                                 <span>
-                                                                    <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
-                                                                        <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                                    <a asp-controller="Post" asp-action="UnlikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                        <i class="fa fa-heart"></i>
                                                                     </a>
 
                                                                 </span>
-                                                              }
+
+
                                                             }
-
-
-
                                                             else
                                                             {
 
@@ -130,22 +119,29 @@
 
                                                                 </span>
                                                             }
-                                                        
+                                                        }
 
-                                                    </div>
-                                                </div>
 
-                                             </li>
-                                             <li>
+
+                                                        else
+                                                        {
+
+                                                            <span>
+                                                                <a asp-controller="Post" asp-action="LikedPost" asp-area="manage" asp-route-Id="@item.Id">
+                                                                    <img src="~/assets/images/icon/01.png" class="img-fluid" alt=""> <i class="fal fa-heart"></i>
+                                                                </a>
+
+                                                            </span>
+                                                        }
+                                            <li>
                                                 <div class="total-like-block ml-2 mr-3">
                                                     <div class="dropdown">
                                                         <span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                                                            @item.LikeCount
+                                                                        @item.LikeCount
                                                         </span>
 
                                                     </div>
                                                 </div>
-
                                              </li>
                                             <li>
                                                 <div class="like-data">
@@ -177,7 +173,7 @@
                                                 </div>
 
                                             </li>
-                                            <li><a href="blog-details.html"> @item.CommentCount</a></li>
+                                            <li><a asp-action="addcomment" asp-controller="comment" asp-area="manage" asp-route-id="@item.Id"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
                                     </div>
@@ -214,14 +210,14 @@
                 {
                     <div class="col-lg-4 col-sm-6">
                         <div class="featured__post">
-                            <div class="featured__thumb" data-background="assets/img/@item.Images">01</div>
+                            <div class="featured__thumb" data-background="assets/img/@item.Images">@(count++)</div>
                             <div class="featured__content">
                                 <ul class="tgbanner__content-meta list-wrap">
                                     <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                    <li><span class="by">By</span>@item.Author.UserName <a href="blog.html"></a></li>
+                                    <li><span class="by">By</span>@item.Author.UserName <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName"></a></li>
                                 </ul>
                                 <h4 class="title tgcommon__hover">
-                                    <a href="blog-details.html">
+                                    <a asp-action="details" asp-controller="home" asp-route-id="@item.Id">
                                         @item.Title
                                     </a>
                                 </h4>
@@ -367,13 +363,13 @@
                             <div class="trending__post">
                                 <div class="trending__post-thumb tgImage__hover">
                                     <a href="#" class="addWish"><i class="fal fa-heart"></i></a>
-                                    <a href="blog-details.html"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                    <a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><img src="~/assets/img/@item.Images" alt="img"></a>
                                     <span class="is_trend"><i class="fas fa-bolt"></i></span>
                                 </div>
                                 <div class="trending__post-content">
                                     <ul class="tgbanner__content-meta list-wrap">
                                         <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                        <li><span class="by">By</span> <a href="blog.html">@item.CreatedBy</a></li>
+                                        <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                     </ul>
                                     <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                     <ul class="post__activity list-wrap">
@@ -436,7 +432,7 @@
                                             </div>
 
                                         </li>
-                                        <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.LikeCount</a></li>
+                                        <li><a asp-action="createcomment" asp-controller="comment" asp-area="manage"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                         <li><i class="fal fa-share-alt"></i> 29</li>
                                     </ul>
                                 </div>
@@ -478,7 +474,7 @@
                             <div class="stories-post__content video__post-content">
                                 <ul class="tgbanner__content-meta list-wrap">
                                     <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                    <li><span class="by">By</span> <a href="blog.html">@item.CreatedBy</a></li>
+                                    <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                     <li>@item.CreatedAt</li>
                                 </ul>
                                 <h3 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h3>
@@ -499,7 +495,7 @@
                             <div class="trending__post-content">
                                 <ul class="tgbanner__content-meta list-wrap">
                                     <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                    <li><span class="by">By</span> <a href="blog.html">@item.CreatedBy</a></li>
+                                    <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                 </ul>
                                 <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
                                 <ul class="post__activity list-wrap">
@@ -562,7 +558,7 @@
                                         </div>
 
                                     </li>
-                                    <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+                                    <li><a asp-action="createcomment" asp-controller="comment" asp-area="manage"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                     <li><i class="fal fa-share-alt"></i> 32</li>
                                 </ul>
                             </div>
