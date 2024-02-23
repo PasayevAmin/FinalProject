@@ -96,6 +96,9 @@
                             
                             @foreach (var item in Model.AuthorPost)
                             {
+                                string content = Model.AuthorPost.FirstOrDefault(x => x.Id == item.Id).Content;
+                                int firstdot = content.IndexOf('.');
+                                string firstsentence = firstdot != -1 ? content.Substring(0, firstdot) : content;
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
                                         <a asp-action="details" asp-controller="home" asp-route-id="@item.Id" ><img src="~/assets/img/@item.Images" alt="img"></a>
@@ -108,7 +111,7 @@
 
                                         </ul>
                                         <h3 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h3>
-                                        <p>@item.Content</p>
+                                        <p>@firstsentence</p>
                                         @* <div class="latest__post-read-more">
                                             <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
                                         </div> *@

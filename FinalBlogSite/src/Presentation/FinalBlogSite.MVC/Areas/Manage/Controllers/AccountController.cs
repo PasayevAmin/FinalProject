@@ -17,16 +17,21 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
     public class AccountController : Controller
     {
         private readonly IAuthService _accountService;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly IMailService _mailService;
+        private readonly IEmailService _emailService;
 
-        public AccountController(IAuthService accountService,UserManager<AppUser> userManager ,IMailService mailService)
+        public AccountController(IAuthService accountService,SignInManager<AppUser> signInManager,UserManager<AppUser> userManager ,IMailService mailService,IEmailService emailService)
         {
             _accountService = accountService;
+            _signInManager = signInManager;
             _userManager = userManager;
             _mailService = mailService;
+            _emailService = emailService;
         }
-        public IActionResult Register()
+       
+         public IActionResult Register()
         {
             return View();
         }
@@ -54,7 +59,8 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
                 return View(vM);
 
             }
-            return Redirect(Request.Headers["Referer"]);
+            return RedirectToAction("index", "Home", new { Area = "" });
+
 
 
 

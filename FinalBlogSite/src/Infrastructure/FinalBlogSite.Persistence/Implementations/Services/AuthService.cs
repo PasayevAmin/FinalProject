@@ -120,6 +120,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             }
             await HandleUserRoleAsync(user, vm.Role);
             await _signInManager.SignInAsync(user, true);
+
             return true;
         }
         public async Task Logout()

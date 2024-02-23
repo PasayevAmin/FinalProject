@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq;
 
 namespace FinalBlogSite.MVC.Controllers
 {
@@ -108,7 +109,7 @@ namespace FinalBlogSite.MVC.Controllers
             if (vM.Posts.Items == null) return NotFound();
             return View(vM);
         }
-        public async Task<IActionResult> MemberProfile(int page = 1, int take = 4)
+        public async Task<IActionResult> MemberProfile(string username, int page = 1, int take = 4)
         {
             AppUser appUser = null;
             if (User.Identity.IsAuthenticated)
@@ -117,9 +118,12 @@ namespace FinalBlogSite.MVC.Controllers
 
 
             }
+            
+           
+
             ProfileVM vm = new ProfileVM
             {
-                LastestPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.CreatedAt).ToListAsync(),
+                LastestPost = await _context.Posts.FirstOrDefault(x=>x.Author.Follows.FirstOrDefault(x=>x.Follower.Id==x.FollowerId).Follower.UserName==username).Include(x => x.Category).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.CreatedAt).ToListAsync(),
                 RecendPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).ToListAsync(),
                 CategoryPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x => x.CategoryId).Take(2).ToListAsync(),
                 Posts = await _postService.GetAllAsync(page, take),

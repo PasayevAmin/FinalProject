@@ -49,6 +49,7 @@ namespace FinalBlogSite.Persistence.ServiceRegistrations
             services.AddScoped<Application.Abstractions.Services.IMailService, MailService>();
             services.AddScoped<ILikeRepository, LikeRepository>();
             services.AddScoped<IReplyRepository, ReplyRepository>();
+            services.AddScoped<LayoutServices>();
 
 
 
