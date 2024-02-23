@@ -1,5 +1,6 @@
 ﻿@using FinalBlogSite.Domain.Enums;
 @model ProfileVM
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -84,18 +85,22 @@
                         <div class="blog-post-wrapper">
                             @foreach (var item in Model.LastestPost)
                             {
+                                string content = Model.LastestPost.FirstOrDefault(x=>x.Id==item.Id).Content;
+                                int firstdot = content.IndexOf('.');
+                                string firstsentence = firstdot != -1 ? content.Substring(0, firstdot) : content;
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
                                         <a href="blog-details.html"><img src="~/assets/img/@item.Images" alt="img"></a>
                                     </div>
                                     <div class="latest__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                            <li><span class="by">By</span> <a href="blog.html">@item.Author.UserName</a></li>
+                                            <li class="category"><a asp-action="details" asp-controller="home" asp-route-id="@item.Id">@item.Category.Name</a></li>
+                                            <li><span class="by">By</span>  <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                             <li>@item.CreatedAt</li>
                                         </ul>
                                         <h3 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h3>
-                                        <p>@item.Content</p>
+                                        <p>@firstsentence</p>
+                                        <br>
                                         <ul class="tgbanner__content-meta list-wrap">
                                             @if (Model.AppUser is not null)
                                             {
@@ -147,12 +152,10 @@
                                             </li>
 
 
-                                            <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+                                            <li><a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
-                                        <div class="latest__post-read-more">
-                                            <a href="blog-details.html">Read More <i class="far fa-long-arrow-right"></i></a>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             }
@@ -203,7 +206,7 @@
                                     {
                                         <div class="sidePost__item" data-background="assets/img/@item.Images">
                                             <div class="sidePost__content">
-                                                <a href="blog.html" class="tag">@item.Category.Name</a>
+                                                <a asp-action="details" asp-controller="home" asp-route-id="@item.Id" class="tag">@item.Category.Name</a>
                                                 <h5 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h5>
                                             </div>
                                         </div>

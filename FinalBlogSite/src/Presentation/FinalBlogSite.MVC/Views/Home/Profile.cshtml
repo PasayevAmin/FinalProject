@@ -98,12 +98,12 @@
                             {
                                 <div class="latest__post-item">
                                     <div class="latest__post-thumb tgImage__hover">
-                                        <a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><img src="~/assets/img/@item.Images" alt="img"></a>
+                                        <a asp-action="details" asp-controller="home" asp-route-id="@item.Id" ><img src="~/assets/img/@item.Images" alt="img"></a>
                                     </div>
                                     <div class="latest__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <li class="category"><a href="blog.html">@item.Category.Name</a></li>
-                                            <li><span class="by">By</span> <a href="blog.html">@item.Author.UserName</a></li>
+                                            <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
+                                            <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                             <li>@item.CreatedAt</li>
 
                                         </ul>
@@ -163,7 +163,7 @@
                                             </li>
 
 
-                                            <li><a href="blog-details.html"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+                                            <li><a asp-action="details" asp-controller="home" asp-route-id="@item.Id"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
                                     </div>
@@ -226,10 +226,10 @@
 
                                     <div class="tgAbout-social">
                                         
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-behance"></i></a>
-                                        <a href="#"><i class="fab fa-youtube"></i></a>
+                                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://twitter.com/?lang=tr"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@
                                     {
                                         <div class="sidePost__item" data-background="assets/img/@item.Images">
                                             <div class="sidePost__content">
-                                                <a href="blog.html" class="tag">@item.Category.Name</a>
+                                                <a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id" class="tag">@item.Category.Name</a>
                                                 <h5 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h5>
                                             </div>
                                         </div>
@@ -299,9 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sidebarInsta__bottom">
-                                        <a href="https://www.instagram.com/" target="_blank" class="btn"><i class="fab fa-instagram"></i><span class="text">Follow Me</span></a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </aside>

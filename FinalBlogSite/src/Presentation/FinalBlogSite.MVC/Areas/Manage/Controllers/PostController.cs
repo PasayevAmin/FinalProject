@@ -24,7 +24,7 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
         {
             _postService = postService;
         }
-        public async Task<IActionResult> LikedPost(int Id,string returnurl)
+        public async Task<IActionResult> LikedPost(int Id)
         {
             var likeResult = await _postService.LikePost(Id);
             if (!likeResult)
@@ -34,16 +34,15 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
                 return RedirectToAction("ErrorPage", "Home", new { Area = "" });
 
             }
-            if (returnurl is null)
-            {
-                return RedirectToAction("Index", "Home",new {Area=""});
-            }
 
-            return Redirect(returnurl); 
+            return Redirect(Request.Headers["Referer"]);
+
+
+
         }
 
         
-        public async Task<IActionResult> UnlikedPost(int Id,string returnurl)
+        public async Task<IActionResult> UnlikedPost(int Id)
         {
 
             var likeResult = await _postService.UnlikePost(Id);
@@ -52,12 +51,9 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
                 return RedirectToAction("ErrorPage", "Home", new { Area = "" });
 
             }
-            if (returnurl is null)
-            {
-                return RedirectToAction("Index", "Home", new { Area = "" });
-            }
+            return Redirect(Request.Headers["Referer"]);
 
-            return Redirect(returnurl);
+
         }
         public async Task<IActionResult> Index(int page = 1, int take = 10)
         {

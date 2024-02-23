@@ -37,11 +37,11 @@ namespace FinalBlogSite.MVC.Controllers
             }
             HomeVM vm = new HomeVM
             {
-                LastestPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.CreatedAt).Take(8).ToListAsync(),
-                RecendPost = await _context.Posts.Include(x=>x.Category).Include(x=>x.Author).ToListAsync(),
-                TitlePost=await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x=>x.Title).ToListAsync(),
-                CategoryPost=await _context.Posts.Include(x=>x.Category).Include(x => x.Author).OrderBy(x=>x.CategoryId).Take(2).ToListAsync(),
-                LikePost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x => x.LikeCount).Take(4).ToListAsync(),
+                LastestPost = await _context.Posts.Include(x => x.Category).Include(x=>x.Comments).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.CreatedAt).Take(8).ToListAsync(),
+                RecendPost = await _context.Posts.Include(x=>x.Category).Include(x => x.Comments).Include(x=>x.Author).ToListAsync(),
+                TitlePost=await _context.Posts.Include(x => x.Category).Include(x => x.Comments).Include(x=>x.Likes).Include(x => x.Author).OrderBy(x=>x.Title).ToListAsync(),
+                CategoryPost=await _context.Posts.Include(x=>x.Category).Include(x => x.Comments).Include(x => x.Author).OrderBy(x=>x.CategoryId).Take(2).ToListAsync(),
+                LikePost = await _context.Posts.Include(x => x.Category).Include(x => x.Comments).Include(x => x.Author).OrderBy(x => x.LikeCount).Take(4).ToListAsync(),
                 
                 AppUser=appUser
             };
@@ -82,10 +82,10 @@ namespace FinalBlogSite.MVC.Controllers
 
             AuthorProfileVM vM = new AuthorProfileVM
             {
-                AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x => x.Author).Include(x => x.Category).OrderByDescending(x => x.CreatedAt).ToListAsync(),
+                AuthorPost = await _context.Posts.Where(x => x.Author.UserName == User.Identity.Name).Include(x=>x.Author).ThenInclude(x=>x.Follows).Include(x => x.Author).Include(x => x.Category).OrderByDescending(x => x.CreatedAt).ToListAsync(),
                 Posts = await _postService.GetAllAsync(page, take),
                 Follows = await _context.Folowers.ToListAsync(),
-                Categories = await _context.Categories.Include(x => x.Posts).ThenInclude(x=>x.Likes).Include(x=>x.Posts).ThenInclude(x=>x.Author).Distinct().ToListAsync(),
+                Categories = await _context.Categories.Include(x => x.Posts).ThenInclude(x=>x.Likes).Include(x=>x.Posts).ThenInclude(x=>x.Author).ThenInclude(x=>x.Follows).Distinct().ToListAsync(),
                 AppUser = appUser
         };
              
@@ -119,7 +119,7 @@ namespace FinalBlogSite.MVC.Controllers
             }
             ProfileVM vm = new ProfileVM
             {
-                LastestPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.Id).ToListAsync(),
+                LastestPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).Include(x=>x.Likes).OrderByDescending(x => x.CreatedAt).ToListAsync(),
                 RecendPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).ToListAsync(),
                 CategoryPost = await _context.Posts.Include(x => x.Category).Include(x => x.Author).OrderBy(x => x.CategoryId).Take(2).ToListAsync(),
                 Posts = await _postService.GetAllAsync(page, take),
@@ -155,10 +155,32 @@ namespace FinalBlogSite.MVC.Controllers
             DetailsVM vM = new DetailsVM
             {
 
-                Post = await _postService.GetPost(id)
+                Post = await _postService.GetPost(id),
+                Comments=await _context.Comments.Where(x=>x.PostId==id).Include(x=>x.AppUser).Include(x=>x.Post).ThenInclude(x=>x.Author).Include(x=>x.Post).ThenInclude(x=>x.Category).ToListAsync(),
+                
             };
 
             return View(vM);
+        }
+        public async Task<IActionResult> CategoryPost(int id)
+        {
+            AppUser appUser = null;
+            if (User.Identity.IsAuthenticated)
+            {
+                appUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+
+            }
+            CategoryPostVM categoryPostVM = new CategoryPostVM
+            {
+                Posts = await _context.Posts.Where(x => x.CategoryId == id).ToListAsync(),
+                Categories = await _context.Categories.Include(x => x.Posts).ThenInclude(x => x.Likes).Include(x => x.Posts).ThenInclude(x => x.Author).Distinct().ToListAsync(),
+
+                AppUser = appUser,
+
+            };
+
+            return View(categoryPostVM);
         }
 
 

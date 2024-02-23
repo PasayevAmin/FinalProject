@@ -1,0 +1,38 @@
+﻿@using FinalBlogSite.Domain.Entities;
+@model List<AppUser>
+<div id="content-page" class="content-page">
+    <div class="container">
+        <div class="row">
+            @if (Model.Any())
+            {
+                @foreach (AppUser user in Model)
+                {
+                    <div class="col-lg-6">
+                        <a asp-controller="Profile" asp-action="User" asp-route-username="@user.UserName">
+                            <div class="card iq-mb-3">
+                                <div class="row no-gutters">
+                                    <div class="col-md-4">
+                                        <img src="@user.ProfilePicture" class="card-img" alt="#">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h4 class="card-title">@user.FirstName @user.LastName</h4>
+                                            <p class="card-text"><small class="text-muted">@user.UserName</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="iq-header-title">
+                    <h4 class="card-title">No results found.</h4>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

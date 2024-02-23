@@ -296,7 +296,16 @@
                                         </div>
                                     </div>
                                     <div class="sidebarInsta__bottom">
-                                        <a href="https://www.instagram.com/" target="_blank" class="btn"><i class="fab fa-instagram"></i><span class="text">Follow Me</span></a>
+                                        @if (Model.Follows.Any(l => l.Follower == Model.AppUser.Follows))
+                                        {
+                                            <a asp-area="manage" asp-action="unfollow" asp-controller="account" asp-route-followerid="@Model.AppUser.Id" target="_blank" class="btn"><span class="text">UnFollow Me</span></a>
+
+                                        }
+                                        else
+                                        {
+                                            <a asp-area="manage" asp-action="Follow" asp-controller="account" asp-route-followerid="@Model.AppUser.Id" target="_blank" class="btn"><span class="text">Follow Me</span></a>
+
+                                        }
                                     </div>
                                 </div>
                             </div>

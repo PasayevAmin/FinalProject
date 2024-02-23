@@ -84,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFuYWdlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Views/Home/CategoryPost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yeVBvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Views/Home/ContuctUs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250dWN0VXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -110,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Views/Home/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Views/Home/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/OneDrive/İş masası/FinalProject/FinalBlogSite/src/Presentation/FinalBlogSite.MVC/Views/Shared/PaginationPartialView.cshtml]

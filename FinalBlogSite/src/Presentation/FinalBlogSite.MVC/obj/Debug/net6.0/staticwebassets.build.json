@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sjfcgfleB8h47I+DwiuZT0mi6JiHeLyXmR8GsND/psA=",
+  "Hash": "ejx28cwe+y1mLuTOSmUM8/ITeHf2RIX9kXdycVEz4CU=",
   "Source": "FinalBlogSite.MVC",
   "BasePath": "_content/FinalBlogSite.MVC",
   "Mode": "Default",
@@ -799,6 +799,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\4478a0ec-b2b6-4d95-afbc-c7088806b81793ecd3d0820e7652fef1f50826b73984.jpg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\46d4c72a-d6e5-4369-a633-4c3b465ed8feTolstoy-List-Main.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/46d4c72a-d6e5-4369-a633-4c3b465ed8feTolstoy-List-Main.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\46d4c72a-d6e5-4369-a633-4c3b465ed8feTolstoy-List-Main.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\5a1b06a7-f729-492c-a087-daaa7b46091cbreaking-bad-van-artwork-27.jpg",
       "SourceId": "FinalBlogSite.MVC",
       "SourceType": "Discovered",
@@ -814,6 +831,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\5a1b06a7-f729-492c-a087-daaa7b46091cbreaking-bad-van-artwork-27.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\64cda9e7-119e-4469-b87b-52b44fc7e1b0arist2.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/64cda9e7-119e-4469-b87b-52b44fc7e1b0arist2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\64cda9e7-119e-4469-b87b-52b44fc7e1b0arist2.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\a2520c42-df47-4c67-b1e3-95e73a791fb793ecd3d0820e7652fef1f50826b73984.jpg",
@@ -2123,6 +2157,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\category\\trending_thumb02.png"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\de1af010-67f8-4fad-9963-556100a0ec32download.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/de1af010-67f8-4fad-9963-556100a0ec32download.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\de1af010-67f8-4fad-9963-556100a0ec32download.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\e08a7b04-9f37-4a0e-8f0d-6dba81dba4ab49f5a649cd98ba5978704e3b792d925c.jpg",
+      "SourceId": "FinalBlogSite.MVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\",
+      "BasePath": "_content/FinalBlogSite.MVC",
+      "RelativePath": "assets/img/e08a7b04-9f37-4a0e-8f0d-6dba81dba4ab49f5a649cd98ba5978704e3b792d925c.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\e08a7b04-9f37-4a0e-8f0d-6dba81dba4ab49f5a649cd98ba5978704e3b792d925c.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\OneDrive\\İş masası\\FinalProject\\FinalBlogSite\\src\\Presentation\\FinalBlogSite.MVC\\wwwroot\\assets\\img\\favicon.png",

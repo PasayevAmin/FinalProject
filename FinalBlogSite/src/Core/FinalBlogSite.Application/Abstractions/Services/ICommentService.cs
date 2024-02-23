@@ -16,7 +16,7 @@ namespace FinalBlogSite.Application.Abstractions.Services
 
 
         Task<List<string>> CreateComment(CommentCreateVM vm);
-        Task<bool> AddComment(CommentCreateVM model);
+        Task<bool> AddComment(string content ,int id);
         Task<bool> DeleteAsync(int id);
         Task<PaginationVM<Comment>> GetAllAsync(int page = 1, int take = 3);
         Task<bool> UpdateAsync(int id, CommentUpdateVM vm, ModelStateDictionary modelstate);

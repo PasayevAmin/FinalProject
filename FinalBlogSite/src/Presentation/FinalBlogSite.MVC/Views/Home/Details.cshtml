@@ -98,6 +98,32 @@
                                 
                                 
                             </div>
+                            <form method="get" asp-area="manage" asp-controller="comment" asp-action="addcomment">
+                                <div class="form-group">
+                                    <label name="Content" id="Content">Content</label>
+                                    <input name="Content" id="Content" type="text" class="form-control" placeholder="Content">
+                                    @* <span asp-validation-for="Conte" class="text-danger"></span> *@
+                                    <input name="postId" id="PostId" type="hidden" class="form-control" placeholder="Content" value="@Model.Post.Id">
+                                </div>
+                                <button type="submit" > Comment</button>
+                            </form>
+                            @foreach (var item in Model.Comments)
+                            {
+                                <div class="col-lg-4 col-sm-6">
+                                    <div class="featured__post">
+                                        <div class="featured__content">
+                                            <ul class="tgbanner__content-meta list-wrap">
+                                                <li><span class="by">By</span>@item.AppUser.UserName <a asp-action="others" asp-controller="home" asp-route-username="@item.AppUser.UserName"></a></li>
+                                            </ul>
+                                            <h4 class="title tgcommon__hover">
+                                                
+                                                    @item.Content
+                                               
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                             <div class="blog-details-bottom">
                                 <div class="row align-items-baseline">
                                     <div class="col-xl-6 col-md-7">

@@ -42,7 +42,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             _authService = authService;
             _replyRepository = replyRepository;
         }
-        public async Task<bool> AddComment(CommentCreateVM model)
+        public async Task<bool> AddComment(string content,int id)
         {
             var currentUserId = _httpContext.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
             if (currentUserId == null)
@@ -56,7 +56,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
                 return false;
             }
 
-            var post = await _post.GetSingleAsync(p => p.Id == model.PostId);
+            var post = await _post.GetSingleAsync(p => p.Id == id);
             if (post == null)
             {
                 return false;
@@ -64,8 +64,9 @@ namespace FinalBlogSite.Persistence.Implementations.Services
 
             var comment = new Comment
             {
-                PostId = model.PostId,
-                Content = model.Content,
+                AppUserId = currentUserId,
+                PostId = id,
+                Content = content,
                 LikeCount=0,
                 CreatedAt = DateTime.UtcNow 
             };

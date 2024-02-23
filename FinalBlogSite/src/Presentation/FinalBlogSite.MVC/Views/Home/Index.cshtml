@@ -19,7 +19,7 @@
                     </div>
                     <div class="tgbanner__content">
                         <ul class="tgbanner__content-meta list-wrap">
-                            <li class="category"><a href="blog.html">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
+                            <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Category.Id">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
                             <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@Model.RecendPost.FirstOrDefault().Author.UserName"> @Model.RecendPost.FirstOrDefault().Author.UserName</a></li>
                             <li>@Model.RecendPost.FirstOrDefault().CreatedAt</li>
                         </ul>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="tgbanner__content">
                             <ul class="tgbanner__content-meta list-wrap">
-                                <li class="category"><a href="blog.html">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
+                                <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Category.Id">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
                             </ul>
                             <h2 class="title tgcommon__hover"><a href="blog-details.html">@Model.RecendPost.FirstOrDefault().Title</a></h2>
                         </div>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="tgbanner__content">
                             <ul class="tgbanner__content-meta list-wrap">
-                                <li class="category"><a href="blog.html">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
+                                <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@Model.RecendPost.FirstOrDefault().Category.Id">@Model.RecendPost.FirstOrDefault().Category.Name</a></li>
                             </ul>
                             <h2 class="title tgcommon__hover"><a href="blog-details.html">@Model.RecendPost.FirstOrDefault().Title</a></h2>
                         </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="section__read-more text-start text-sm-end">
-                            <a href="blog.html">More Post <i class="far fa-long-arrow-right"></i></a>
+                            @* <a href="blog.html">More Post <i class="far fa-long-arrow-right"></i></a> *@
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="trending__post-content">
                                         <ul class="tgbanner__content-meta list-wrap">
-                                            <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                            <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
                                             <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                         </ul>
                                         <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
@@ -173,7 +173,7 @@
                                                 </div>
 
                                             </li>
-                                            <li><a asp-action="addcomment" asp-controller="comment" asp-area="manage" asp-route-id="@item.Id"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
+                                            <li><a asp-action="addcomment" asp-controller="comment" asp-area="manage" asp-route-postid="@item.Id"><i class="fal fa-comment-dots"></i> @item.CommentCount</a></li>
                                             <li><i class="fal fa-share-alt"></i> 29</li>
                                         </ul>
                                     </div>
@@ -200,7 +200,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="section__read-more text-start text-sm-end">
-                            <a href="blog.html">More Featured Post <i class="far fa-long-arrow-right"></i></a>
+                            @* <a href="blog.html">More Featured Post <i class="far fa-long-arrow-right"></i></a> *@
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                             <div class="featured__thumb" data-background="assets/img/@item.Images">@(count++)</div>
                             <div class="featured__content">
                                 <ul class="tgbanner__content-meta list-wrap">
-                                    <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                    <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
                                     <li><span class="by">By</span>@item.Author.UserName <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName"></a></li>
                                 </ul>
                                 <h4 class="title tgcommon__hover">
@@ -346,11 +346,11 @@
                             <h3 class="section__main-title">More to Watch</h3>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    @* <div class="col-sm-6">
                         <div class="section__read-more text-start text-sm-end">
                             <a href="blog.html">Hand-Picked Post <i class="far fa-long-arrow-right"></i></a>
                         </div>
-                    </div>
+                    </div> *@
                 </div>
             </div>
         </div>
@@ -368,7 +368,7 @@
                                 </div>
                                 <div class="trending__post-content">
                                     <ul class="tgbanner__content-meta list-wrap">
-                                        <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                        <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
                                         <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                     </ul>
                                     <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>
@@ -456,11 +456,11 @@
                             <h3 class="section__main-title">Popular Stories</h3>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                   @*  <div class="col-sm-6">
                         <div class="section__read-more text-start text-sm-end">
                             <a href="blog.html">Stories Post <i class="far fa-long-arrow-right"></i></a>
                         </div>
-                    </div>
+                    </div> *@
                 </div>
             </div>
             <div class="row row-gutters-40">
@@ -473,7 +473,7 @@
                             </div>
                             <div class="stories-post__content video__post-content">
                                 <ul class="tgbanner__content-meta list-wrap">
-                                    <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                    <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
                                     <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                     <li>@item.CreatedAt</li>
                                 </ul>
@@ -494,7 +494,7 @@
                             </div>
                             <div class="trending__post-content">
                                 <ul class="tgbanner__content-meta list-wrap">
-                                    <li class="category"><a href="blog.html">@item.Category.Name</a></li>
+                                    <li class="category"><a asp-action="categorypost" asp-controller="home" asp-route-id="@item.Category.Id">@item.Category.Name</a></li>
                                     <li><span class="by">By</span> <a asp-action="others" asp-controller="home" asp-route-username="@item.Author.UserName">@item.Author.UserName</a></li>
                                 </ul>
                                 <h4 class="title tgcommon__hover"><a href="blog-details.html">@item.Title</a></h4>

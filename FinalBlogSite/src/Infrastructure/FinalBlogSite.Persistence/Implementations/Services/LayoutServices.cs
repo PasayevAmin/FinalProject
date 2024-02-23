@@ -1,4 +1,5 @@
 ﻿using FinalBlogSite.Persistence.DAL;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,10 @@ namespace FinalBlogSite.Persistence.Implementations.Services
             _context = context;
         }
 
-        //public async Task<Dictionary<string, string>> GetSettingsAsync()
-        //{
-        //    //Dictionary<string, string> settings = await _context..ToDictionaryAsync(s => s.Key, s => s.Value);
-        //    //return settings;
-        //}
+        public async Task<Dictionary<string, string>> GetSettingsAsync()
+        {
+            Dictionary<string, string> settings = await _context.Settings.ToDictionaryAsync(s => s.Key, s => s.Value);
+            return settings;
+        }
     }
 }

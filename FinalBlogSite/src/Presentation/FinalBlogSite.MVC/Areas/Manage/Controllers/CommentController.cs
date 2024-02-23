@@ -25,19 +25,18 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
               await _commentService.GetComment(id);
             return View();
         }
-
-        public async Task<IActionResult> AddComment(CommentCreateVM model)
+        public async Task<IActionResult> AddComment(string content,int postid)
         {
            
 
-            var success = await _commentService.AddComment(model);
+            var success = await _commentService.AddComment(content,postid);
             if (success)
             {
-                return RedirectToAction("Index", "Home",new {Area=""}); 
+                return RedirectToAction("Details", "Home",new {Area="",Id=postid}); 
             }
             else
             {
-                return View("Error"); 
+                return RedirectToAction("ErrorPage","Home",new {Area=""}); 
             }
         }
 

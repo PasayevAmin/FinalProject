@@ -175,7 +175,7 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         {
 
 
-            return await _postRepository.GetSingleAsync(x => x.Id == postId,"Author");
+            return await _postRepository.GetSingleAsync(x => x.Id == postId,"Author","Comments");
 
         }
        

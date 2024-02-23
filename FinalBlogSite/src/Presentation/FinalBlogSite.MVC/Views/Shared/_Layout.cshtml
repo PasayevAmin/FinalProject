@@ -1,4 +1,10 @@
-﻿<!doctype html>
+﻿@using FinalBlogSite.Persistence.Implementations.Services;
+@inject LayoutServices service
+@{
+    Dictionary<string, string> setting = await service.GetSettingsAsync();
+}
+
+    <!doctype html>
 <html class="no-js" lang="en">
 
 <head>
@@ -48,9 +54,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4 col-md-6 col-sm-6 order-2 order-lg-0">
                         <div class="header__top-search">
-                            <form action="#">
+                            @* <form action="#">
                                 <input type="text" placeholder="Search here...">
-                            </form>
+                            </form> *@
+                            <a asp-action="search" asp-controller="home" ></a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-3 order-0 order-lg-2 d-none d-md-block">
@@ -62,7 +69,6 @@
                     <div class="col-lg-4 col-md-3 col-sm-6 order-3 d-none d-sm-block">
                         <div class="header__top-right">
                             <ul class="list-wrap">
-                                <li class="news-btn"><a href="#newsletter" class="btn"><span class="btn-text">subscribe</span></a></li>
                                 <li class="lang">
                                     <div class="dropdown">
                                         <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -104,6 +110,7 @@
                                                 <li class="active"><a href="index.html">Home Default</a></li>
                                             </ul>
                                         </li>
+
                                         
                                         @if (User.Identity.IsAuthenticated)
                                         {

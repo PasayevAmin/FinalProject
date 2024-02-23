@@ -47,14 +47,15 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> LogIn(LogInVM vM,string returnurl)
+        public async Task<IActionResult> LogIn(LogInVM vM)
         {
             if (!await _accountService.LogInAsync(vM, ModelState))
             {
                 return View(vM);
 
             }
-            return RedirectToAction("index", "Home", new { Area = "" });
+            return Redirect(Request.Headers["Referer"]);
+
 
 
 
@@ -113,17 +114,17 @@ namespace FinalBlogSite.MVC.Areas.Manage.Controllers
             var IdentityUser = await _userManager.ResetPasswordAsync(User, token, vm.ConfirmPassword);
             return RedirectToAction(nameof(LogIn));
         }
-        public async Task<IActionResult> Follow(string followeeId)
+        public async Task<IActionResult> Follow(string followerId)
         {
-            await _accountService.Follow(followeeId);
-            AppUser user = await _accountService.GetUserById(followeeId);
-            return RedirectToAction("User", "Profile", new { username = user.UserName });
+            await _accountService.Follow(followerId);
+            AppUser user = await _accountService.GetUserById(followerId);
+            return RedirectToAction("Others", "Home", new { Area="",username = user.UserName });
         }
-        public async Task<IActionResult> Unfollow(string followeeId)
+        public async Task<IActionResult> Unfollow(string followerId)
         {
-            await _accountService.Unfollow(followeeId);
-            AppUser user = await _accountService.GetUserById(followeeId);
-            return RedirectToAction("User", "Profile", new { username = user.UserName });
+            await _accountService.Unfollow(followerId);
+            AppUser user = await _accountService.GetUserById(followerId);
+            return RedirectToAction("Others", "Home", new {Area="", username = user.UserName });
         }
     }
        

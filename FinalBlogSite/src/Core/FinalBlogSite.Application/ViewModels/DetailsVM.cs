@@ -10,5 +10,6 @@ namespace FinalBlogSite.Application.ViewModels
     public class DetailsVM
     {
         public Post Post { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

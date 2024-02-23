@@ -46,9 +46,8 @@ namespace FinalBlogSite.Persistence.Implementations.Services
         {
             string userId = _httpContextAccessor.HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
-            AppUser user = await _userManager.FindByIdAsync(userId);
             AppUser followed = await _userManager.FindByIdAsync(followedId);
-
+            
             followed.FollowerCount++;
 
 
